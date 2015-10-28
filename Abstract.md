@@ -1,1 +1,3 @@
 ##  Abstract
+
+This diploma thesis provides general information about the event-sourcing design pattern and principles of closely associated CQRS design pattern (Command Query Responsibility Segregation) and its usage in the Java programming language. The aim of this thesis was to study these design patterns and apply them to a real-world software project. And finally, describe the advantages of this design over the traditional architecture found in most enterprise Java projects.
