@@ -1,1 +1,1 @@
-Diploma Thesis
+Event-Sourcing Desing Pattern in a Java Enterprise Application
