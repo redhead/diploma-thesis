@@ -6,4 +6,10 @@ This however does not say anything about the project internal code and design qu
 
 So, one of the best things software engineers should have is knowledge of the patterns and best practices that were already used and proven working by someone else to tackle some of these common problems. Making the code and design easy to maintain, change, and extend. And that not only after the project is done but also during the development of the software itself, where numerous problems can emerge (e.g. customers requirements changed, or unexpected issue was found).
 
-Thus choices taken prior starting the software development, even though they were thought through carefully, may not cover the problems that come during the development. This is were design patterns and best practises are the way of helping the software development out of the problems or easing them.
+Thus choices taken prior starting the software development, even though they were thought through carefully, may not cover the problems that come during the development. This is were design patterns and best practices are the way of helping the software development out of the problems or easing them.
+
+## Event Sourcing
+
+It is not uncommon in software development world that principles found long time ago make their way into every day usage later after being published or examined by their creators. Take an example of functional programming, principles of which were described in 1930s, implemented into Lisp programming language in 1950s and then forgotten never being part of mainstream software development until the start of 21<sup>st</sup> century where a boom of new functional programming languages happened.
+
+The Event Sourcing design pattern took similar destiny. 
