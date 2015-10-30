@@ -1,2 +1,3 @@
 Abstract.md
 Introduction_In_the_software_engineering__.md
+Event_Sourcing_and_CQRS_It__.md
