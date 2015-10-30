@@ -16,4 +16,8 @@ Event Sourcing takes an approach that makes the audit log the core concept of th
 
 The advantage of this design is that we can compute many variations of projections to suit are needs - we can populate the application state in a relational database, or create a search index for our data, etc. Since we store all events that happened in the system in our audit log, we can add a new projection at any time by simply processing all the historic events through a system that generates the new projection.
 
-The Command Query Responsibility Segregation (CQRS) design pattern is not needed for ES to work. However both designs complement each other into a very effective design.
+The other design pattern that we describe in this chapter is the Command Query Responsibility Segregation (CQRS) design pattern. First of all, it is needed to say neither one of the two patterns implies the need to use the other, they can work on their own. However, they can complement each other very nicely to form a very effective design for your system.
+
+Foundation for CQRS pattern is the idea that the system making writes and reads using the same data model is wrong and dividing these responsibilities simplifies the design. It extends the idea of the CQS (Command Query Separation) principle for designing interfaces of objects. CQS says that the object's methods should be either commands or queries. The responsibility of a query is to only return data and do not alter the state of the object. In parallel, the command should only change the state of the object but never return any data.
+
+CQRS takes this idea and applies it to the system level where it strictly separates the responsibility for handling a command (to change the application state) from the responsibility of reading data (without any side effect).
