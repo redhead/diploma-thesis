@@ -1,4 +1,8 @@
-# Event Sourcing and CQRS
+# Event Sourcing and CQRS design patterns
+
+In this chapter, the core ideas of Event Sourcing (ES) and Command Query Responsibility Segregation (CQRS) design patterns are described. The basic principles and terms of these patterns are presented to the reader so they acquire enough information to understand the next chapters.
+
+## Introduction to Event Sourcing and CQRS
 
 It is not uncommon in software development world that principles make their way into every day usage long time after they were published or examined by their creators. Take an example of functional programming, principles of which were described in 1930s, implemented into Lisp programming language in 1950s but never being part of mainstream software development until the start of 21<sup>st</sup> century where a boom of new functional programming languages happened.
 
@@ -12,3 +16,4 @@ Event Sourcing takes an approach that makes the audit log the core concept of th
 
 The advantage of this design is that we can compute many variations of projections to suit are needs - we can populate the application state in a relational database, or create a search index for our data, etc. Since we store all events that happened in the system in our audit log, we can add a new projection at any time by simply processing all the historic events through a system that generates the new projection.
 
+The Command Query Responsibility Segregation (CQRS) design pattern is not needed for ES to work. However both designs complement each other into a very effective design.
