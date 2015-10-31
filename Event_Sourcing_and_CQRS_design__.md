@@ -24,9 +24,21 @@ CQRS takes this idea and applies it to the system level where it strictly separa
 
 ## Event Sourcing
 
-In the paragraphs above, the Event Sourcing design pattern was briefly introduced. The following text describes the design pattern in detail. It
+In the paragraphs above, the Event Sourcing design pattern was briefly introduced. The following text describes the design pattern in more detail.
+
+### Rationale
+
+As mentioned above, the idea of event sourcing is not new. Various relational database management systems (RDBMS) found its way to most software applications as permanent storage mechanism, in which the application stores its current state in tables. However, an interesting aspect of these database systems is that, internally, they usually keep some kind of a transactional log where they store all the changes that were applied to the database. This log is then used, for example, to handle database transactions and replication of the data to slave nodes. It is very easy to replicate data if they are represented as immutable events about the change in a append-only log. To replicate, you just send the events that are new since the last replication and the receiving node applies these changes to itself, making both nodes synchronized.
+
+Event Sourcing follows this idea - instead of storing the current state of the application, it stores changes (events) that happened to the application. The current state is degraded to be transient, meaning that we can throw it away and build it again just by processing all the events one by one. The benefits of this design is that we automatically get a correct audit log based on events, and a way to build a current state by making projection(s) of the events. 
+
+The use of Event Sourcing pattern can lead to several advantages that I briefly describe:
+
+#### 
 
 ### Events
+
+
 
 ### Event Stream
 
