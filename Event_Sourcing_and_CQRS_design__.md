@@ -21,3 +21,29 @@ The other design pattern that we describe in this chapter is the Command Query R
 Foundation for CQRS pattern is the idea that the system making writes and reads using the same data model is discouraged and dividing these responsibilities simplifies the design and enables scaling of read side. It extends the idea of the CQS (Command Query Separation) principle for designing interfaces of objects. CQS says that the object's methods should be either commands or queries. The responsibility of a query is to only return data and not to alter the state of the object. In parallel, a command should only change the state of the object but never return any data.
 
 CQRS takes this idea and applies it to the system level where it strictly separates the responsibility for handling a command input (to change the application state) from the responsibility of reading data (without any side effects).
+
+## Event Sourcing
+
+In the paragraphs above, the Event Sourcing design pattern was briefly introduced. The following text describes the design pattern in detail. It
+
+### Events
+
+### Event Stream
+
+### Projections
+
+### Snaphotting
+
+### Replaying the events
+
+
+## Command Query Responsibility Segregation
+
+### Aggregates
+
+### Commands and Commands Handlers
+
+### Events and Event Handlers
+
+### Sagas
+
