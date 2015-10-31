@@ -32,11 +32,21 @@ As mentioned above, the idea of event sourcing is not new. Various relational da
 
 Event Sourcing follows this idea - instead of storing the current state of the application, it stores changes (events) that happened to the application. The current state is degraded to be transient, meaning that we can throw it away and build it again just by processing all the events one by one. The benefits of this design is that we automatically get a correct audit log based on events, and a way to build a current state by making projection(s) of the events. 
 
-The use of Event Sourcing pattern can lead to several advantages that I briefly describe:
+The use of Event Sourcing can give you many beneficial use cases that would not be possible without it. The next paragraphs describe some of these cases for you to consider:
 
-#### 
+#### Rebuilding the state model
 
-### Events
+ES enables us to project the events to a new state model. This can be a read model used by the application to query data to be presented to users. On top of that, it allows to rebuild the model to a completely different structure. We can change the way the user sees the data by projecting the events again but structuring the model differently. We can also use the existing events to build a separate read model that will exist next to the old one, for example a search index of the application data, a separate read model. 
+#### Debugging
+
+We can use the event log to examine a fault in our system. Imagine that a user reports a bug without specifying the steps to reproduce the bug. This usually is a nightmare for software developers isolating the bug. But with Event Sourcing we have the whole history of events applied to the application stored in a log. Thus, we can go back in time by replaying the events (similarly as in rebuilding the model) and see what user did, by looking at the events, at the exact time the bug happened. We can than use standard debugging tools to see what code got executed by the application so it produced the bug. 
+
+#### Fallback after a failure
+
+Imagine you deploy a new version of your application for the users. In most cases this also means that you update your RDBMS tables with new data or schema. Everything works but only for a week and then it crashes. With ES you have a way to get back to your old code and by 
+
+
+### Domain Event
 
 
 
