@@ -28,22 +28,40 @@ In the paragraphs above, the Event Sourcing design pattern was briefly introduce
 
 ### Rationale
 
-As mentioned above, the idea of event sourcing is not new. Various relational database management systems (RDBMS) found its way to most software applications as permanent storage mechanism, in which the application stores its current state in tables. However, an interesting aspect of these database systems is that, internally, they usually keep some kind of a transactional log where they store all the changes that were applied to the database. This log is then used, for example, to handle database transactions and replication of the data to slave nodes. It is very easy to replicate data if they are represented as immutable events about the change in a append-only log. To replicate, you just send the events that are new since the last replication and the receiving node applies these changes to itself, making both nodes synchronized.
+As already mentioned, the idea of event sourcing is not new. Various relational database management systems (RDBMS) found its way to most software applications as permanent storage mechanism, in which the application stores its current state in tables. However, an interesting aspect of these database systems is that, internally, they usually keep some kind of a transactional log where they store all the changes that were applied to the database. This log is then used, for example, to handle database transactions and replication of the data to slave nodes. It is very easy to replicate data if they are represented as immutable events about the change in a append-only log. To replicate, you just send the events that are new since the last replication and the receiving node applies these changes to itself, making both nodes synchronized.
 
-Event Sourcing follows this idea - instead of storing the current state of the application, it stores changes (events) that happened to the application. The current state is degraded to be transient, meaning that we can throw it away and build it again just by processing all the events one by one. The benefits of this design is that we automatically get a correct audit log based on events, and a way to build a current state by making projection(s) of the events. 
+Event Sourcing follows this idea - instead of storing the current state of the application, it primarily stores facts about changes (events) that happened to the application. The current state is degraded to be transient, meaning that we can throw it away and build it again just by processing all the events one by one. The benefits of this design is that we automatically get a correct audit log (in some cases required by the law), and a way to build the current state by making projection(s) of the events. 
 
 The use of Event Sourcing can give you many beneficial use cases that would not be possible without it. The next paragraphs describe some of these cases for you to consider:
 
 #### Rebuilding the state model
 
-ES enables us to project the events to a new state model. This can be a read model used by the application to query data to be presented to users. On top of that, it allows to rebuild the model to a completely different structure. We can change the way the user sees the data by projecting the events again but structuring the model differently. We can also use the existing events to build a separate read model that will exist next to the old one, for example a search index of the application data, a separate read model. 
+ES enables us to make projections of the events to a new state model. This can be a read model used by the application to query data to be presented to users. On top of that, it allows to rebuild the model to a completely different structure. We can change the way the user sees the data by projecting the events again but structuring the model differently. We can also use the existing events to build a separate read model that will exist next to the original one. For example, a search index of the application data stored in a full-text search server.
+
 #### Debugging
 
 We can use the event log to examine a fault in our system. Imagine that a user reports a bug without specifying the steps to reproduce the bug. This usually is a nightmare for software developers isolating the bug. But with Event Sourcing we have the whole history of events applied to the application stored in a log. Thus, we can go back in time by replaying the events (similarly as in rebuilding the model) and see what user did, by looking at the events, at the exact time the bug happened. We can than use standard debugging tools to see what code got executed by the application so it produced the bug. 
 
 #### Fallback after a failure
 
-Imagine you deploy a new version of your application for the users. In most cases this also means that you update your RDBMS tables with new data or schema. Everything works but only for a week and then it crashes. With ES you have a way to get back to your old code and by 
+Imagine you deploy a new version of your application for the users. In some cases this also means that you need to update your RDBMS tables with new a new schema. The system then works for a week and then it crashes. With ES you can go back to your old working code (if you use something like versioning systems), but also get the old data back before the schema update (or other destroying changes). You just need to recreate the original data model by replaying the events.
+
+#### Event processing
+
+With a complete event log, we can make projections of the data for the users. But we can also create other systems around the same event log. The systems can use some or all the events to do tasks like
+
+- Monitoring (e.g. some events sent too often)
+- Fraud detection
+- Data analysis
+- Data mining
+
+Basically, any task that is usually involved in event-based systems.
+
+#### New business requirements
+
+One of the best examples, in my opinion, why use ES is that we can easily fulfill new business requirements that involve old data. Imagine that the project stake holders come up with a new requirement for an already working online shopping system. The feature they want you to implement is a suggestion mechanism that presents the user the products he or she removed from their cart just before the checkout. Possibly, the users wanted to buy these products but they removed it from the cart because the total order price was too high. The users may want to buy the products next month though. To suggest the user those products on their next visit we need the information that the products were removed from the cart just before the checkout. If we designed our domain events right we have that information for every user in the system already stored as events in the event log. We can build this feature easily using the old events and suggest the right products to each user right after the feature deployment. This is a very nice advantage over the systems that store only the current state because these systems do not have the data beforehand. The system wouldn't be able to suggest anything until a next user removes a product from their cart.
+
+Very similar example of a requirement that involves historic data is a chart of product price development over time that many online shopping systems present to users. It is not possible immediately in the application that stores only current state (the current price of the product). In an event sourced system, this is easy, we probably have all the events about price updates for each product.
 
 
 ### Domain Event
