@@ -16,15 +16,15 @@ Event Sourcing takes an approach that makes the audit log the core concept of th
 
 The advantage of this design is that we can compute many variations of projections to suit are needs - we can populate the application state in a relational database, or create a search index for our data, etc. Since we store all events that happened in the system in our audit log, we can add a new projection at any time by simply processing all the historic events through a system that generates the new projection.
 
-The other design pattern that we describe in this chapter is the Command Query Responsibility Segregation (CQRS) design pattern. First of all, it is needed to say that neither one of the two patterns implies the other; they can work on their own. However, they can complement each other nicely to form a very effective design for your system.
+The other design pattern that we describe in this chapter is the Command Query Responsibility Segregation (CQRS) design pattern. First of all, it is needed to say that neither one of the two patterns implies the other; they can work on their own. However, they can nicely complement each other to form a very effective design for your system.
 
-Foundation for CQRS pattern is the idea that the system making writes and reads using the same data model is discouraged and dividing these responsibilities simplifies the design and enables scaling of read side. It extends the idea of the CQS (Command Query Separation) principle for designing interfaces of objects. CQS says that the object's methods should be either commands or queries. The responsibility of a query is to only return data and not to alter the state of the object. In parallel, a command should only change the state of the object but never return any data.
+Foundation for CQRS pattern is the idea that the system making writes and reads using the same data model is discouraged and dividing these responsibilities simplifies the design and easily enables horizontal scaling of the read side. It extends the idea of the CQS (Command Query Separation) principle for designing interfaces of objects. CQS says that the object's methods should be either commands or queries. The responsibility of a query is to only return data and not to alter the state of the object. On the other hand, a command should only change the state of the object but never return any data.
 
-CQRS takes this idea and applies it to the system level where it strictly separates the responsibility for handling a command input (to change the application state) from the responsibility of reading data (without any side effects).
+CQRS takes this idea and applies it to the system level where it strictly separates the responsibility for handling a command input (to change the application state) from the responsibility of side-effect-free reading of application data.
 
 ## Event Sourcing
 
-In the paragraphs above, the Event Sourcing design pattern was briefly introduced. The following text describes the design pattern in more detail.
+In the paragraphs above, the Event Sourcing design pattern was briefly introduced. The following text describes the design pattern in more detail. First, few reasons why use Event Sourcing is presented with some examples of where ES is an advantage for your system.
 
 ### Rationale
 
@@ -61,11 +61,10 @@ Basically, any task that is usually involved in event-based systems.
 
 One of the best examples, in my opinion, why use ES is that we can easily fulfill new business requirements that involve old data. Imagine that the project stake holders come up with a new requirement for an already working online shopping system. The feature they want you to implement is a suggestion mechanism that presents the user the products he or she removed from their cart just before the checkout. Possibly, the users wanted to buy these products but they removed it from the cart because the total order price was too high. The users may want to buy the products next month though. To suggest the user those products on their next visit we need the information that the products were removed from the cart just before the checkout. If we designed our domain events right we have that information for every user in the system already stored as events in the event log. We can build this feature easily using the old events and suggest the right products to each user right after the feature deployment. This is a very nice advantage over the systems that store only the current state because these systems do not have the data beforehand. The system wouldn't be able to suggest anything until a next user removes a product from their cart.
 
-Very similar example of a requirement that involves historic data is a chart of product price development over time that many online shopping systems present to users. It is not possible immediately in the application that stores only current state (the current price of the product). In an event sourced system, this is easy, we probably have all the events about price updates for each product.
+Very similar example of a requirement that involves historic data is a chart of price development for a product over time that many online shopping systems present to users. It is not possible (immediately) in the application that stores only the current state (the current price of the product). In an event sourced system, this is easy as we probably already have all the events about the price updates for every product.
 
 
 ### Domain Event
-
 
 
 ### Event Stream
