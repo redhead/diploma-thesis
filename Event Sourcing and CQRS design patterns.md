@@ -22,6 +22,8 @@ Foundation for CQRS pattern is the idea that the system making writes and reads 
 
 CQRS takes this idea and applies it to the system level where it strictly separates the responsibility for handling a command input (to change the application state) from the responsibility of side-effect-free reading of application data.
 
+Both design patterns come from the Domain-Driven Design (DDD) [citation needed] methodology for software development. DDD is a very comprehensive subject on its own and as such it will not be discussed in this thesis apart from the terms and principles that are involved in the presented design patterns.
+
 ## Event Sourcing
 
 In the paragraphs above, the Event Sourcing design pattern was briefly introduced. The following text describes the design pattern in more detail. First, few reasons why use Event Sourcing is presented with some examples of where ES is an advantage for your system.
@@ -66,6 +68,27 @@ Very similar example of a requirement that involves historic data is a chart of 
 
 ### Domain Event
 
+The core term in ES is a domain event. A domain event is a fact about application state change. In other words, it describes something that has happened to the system in the past. In most cases, there is number of different kinds of events in the system. Usually they are represented by simple objects with properties that store the data describing the particular fact.
+
+Events should reflect the intent from the business point of view, and be properly named. In an example system, the `AddressTypoFixed` and `CustomerMoved` events reflect different business intent in the domain, even though they probably may result in the same data change (updating the address).
+
+You can see an example of a domain event represented by a Java class in the listing #l
+
+	public class ProductAddedToCart {
+		
+		private final ProductId productId;
+
+		private final CartId cartId;
+
+		private final int productCount;
+
+        ... TODO ...
+
+	}
+
+The event in the example is named after the fact it represents as a verb in the past tense. This is important as the domain event symbolizes something that has happened in the past. A historic event that marks a state transition in the application. So, all events should be named as verbs in the past tense.
+
+If we create an instance of that class, the data contained in the object describe the particular event - a product X in number of Y was added to cart Z.
 
 ### Event Stream
 
