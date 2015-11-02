@@ -50,14 +50,12 @@ Imagine you deploy a new version of your application for the users. In some case
 
 #### Event processing
 
-With a complete event log, we can make projections of the data for the users. But we can also create other systems around the same event log. The systems can use some or all the events to do tasks like
+With a complete event log, we can make projections of the data for the users. But we can also create other systems around the same event log. The systems can then use some or all the events to do tasks like
 
-- Monitoring (e.g. some events sent too often)
+- Monitoring (some events sent too often, or unexpected order of events)
 - Fraud detection
 - Data analysis
 - Data mining
-
-Basically, any task that is usually involved in event-based systems.
 
 #### New business requirements
 
@@ -65,12 +63,11 @@ One of the best examples, in my opinion, why use ES is that we can easily fulfil
 
 Very similar example of a requirement that involves historic data is a chart of price development for a product over time that many online shopping systems present to users. It is not possible (immediately) in the application that stores only the current state (the current price of the product). In an event sourced system, this is easy as we probably already have all the events about the price updates for every product.
 
-
 ### Domain Event
 
-The core term in ES is a domain event. A domain event is a fact about application state change. In other words, it describes something that has happened to the system in the past. In most cases, there is number of different kinds of events in the system. Usually they are represented by simple objects with properties that store the data describing the particular fact.
+The core term in ES is a domain event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system in the past. In most cases, there is number of different kinds of events in the system. Usually they are represented by simple objects with properties that store the data describing the particular event.
 
-Events should reflect the intent from the business point of view, and be properly named. In an example system, the `AddressTypoFixed` and `CustomerMoved` events reflect different business intent in the domain, even though they probably may result in the same data change (updating the address).
+Events should reflect the intent from the business point of view, and so be properly named. In some system, the `AddressTypoFixed` and `CustomerMoved` events reflect different business values in the domain, even though they probably may result in the same data change (updating the address).
 
 You can see an example of a domain event represented by a Java class in the listing #l
 
@@ -96,7 +93,7 @@ If we create an instance of that class, the data contained in the object describ
 
 The event in the example is named after the fact it represents as a verb in the past tense. This is important as the domain event symbolizes something that has happened in the past. A historic event that marks a state transition in the application. So, all events should follow this simple convention and be named as verbs in the past tense.
 
-Another essential thing is that objects of this class are designed to be immutable (final fields and getter methods only). This is because the event has already happened and we can never change it in the very same way we can't change our past in the real world.
+Another essential thing is that objects of this class are, as designed, immutable (final fields and getter methods only). This is because the event has already happened and we can never change it in the very same way we can't change our past in the real world.
 
 ### Event Log
 
@@ -104,14 +101,8 @@ How events get generated will be described in section about CQRS design pattern.
 
 The storage mechanism is not very important and it can differ in implementation. It is up to your use cases to choose the best strategy for persisting events. The storage can be an in-memory list (best suited for testing), a file system, a relational database, or a storage specifically designed to persist a lot of messages in very big numbers with great performance.
 
+The event log is then used to recreate the current state of the application (or its parts). This will be described in detail in section about CQRS.
 
-### Event Stream
-
-### Projections
-
-### Snaphotting
-
-### Replaying the events
 
 
 ## Command Query Responsibility Segregation
