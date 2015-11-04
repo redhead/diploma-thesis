@@ -1,0 +1,19 @@
+\begin{lstlisting}[language=python]
+public class ProductAddedToCart {
+
+    private final ProductId productId;
+
+    private final CartId cartId;
+
+    private final int productCount;
+
+    public ProductAddedToCart(ProductId productId, CartId cartId, int productCount) {
+        this.productId = productId;
+        this.cartId = cartId;
+        this.productCount = productCount;
+    }
+
+    // ... getters ...
+
+}
+\end{lstlisting}
