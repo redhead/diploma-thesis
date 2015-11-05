@@ -46,7 +46,7 @@ We can use the event log to examine a fault in our system. Imagine that a user r
 
 #### Fallback after a failure
 
-Imagine you deploy a new version of your application for the users. In some cases this also means that you need to update your RDBMS tables with new a new schema. The system then works for a week and then it crashes. With ES you can go back to your old working code (if you use something like versioning systems), but also get the old data back before the schema update (or other destroying changes). You just need to recreate the original data model by replaying the events.
+Imagine you deploy a new version of your application for the users. In some cases this also means that you need to update your RDBMS tables with a new schema. The system then works for a week and then it crashes. With ES you can go back to your old working code (if you use something like versioning systems), but also get the old data back before the schema update (or other destroying changes). You just need to recreate the original data model by replaying the events.
 
 #### Event processing
 
