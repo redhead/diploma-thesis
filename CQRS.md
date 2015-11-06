@@ -22,22 +22,29 @@ However, it is essential to say that DDD does not dictate the usage of CQRS, nor
 
 Because of that, let us describe some of the DDD concepts that are usually involved in the CQRS pattern in the following paragraphs. 
 
-#### Domain Model
+#### Domain model
 
 #### Entities and value objects
 
 #### Aggregates
 
-#### Aggregate Roots
+#### Aggregate roots
+
+#### Bounded context
+
 
 
 ### The CQRS concepts
 
+Now that the necessary terminology of Domain-Driven Design was established, let's introduce CQRS-specific concepts and terms. 
 
+#### Commands
 
-### Commands and Commands Handlers
+#### Command Handlers
 
-### Events and Event Handlers
+#### Events
 
-### Sagas
+#### Event Handlers
+
+#### Sagas and process managers
 
