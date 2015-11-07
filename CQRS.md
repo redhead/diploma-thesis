@@ -16,15 +16,27 @@ As a final note on reasons for using CQRS, let's mention that it enables the app
 
 ### Terminology
 
-Before we get into implementing CQRS and Event Sourcing in Java it is needed to explain some of the terminology used in the process. In **citation needed**, the CQRS pattern was presented as hugely influenced by the approach to developing software systems known as the Domain-Driven Design methodology (DDD). The DDD approach describes a set of techniques to analyze the domain of the system and to construct a conceptual model from the results of that analysis. This model is then used for designing large and complex domains and helps you solve the problems in the domains.
+Before we get into implementing CQRS and Event Sourcing in Java it is needed to explain some of the terminology used in the process. In **citation needed CQRS Journer**, the CQRS pattern was presented as hugely influenced by the approach to developing software systems known as the Domain-Driven Design methodology (DDD). The DDD approach describes a set of techniques to analyze the domain of the system and to construct a conceptual model from the results of that analysis. This model is then used for designing large and complex domains and helps you solve the problems in the domains.
 
-However, it is essential to say that DDD does not dictate the usage of CQRS, nor CQRS needs DDD for it to be implemented in the system. In much of the existing literature though, these two principles are used together and many CQRS practitioners use the terminology of DDD.**citation needed**
+However, it is essential to say that DDD does not dictate the usage of CQRS, nor CQRS needs DDD for it to be implemented in the system. In much of the existing literature though, these two principles are used together and many CQRS practitioners use the terminology of DDD.**citation needed CQRS Journer**
 
-Because of that, let us describe some of the DDD concepts that are usually involved in the CQRS pattern in the following paragraphs. 
+Because of that, let us succinctly describe some of the DDD concepts and terminology that are usually involved in the CQRS pattern in the following paragraphs. You can find more information about DDD in **cite: DDD Evans**
 
 #### Domain model
 
+The core concept of DDD is the domain model. This model is built by the domain experts and software developers who both form the team responsible for developing the system. The model is used to capture all of the relevant domain knowledge and to determine scope and verify the consistency of that knowledge. The domain is expressed in code and is constantly maintained to reflect the changes as they occur in the evolution of the domain knowledge.
+
+DDD is focused primarily on the domain because that is where the value of the software lies from the business point of view. The role of the domain model is to capture what is the valuable and unique to the business. Domain models are typically composed of entities, value objects, aggregates, and described using terms from a ubiquitous language.
+
+#### Ubiquitous language
+
+Many problems in real-world software development arise from different language nuances used by the software developer and the non-technical domain experts when they communicate between each other. The concept of ubiquitous language aims to create a dictionary that is strictly used when talking or writing about the domain. If both parties use the same language to talk about and to codify the domain to the domain model the risk of confusion or misunderstanding is reduced. DDD also leverages that software developers are not just coding monkeys and they should participate in constructing the domain model together with domain experts. 
+
 #### Entities and value objects
+
+The following terms describe the building blocks that form the domain model.
+
+##### 
 
 #### Aggregates
 
