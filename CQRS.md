@@ -34,7 +34,7 @@ Many problems in real-world software development arise from different language n
 
 #### Entities and value objects
 
-The following terms describe the building blocks that form the domain model.
+Two of the main building blocks that make up the domain model are entities and value objects. 
 
 ##### 
 
