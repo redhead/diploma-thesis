@@ -34,11 +34,11 @@ Many problems in real-world software development arise from different language n
 
 #### Entities and value objects
 
-Two of the main building blocks that make up the domain model are entities and value objects. 
-
-##### 
+Two of the main building blocks that make up the domain model are entities and value objects. Entities are objects that have their own identity that continues through time. **Entites** may have attributes that can change over time, but their identity stays unique in the system (for example an application user). On the other hand, **value objects** are defined by the values of their attributes and not by their identity. For example a customer's address is made up of street, city, state, and so on, but for the purpose of some domain, it's not necessary to make that address an entity with unique identity. Rather the values of the given attributes are what is important for value objects. Usually, value objects are immutable. The difference is that two entities might be equivalent in all their attributes, but will still be distinct.
 
 #### Aggregates
+
+
 
 #### Aggregate roots
 
