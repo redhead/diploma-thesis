@@ -34,23 +34,26 @@ Many problems in real-world software development arise from different language n
 
 #### Entities and value objects
 
-Two of the main building blocks that make up the domain model are entities and value objects. Entities are objects that have their own identity that continues through time. **Entites** may have attributes that can change over time, but their identity stays unique in the system (for example an application user). On the other hand, **value objects** are defined by the values of their attributes and not by their identity. For example a customer's address is made up of street, city, state, and so on, but for the purpose of some domain, it's not necessary to make that address an entity with unique identity. Rather the values of the given attributes are what is important for value objects. Usually, value objects are immutable. The difference is that two entities might be equivalent in all their attributes, but will still be distinct.
+Two of the main building blocks that make up the domain model are entities and value objects. **Entities** are objects that have their own identity that continues through time. Entities may have attributes that can change over time, but their identity stays unique in the system (for example an application user). On the other hand, **value objects** are defined by the values of their attributes and not by their identity. For example a customer's address is made up of street, city, state, and so on, but for the purpose of that domain, it's not necessary to make that address an entity with unique identity. Rather the values of the given attributes are what is important for value objects. Usually, value objects are immutable, and if the its attribute is to change the value object is replaced with a new instance. The difference from entities is that two entities might be equivalent in all their attributes, but will still be distinct.
 
 #### Aggregates
 
-
+An aggregate is a unit of transaction boundary. In DDD terms it is a cluster of related entities and value objects that are supposed to remain consistent within the system. The lifetimes of its components are bounded by the lifetime of the entire aggregate. An aggregate is responsible for consistency and upholding the invariants (business rules) that are set on its components by the domain. Also, aggregates should not hold references to other aggregates as they should not reach outside their consistency boundaries.
 
 #### Aggregate roots
 
+Since the aggregate is effectively a tree or a graph of objects, an aggregate root is the object at the top. The aggregate root is responsible for communication with and delegation to its child objects and thus it is the only entry point to the aggregate's objects from the outside world. Assertion of invariants (business rules) is also its responsibility.
+
 #### Bounded context
 
-
+All of the terms described above are used to create, maintain, and manage a domain model. Using a single domain model for large systems may be impractical, reducing consistency and comprehension. So, DDD adopts a concept of bounded context. A bounded context is a context for single domain model. This allows us to create multiple small domain models, each focusing on some group of functionality of the whole system.
 
 ### The CQRS concepts
 
-Now that the necessary terminology of Domain-Driven Design was established, let's introduce CQRS-specific concepts and terms. 
+Now that the necessary terminology of Domain-Driven Design was established, let's introduce CQRS-specific concepts and terms. Please note that even though DDD and CQRS are not implying one another they are usually used together in most of the literature. Thus the distinction of what is part of DDD and what is part of CQRS sometimes blends uncertainly. Some of the terms described below can be used to talk about DDD too.
 
 #### Commands
+
 
 #### Command Handlers
 
@@ -60,3 +63,4 @@ Now that the necessary terminology of Domain-Driven Design was established, let'
 
 #### Sagas and process managers
 
+#### Task-based UI
