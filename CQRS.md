@@ -4,13 +4,13 @@ This section is intended to provide information about Command Query Responsibili
 
 ### Rationale
 
-There are few reasons to consider this approach. First is that reading the application data (querying) is not something that needs transactional invariants to be involved; that is something commands need to address. A query just returns data. On top of that, queried data usually are represented in form of screens (or, based on your use cases, other types of interface) that users are presented with, so the perception of queried data can be different than the model that is used to alter the data. 
+There are few reasons to consider this approach. First is that reading the application data (querying) is not something that needs transactional invariants to be involved; that is something commands need to address. A query just returns data. On top of that, queried data are usually represented in form of screens (or, based on your use cases, other types of interface) that the users are presented with, so the perception of queried data on a screen can be different than the model that is used to alter the data. This write model must be able to uphold transactional invariants or business rules of entities that are subject to concurrency changes or multi-user collaboration.
 
 The second more important thing is that usually it is the read side of your application that needs to be scaled to ensure the quality of your system for a bigger audience. In many systems a ratio of reads to writes can be several orders of magnitude (**cite: http://codebetter.com/gregyoung/2010/02/20/cqrs-and-cap-theorem/ **). Instead of scaling everything in the system it is better to focus optimization by scaling the part that is most heavily used, i.e. the read side.
 
 This leads us to an interesting aspect of most queries and that is relaxed consistency. In round-trip based web applications, users already interact with stale data in their browsers. Imagine the time that a response takes to return from a server to a user and the time the user spends viewing the screen before making interaction. At any point the data could have been mutated on the server and so, the user sees data that is inconsistent with the server. So, relaxing the consistency of queried data, so it can be easily scaled, is not a big issue. The important thing to mention here is that relaxing the consistency does not mean that the data is inconsistent on the read-side. It is rather **eventually consistent**. That means that correct data is returned by the query at some point. The delay before the read side is updated is not something that would break the system anyway.
 
-This however does not apply to the write side where it is necessary to always operate on the current state to reliably ensure full consistency. This means that the write side is a lot harder to scale and be consistent at the same time. But if number of reads is more than one order of magnitude larger than number of writes then scaling the read side is not always needed.
+This however does not apply to the write side where it is necessary to always operate on the current state to reliably ensure full consistency. This means that the write side is usually a lot harder to scale and be consistent at the same time. But if number of reads is more than one order of magnitude larger than number of writes then scaling the read side is not always needed.
 
 As a final note on reasons for using CQRS, let's mention that it enables the application to easily have different types of read-side models running in parallel. In many cases, the application needs to query its data from different types of data models to function well. As an example, a fulltext search is not something very efficient to do in a relational database. The same applies to querying data structured as graphs. There is not a single model that does everything right; some models do something better than others in specific circumstances. CQRS together with Event Sourcing enables us to create multiple read models of different types very easily.
 
@@ -50,14 +50,19 @@ All of the terms described above are used to create, maintain, and manage a doma
 
 ### The CQRS concepts
 
-Now that the necessary terminology of Domain-Driven Design was established, let's introduce CQRS-specific concepts and terms. Please note that even though DDD and CQRS are not implying one another they are usually used together in most of the literature. Thus the distinction of what is part of DDD and what is part of CQRS sometimes blends uncertainly. Some of the terms described below can be used to talk about DDD too.
+Now that the necessary terminology of Domain-Driven Design was established, let's introduce terms that are more related to CQRS concepts. Please note that even though DDD and CQRS are not implying one another they are usually used together in most of the literature. Thus the distinction of what is part of DDD and what is part of CQRS sometimes blends uncertainly. Some of the terms described below can be used to talk about DDD too and vice versa. **reference http://programmers.stackexchange.com/questions/302808/cqrs-and-ddd-terminology/302809#302809 **
 
 #### Commands
 
+A command in CQRS is a way of expressing user's intent for the system to do some action. The user of the system can be a real person or an automated system, but each one can send commands to the system to perform a task. For example, "Add product X to cart Y" or "Checkout". A command should clearly reflect its intent because some command's intent may have different invariant value than other commands. Thus, it's not very wise to create a simple "Update" command capable of updating anything, because it does not capture the intent of the update. This leads us to the term *task-based user interface* which is described below. 
 
 #### Command Handlers
 
+A command is usually processed by a single recipient called a command handler. The responsibility of the command handler is to validate that the command is a valid command, then it should locate the aggregate instance that is the target of the command (or create a new aggregate if that's the command's intention) and call the appropriate method on the aggregate instance with parameters from the command. Finally, it persists the new state of the aggregate to storage.
+
 #### Events
+
+
 
 #### Event Handlers
 
