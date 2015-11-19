@@ -48,9 +48,11 @@ Since the aggregate is effectively a tree or a graph of objects, an aggregate ro
 
 All of the terms described above are used to create, maintain, and manage a domain model. Using a single domain model for large systems may be impractical, reducing consistency and comprehension. So, DDD adopts a concept of bounded context. A bounded context is a context for single domain model. This allows us to create multiple small domain models, each focusing on some group of functionality of the whole system.
 
+
+
 ### The CQRS concepts
 
-Now that the necessary terminology of Domain-Driven Design was established, let's introduce terms that are more related to CQRS concepts. Please note that even though DDD and CQRS are not implying one another they are usually used together in most of the literature. Thus the distinction of what is part of DDD and what is part of CQRS sometimes blends uncertainly. Some of the terms described below can be used to talk about DDD too and vice versa. **reference http://programmers.stackexchange.com/questions/302808/cqrs-and-ddd-terminology/302809#302809 **
+Now that the necessary terminology of Domain-Driven Design was settled, let's introduce terms that are more related to CQRS concepts. Please note that even though DDD and CQRS are not implying one another they are usually used together in most of the literature. Thus the distinction of what is part of DDD and what is part of CQRS sometimes blends uncertainly. Moreover, CQRS is to a greater degree a principle rather than a design pattern with its own terminology. However, the CQRS implementation established by using the domain-driven design comes with a new vocabulary. Some of the terms described below can be used to talk about DDD too and vice versa. **reference http://programmers.stackexchange.com/questions/302808/cqrs-and-ddd-terminology/302809#302809 **
 
 #### Commands
 
@@ -58,14 +60,22 @@ A command in CQRS is a way of expressing user's intent for the system to do some
 
 #### Command Handlers
 
-A command is usually processed by a single recipient called a command handler. The responsibility of the command handler is to validate that the command is a valid command, then it should locate the aggregate instance that is the target of the command (or create a new aggregate if that's the command's intention) and call the appropriate method on the aggregate instance with parameters from the command. Finally, it persists the new state of the aggregate to storage.
+A command is usually processed by a single recipient called a command handler. The responsibility of the command handler is to execute code to perform the action or task represented by that command. In domain-driven application, the command handler should validate that the command is a valid command, then it should locate the aggregate instance that is the target of the command (or create a new aggregate if that's the command's intention) and call the appropriate method on the aggregate instance with parameters from the command. Finally, it persists the new state of the aggregate to storage.
 
 #### Events
 
-
+Events in CQRS are part of the messaging pattern and are a superset of domain events. With that in mind, we can use these events for communication and integration, whether that be between aggregates in the same or other bounded contexts or with other systems or subsystems. They have a special meaning for Event Sourcing which will be described later. Events are published to subscribers that pick the information that something happened in the system.
 
 #### Event Handlers
 
+Events are published to multiple recipients called event handlers. Event handlers are subscribed for a particular type of event that the subscriber knows how to handle. Their job is to receive an event, get the target aggregate and call its appropriate method. Finally, it should persist the new state of the aggregate to storage.
+
+#### Messaging
+
+Both **commands** and **events** implement the messaging pattern that enables us to make a system driven by events (event-driven design). This pattern provides us with a lot of flexibility because the messages (commands and events) can be examined, prioritized, queued, partitioned, subscribed to, retried, forwarded and so on. In CQRS, events can be sent using some messaging protocol to other applications or subsystems in order to, for example, update the read model. On the other hand, commands can be prioritized or queued before they are actually sent to a command handler. This of course depends on the requirements for the system being developed.
+
 #### Sagas and process managers
+
+
 
 #### Task-based UI
