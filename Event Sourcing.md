@@ -78,7 +78,7 @@ Another essential thing is that objects of this class are immutable as designed 
 
 ### Event log
 
-How events get generated will be described in section about CQRS design pattern. For now, lets take a closer look at storing the events first. As already mentioned, the events are saved to a persistent storage in a representation called the event log, a list of events in the same order they have actually happened in the system. Not only that, the event log is append-only, which means new events can only be added to the end of the log. This together with immutability of events means that already persisted list of events must never be changed or altered - no event inserting, editing, or deleting. The past cannot be changed.
+How events get generated will be described in section about CQRS design pattern. For now, let's take a closer look at storing the events first. As already mentioned, the events are saved to a persistent storage in a representation called the event log, a list of events in the same order they have actually happened in the system. Not only that, the event log is append-only, which means new events can only be added to the end of the log. This together with immutability of events means that already persisted list of events must never be changed or altered - no event inserting, editing, or deleting. The past cannot be changed.
 
 The storage mechanism is not very important and it can differ in implementation. It is up to your use cases to choose the best strategy for persisting events. The storage can be an in-memory list (best suited for testing), a file system, a relational database, or a storage specifically designed to persist a lot of messages in very big numbers with great performance.
 
