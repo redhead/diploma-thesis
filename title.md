@@ -1,1 +1,1 @@
-Event-Sourcing Desing Pattern in a Java Enterprise Application
+Event-Sourcing Design Pattern in a Java Enterprise Application
