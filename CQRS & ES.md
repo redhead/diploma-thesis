@@ -1,8 +1,8 @@
 ## CQRS with Event Sourcing
 
-In this section, let's revise what was said about CQRS (designed using DDD) and Event Sourcing and describe how the two concepts connect together.
+Let's revise what was said about CQRS (designed using DDD) and Event Sourcing and describe how the two concepts connect together.
 
-CQRS in its core is as simple concept as separation of read and write models for purpose of scalability and performance in multi-user collaboration environment. Domain-driven design fits nicely to this paradigm with the domain model being the core of the CQRS write model. Commands and events then manage state transition and creation of read models respectively as well as communication between aggregates and integration of other systems through messaging protocols.
+CQRS in its core is as simple concept as separation of read and write models for purpose of scalability and performance in multi-user collaborative environment. Domain-driven design fits nicely to this paradigm with the domain model being the core of the CQRS write model. Commands and events then manage state transition of the aggregates and creation of read models respectively; also they can be used to communicate between aggregates and integrate other systems through messaging protocols.
 
 In a simple CQRS implementation without event sourcing the state of the whole tree of aggregate's objects (entities, value objects) are persisted to storage. If the state of the aggregate is to change, it is loaded again, usually using command handler, and an appropriate method is called that changes the internal state of the aggregate. After that, the aggregate is persisted again. Object-relational mapper (ORM) can be used to save the objects to the desired database.
 
