@@ -1,1 +1,1 @@
-Replace this text with your caption
+Handling aggregate state change in simple CQRS without Event Sourcing
