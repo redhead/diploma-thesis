@@ -4,6 +4,6 @@ ES CQRS intro.md
 Event Sourcing.md
 CQRS.md
 CQRS & ES.md
-figures/cqrs wo es/cqrs wo es.png
-figures/cqrs with es/cqrs with es.png
+figures/cqrs-no-es/cqrs-no-es.png
+figures/cqrs-es/cqrs-es.png
 Implementation in the Java programming language.md
