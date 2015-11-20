@@ -44,7 +44,7 @@ One of the best examples, in my opinion, why use ES is that we can easily fulfil
 
 Very similar example of a requirement that involves historic data is a chart of price development for a product over time that many online shopping systems present to users. It is not possible to (immediately) accomplish this requirement in the application that stores only the current state (the current price of the product). In an event sourced system, this is easy as we probably already have all the events about the price updates for every product.
 
-#### Domain event
+### Domain event
 
 The core term in ES is a domain event, which was mentioned few times already as just an event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system and resulted in some state change. In most cases, there is number of different kinds of events in the system. Usually they are represented by simple objects with properties that store the data describing the particular event.
 
@@ -76,17 +76,13 @@ The event in the example is named after the intent it represents as a verb in th
 
 Another essential thing is that objects of this class are immutable as designed by the final fields and getter methods only. This is because the event has already happened and we can never change it in the very same way we can't change our past in the real world.
 
-#### Event log
+### Event log
 
 How events get generated will be described in section about CQRS design pattern. For now, let's take a closer look at storing the events first. As already mentioned, the events are saved to a persistent storage in a representation called the event log, a list of events in the same order they have actually happened in the system. Not only that, the event log is append-only, which means new events can only be added to the end of the log. This together with immutability of events means that already persisted list of events must never be changed or altered - no event inserting, editing, or deleting. The past cannot be changed.
 
 The storage mechanism is not very important and it can differ in implementation. It is up to your use cases to choose the best strategy for persisting events. The storage can be an in-memory list (best suited for testing), a file system, a relational database, or a storage specifically designed to persist a lot of messages in very big numbers with great performance.
 
 The event log is then used to recreate the current state of the application (or its parts). How exactly will be described in detail in section about CQRS.
-
-### Event stream
-
-** ?? todo ?? **
 
 ### Summary
 
