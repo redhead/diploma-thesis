@@ -6,7 +6,9 @@ Let's start this chapter by introducing the base project to the reader. This inc
 
 ## Introduction to Integration Portal
 
-The project, known under the working title Integration Portal, aims to integrate several systems of the Czech Technical University (CTU) for the purpose of file sharing and archiving. It is a web application where users (members of CTU and externs) can upload, share and organize files in a way that resembles a regular computer file system. The file data is stored in a data storage infrastructure provided by the CESNET association.
+The project, known under the working title Integration Portal, aims to integrate several systems of the Czech Technical University (CTU) for the purpose of file sharing and archiving. It is a web application where users (members of CTU and externs) can upload, share and organize files in a way that resembles a regular computer file system. The file data is stored in a data storage infrastructure provided by the CESNET association. 
+
+Please note that the project is still a work in progress and some of the functionality and requirements described below are in preparation or active development at the time of writing this thesis. The refactoring to CQRS and event sourcing described further in this chapter deals only with the currently working functionality at that time.
 
 The system is divided into two parts. The first part is the front-end user interface presented to users in their web browser. The second part is the back-end server that integrates the systems and provides a communication interface for the front end.
 
@@ -19,14 +21,29 @@ The front-end part presents the users with the files they uploaded or they have 
 
 However, all the actual processing and state transitioning is done on the back-end part and the front end is only used for displaying the content and sending the commands to the back end. The communication is done using a REST API (Application Programming Interface).
 
+Because the front end is not really a subject of refactoring to CQRS and event sourcing, it won't be discussed in any more detail. For more information see **citation needed**
+
 
 ### The back end
 
+The back-end server application uses a traditional three-tier architecture in Java Enterprise Edition implemented using Spring Framework and its supporting libraries for web development, security, database access, and REST API services. A PostreSQL database is used to persist the application data.
 
+One of the objectives of the server-side application is to integrate the systems to accomplish the goal of file system management for CTU members. The systems are described below.
+
+#### FELid
+
+A global authentication and authorization system of CTU academics and students supporting single sign-on functionality. This system will be used to authenticate the users of Integration Portal.
+
+#### KOSapi
+
+The system that enables applications to access various types of information, e.g. student's details or subject schedules, through a RESTful web service. This system will be used to retrieve a list of organizational units of the faculty that map to faculty departments. Each portal user belongs to one organizational unit. Organizational units are assigned with a quota on amount of space that is available for users' files.
 
 #### CESNET 
-Provides a communication interface to transfer the files content.
-This infrastructure also supports two different types of media that the files can be stored to. The types differ in speed and capacity.
+
+An association of universities of the Czech Republic and the Czech Academy of Sciences that operates and develops the national e-infrastructure for science, research, and education. Integration Portal uses CESNET's data storage to store file data. It provides a communication interface to upload and download files and it also supports two different types of media that the files can be stored to, on-line and off-line. They types differ in speed and capacity. Rarely used files are automatically move off-line to slow but high-capacity magnetic tapes (manual switch is also possible). In case the file is needed again, it can be moved on-line seamlessly.
+
+### Architecture
+
 
 ## Axon Framework
 
