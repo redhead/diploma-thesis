@@ -1,1 +1,1 @@
-A typical communication flow between layers started by a request to the back-end server.
+A typical communication flow between layers of the back-end server.
