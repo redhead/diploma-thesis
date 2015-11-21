@@ -13,4 +13,5 @@ Introduction_to_Integration_Portal_The__.md
 figures/layers/layers.png
 In_the_picture_reference_needed__.md
 Domain_model_For_the_purpose__.md
+figures/domain/domain.png
 Axon_Framework_Aggregates_Comamnds_Events__.md
