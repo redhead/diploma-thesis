@@ -1,1 +1,1 @@
-Replace this text with your caption
+A typical communication flow between layers started by a request to the back-end server.
