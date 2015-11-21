@@ -1,1 +1,1 @@
-Replace this text with your caption
+The domain model of the back-end application.
