@@ -26,7 +26,7 @@ Foundation for CQRS pattern is the idea that the system making writes and reads 
 
 CQRS takes this idea and applies it to the system level where it strictly separates the responsibility for handling a command input (to change the application state) from the responsibility of side-effect-free reading of application data. **citation needed*
 
-Both design patterns come from the Domain-Driven Design (DDD) **citation needed** methodology for software development. DDD is a very comprehensive subject on its own and as such it will not be discussed in this thesis apart from the terms and principles that are involved in the presented design patterns.
+Both design patterns were popularized by the practitioners of the Domain-Driven Design (DDD) **citation needed** methodology for software development. DDD is a very comprehensive subject on its own and as such it will not be discussed in this thesis apart from the terms and principles that are involved in the presented design patterns.
 
 
 
