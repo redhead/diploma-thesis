@@ -1,3 +1,3 @@
 ## Summary
 
-In this chapter, we introduced Event Sourcing with the Command Query Responsibility Segregation design pattern, both of which are very abstract and fundamentally easy principles. The implementation of the two was expanded by practitioners of Domain-Driven Design methodology and is highly based on its terminology. A few benefits and arguments why use the described patterns were presented for the readers to reason about some of the problems that the pattern can help solving.
+In this chapter, we introduced Event Sourcing with the Command Query Responsibility Segregation design pattern, both of which are very abstract and fundamentally easy principles. The implementation of the two was expanded by practitioners of Domain-Driven Design methodology and is highly based on its terminology. A few benefits and arguments why use the described patterns were presented for the readers to reason about some of the problems that the pattern can help us solve.
