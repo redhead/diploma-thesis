@@ -20,9 +20,9 @@ Because the front end is not really a subject of refactoring to CQRS and event s
 
 ### The back end
 
-The back-end server application uses a traditional three-tier architecture in Java Enterprise Edition implemented using Spring Framework and its supporting libraries for web development, security, database access, and REST API services. A PostreSQL database is used to persist the application data.
+The back-end server application uses a traditional three-layer architecture in Java Enterprise Edition implemented using Spring Framework and its supporting libraries for web development, security, database access, and REST services. A PostreSQL database is used to persist the application data.
 
-One of the objectives of the server-side application is to integrate the systems to accomplish the goal of file system management for CTU members. The systems are described below.
+One of the objectives of the server-side application is to integrate the systems to accomplish the goal of file system management for CTU members and externs. The systems are described below.
 
 #### FELid
 
@@ -40,7 +40,7 @@ An association of universities of the Czech Republic and the Czech Academy of Sc
 
 The architecture follows a typical setup for Java Enterprise Edition applications called a three-tier architecture, where the client-side application written AngularJS being the presentation tier, the back-end server being the application tier and the PostreSQL database server being the data tier. On top of that, Integration Portal communicates with other external systems through various channels to accomplish the integration goal. As this thesis focuses on refactoring the back-end server to CQRS and Event Sourcing, let's describe its implementation in more detail. 
 
-The internal code of the back-end application is organized into logical layers, an organization which is a widely adopted best practice in Java EE application development. Each layer is responsible of some functionality of the application without being coupled with the rest. The three layers found in the back-end application and their responsibility are following.
+The internal code of the back-end application is organized into logical layers, an arrangement which is a widely adopted best practice in Java EE application development under name of layered architecture (or n-layer architecture). Each layer is responsible for some functionality of the application without being tightly coupled with the rest. The description of the three layers found in the back-end application and their responsibility is following.
 
 #### The controller layer
 The entry layer for the back-end application is formed by number of controllers which handle the requests to the server. In Integration portal a REST API implemented using HTTP protocol is used to communicate with the front-end application. So most of the controllers are responsible for validating the HTTP requests, parsing the data sent with them and passing the flow to the next layer. Also the controllers construct responses including the data from this layer and send them back to the UI application. Additionally, in case of any error in upper layers, the controllers are responsible for sending correct status codes in the HTTP response. These entry points to the back-end application are also protected by user authorization mechanism, so not every user is allowed to call any controller handler method. The controllers are implemented using Spring Framework MVC support and the authentication and authorization by Spring Security framework.
