@@ -22,7 +22,7 @@ We can use the event log to examine a fault in our system. Imagine that a user r
 
 When deploying a new version of your application into production for your users, in many cases it also means that you need to update your RDBMS tables with a new schema and/or update the data. Imagine that after such deployment the system works for only a week before it crashes because of serious failure. If fixing the system requires a long time you probably want to fall back to the last working version. 
 
-If you use code versioning systems or other tools to backup your code base you can get the working code back easily, but getting back the database state may be impossible because of the destructive changes made to the production database during the deployment. The original data for the old version may be forever lost because of the schema update. If the database was backed up before the deployment we can get the original database back but we would lose all the data our users created in that week the new version worked.
+If you use code versioning systems or other tools to back up your code base you can get the working code back easily, but getting back the database state may be impossible because of the destructive changes made to the production database during the deployment. The original data for the old version may be forever lost because of the schema update. If the database was backed up before the deployment we can get the original database back but we would lose all the data our users created in that week the new version worked.
 
 With Event Sourcing this fallback can be accomplished easily. Since events must never be altered, and this applies to version deployment too, we still have all the necessary data to recreate the original data model by replaying all the events including those created in that week.
 
@@ -72,7 +72,7 @@ If we create an instance of that class, the data contained in the object describ
 
 Event names should reflect their intents from the business point of view. The `AddressCorrected` and `CustomerMoved` events reflect different business values in the domain, even though they probably may result in the same data change (updating the address).
 
-The event in the example is named after the intent it represents as a verb in the past tense. This is important as the domain event symbolizes something that has happened in the past. A historic event that marks a state transition in the application. So, all events should follow this simple convention and be named as verbs in the past tense.
+The event in the example is named after the intent it represents as a verb in the past tense. This is important as the domain event symbolizes something that has happened in the past, a historic event that marks a state transition in the application. So, all events should follow this simple convention and be named as verbs in the past tense.
 
 Another essential thing is that objects of this class are immutable as designed by the final fields and getter methods only. This is because the event has already happened and we can never change it in the very same way we can't change our past in the real world.
 
