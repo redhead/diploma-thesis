@@ -5,34 +5,42 @@ As stated previously, at the time of starting the refactoring to CQRS and ES the
 #### User management
 
 - User authentication with username and password (no FELid integration yet)
-- Authorization based on permissions
+- Authorization based on permissions to
     - access to main administration (users, user roles)
     - edit organizational units
     - edit externists
     - edit password
 - Password change
 - Group management
+- User role management
 
 #### Files
 
 - Uploading (data being stored in CESNET infrastructure)
 - Renaming
-- Moving
+- Moving to other folders
 - Removing
+- Downloading the file contents
 - Updating the file contents
-- Labeling
+- Switching to online / offline medium in CESNET
 
 #### Folders
 - Creating
 - Renaming
+- Moving to other folders
 - Removing (along with all their child files and folders)
-- Labeling
+- Switching to online / offline in CESNET
+
+#### Labels
+- Creating
+- Modifying (text, color)
+- Deleting
+- Adding and removing labels on files and folders
+- Filtering files and folders by a label
 
 #### Organizational Units
 - Modifying (name, quota)
 - Assigning organizational unit administrators
-
-#### CESNET integration
 
 ### Missing functionality
 - Sharing files with other users
