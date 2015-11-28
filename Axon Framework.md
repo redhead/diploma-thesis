@@ -21,8 +21,9 @@ Popularity of the framework should also be taken into account. Although it does 
 
 ### Axon Framework
 **citation needed**
-**potrebuje extendovat tridy :(**
+Axon Framework proclaims itself as a Java Framework for scalable and high-performance applications and being focused to make life easier for developers that want to create applications based on the CQRS principles. On top of that, it also supports event sourcing. It has released many versions in the past; the latest version at the time of writing this thesis was 2.4.3. It is actively developed, a new major version 3 is a work in progress. It has nice and detailed documentation and a sample project to showcase the code.
 
+The code itself is carefully designed providing many extension points (to JMS or Disruptor)
 
 ### EventStore2
 **citation needed**
