@@ -15,5 +15,6 @@ In_the_picture_reference_needed__.md
 Domain_model_For_the_purpose__.md
 figures/domain/domain.png
 In_the_following_paragraphs_a__.md
+Functionality_before_refactoring_As_stated__.md
 Axon Framework.md
 Axon_Framework_Aggregates_Comamnds_Events__.md
