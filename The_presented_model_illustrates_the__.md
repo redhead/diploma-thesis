@@ -1,6 +1,4 @@
-The presented model illustrates the design of the Integration Portal back end at the exact time the the refactoring to CQRS and ES started. Some features of the Integration Portal, as stated in the introduction, are missing, e.g. the sharing functionality and integrations with some systems. The integration with CESNET is present and functional.
-
-In the following paragraphs, a brief description of the entities is presented. 
+In the following paragraphs, a brief description of the entities of the domain model is presented. 
 
 #### File
 An entity that represents an uploaded file into the system. It's not meant to carry the file contents, but it holds its meta data (file name, size, content type, etc.). In the implementation this entity is called `FileMetadata` for historic reasons, but `File` captures better that it represents a file in the simulated file system.
