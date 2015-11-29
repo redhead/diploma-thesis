@@ -21,12 +21,17 @@ Popularity of the framework should also be taken into account. Although it does 
 
 ### Axon Framework
 **citation needed**
-Axon Framework proclaims itself as a Java Framework for scalable and high-performance applications and being focused to make life easier for developers that want to create applications based on the CQRS principles. On top of that, it also supports event sourcing. It has released many versions in the past; the latest version at the time of writing this thesis was 2.4.3. It is actively developed, a new major version 3 is a work in progress. It has nice and detailed documentation and a sample project to showcase the code.
+Axon Framework proclaims itself as a Java Framework for scalable and high-performance applications and being focused to make life easier for developers that want to create applications based on the CQRS principles and concepts, i.e. commands, events, aggregates, entities, sagas, etc. On top of that, it also supports event sourcing. 
 
-The code itself is carefully designed providing many extension points (to JMS or Disruptor)
+It has released many versions in the past; the latest version at the time of writing this thesis was 2.4.3. It is actively developed, a new major version 3 is a work in progress. It has nice and detailed documentation and a sample project to showcase the code. It aims to ease the development of the domain model and business logic and shields the programmers from the implementation traps of CQRS and ES.
+
+The code of Axon Framework is carefully designed providing a few extension points (e.g. to JMS or Disruptor). Also it supports the Spring Framework's configuration and dependency injection. It also uses Java annotations for building the domain model and event listeners without being tied to the Axon's specific logic. However, it does not try to hide CQRS architecture details or its components, so it is better to have the knowledge of CQRS.
+
+The code repository on GitHub has more than 300 stars and 100 forks. **citation needed** The user community is active on the mailing lists and on the issue tracker. The code is open sourced under Apache 2 license. The authors also provide commercial services such as support contracts, training and consultancy.
 
 ### EventStore2
 **citation needed**
+
 
 ### JDon Framework
 **citation needed**
