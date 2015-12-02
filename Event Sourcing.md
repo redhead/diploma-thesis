@@ -20,13 +20,13 @@ We can use the event log to examine a fault in our system. Imagine that a user r
 
 #### Fallback after a failure
 
-When deploying a new version of your application into production for your users, in many cases it also means that you need to update your RDBMS tables with a new schema and/or update the data. Imagine that after such deployment the system works for only a week before it crashes because of serious failure. If fixing the system requires a long time you probably want to fall back to the last working version. 
+When deploying a new version of your application into production for your users, in many cases it also means that you need to update your RDBMS tables with a new schema and/or update the data. Imagine that after such deployment the system works for only a week before it crashes because of serious failure. If fixing the system requires a lot of time you probably want to fall back to the last working version. 
 
-If you use code versioning systems or other tools to back up your code base you can get the working code back easily, but getting back the database state may be impossible because of the destructive changes made to the production database during the deployment. The original data for the old version may be forever lost because of the schema update. If the database was backed up before the deployment we can get the original database back but we would lose all the data our users created in that week the new version worked.
+If you use version control systems or other tools to back up your code base you can recover the working code easily. Getting back the database state, however, may be impossible because of the destructive changes made to the production database during deployment. The original data for the old version may be lost forever because of the schema update. If the database was backed up before the deployment you can get the original database back. However, you would lose all the data the users created during the week that the new version was working.
 
-With Event Sourcing this fallback can be accomplished easily. Since events must never be altered, and this applies to version deployment too, we still have all the necessary data to recreate the original data model by replaying all the events including those created in that week.
+With Event Sourcing this fallback can be accomplished easily. Since events must never be altered, we still have all the necessary data to recreate the original data model by replaying all the events including those created in that week.
 
-But we can go a step ahead in our deployment process and keep the two systems, the original version and the new version, running side by side. After deployment, the new version can take control of generating the events that both versions can process individually into their own data models in separate databases. If anything goes wrong with the live version, you can just switch to the original (but still up-to-date) version running in parallel. This way the users will not be affected by long lasting down times leaving you more time to fix the problem.
+But we can go a step further in our deployment process and keep the two systems, the original version and the new version, running side by side. After deployment, the new version can take control of generating the events, while both versions can process them individually into their own data models in separate databases. If anything goes wrong with the live version, you can just switch back to the original (but still up-to-date) version running in parallel. This way the users will not be affected by long lasting down times leaving you more time to fix the problem.
 
 #### Event processing
 
@@ -40,15 +40,15 @@ With a complete event log, we can make projections of the data for the users. Bu
 
 #### New business requirements
 
-One of the best examples, in my opinion, why use ES is that we can easily fulfill new business requirements that involve old data. Imagine that the project stake holders come up with a new requirement for an already working online shopping system. The feature they want you to implement is a suggestion mechanism that presents the user the products he or she removed from their cart just before the checkout. Possibly, the users wanted to buy these products but they removed it from the cart because the total order price was too high. The users may want to buy the products next month though. To suggest the user those products on their next visit we need the information that the products were removed from the cart just before the checkout. If we designed our domain events right we have that information for every user in the system already stored as events in the event log. We can build this feature easily using the old events and suggest the right products to each user right after the feature deployment. This is a very nice advantage over the systems that store only the current state because these systems do not have the data beforehand. The system wouldn't be able to suggest anything until a next user removes a product from their cart.
+One of the best reasons, in my opinion, for using ES is that we can easily fulfill new business requirements that involve old data. Imagine that the project stake holders come up with a new requirement for an already working online shopping system. The feature they want you to implement is a suggestion mechanism that presents the user the products he or she removed from their cart just before checking out. Possibly, the users wanted to buy these products but they removed them from the cart because the total order price was too high. The users may want to buy the products next month though. To suggest those products to the user on their next visit we need the information that the products were removed from the cart just before checkout. If we designed our domain events properly we should have that information for every user in the system already stored as events in the event log. We can build this feature easily using the old events and suggest the right products to each user immediately after the feature deployment. This is a very nice advantage over the systems that store only the current state because these systems do not have the data beforehand. The system wouldn't be able to suggest anything until the next user removes a product from their cart.
 
-Very similar example of a requirement that involves historic data is a chart of price development for a product over time that many online shopping systems present to users. It is not possible to (immediately) accomplish this requirement in the application that stores only the current state (the current price of the product). In an event sourced system, this is easy as we probably already have all the events about the price updates for every product.
+A very similar example of a requirement that involves historic data is a chart of price development for a product over time. Many online shopping systems present this kind of chart to their users. It is not possible to (immediately) accomplish this requirement in an application that stores only the current state (the current price of the product). In an event sourced system, this task is easy to accomplish as we probably already have all the events with the price updates for every product.
 
 ### Domain event
 
-The core term in ES is a domain event, which was mentioned few times already as just an event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system and resulted in some state change. In most cases, there is number of different kinds of events in the system. Usually they are represented by simple objects with properties that store the data describing the particular event.
+The core term in ES is a domain event, which was mentioned a few times already as just an event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system and resulted in some state change. In most cases, there are a number of different kinds of events in the system. Usually they are represented by simple objects with properties that store the data describing the particular event.
 
-You can see an example of a domain event represented by a Java class in the listing #l **listing needed**
+You can see an example of a domain event represented by a Java class in listing #l **listing needed**
 
 	public class ProductAddedToCart {
 		
@@ -68,24 +68,24 @@ You can see an example of a domain event represented by a Java class in the list
 
 	}
 
-If we create an instance of that class, the data contained in the object describe the particular event in the time - a product X of count Y was added to cart Z. 
+If we create an instance of that class, the data contained in the object describe the particular event in that time - a product X of count Y was added to cart Z. 
 
-Event names should reflect their intents from the business point of view. The `AddressCorrected` and `CustomerMoved` events reflect different business values in the domain, even though they probably may result in the same data change (updating the address).
+Event names should reflect their intents from a business point of view. The `AddressCorrected` and `CustomerMoved` events reflect different business values in the domain, even though they probably would result in the same data change (updating the address).
 
 The event in the example is named after the intent it represents as a verb in the past tense. This is important as the domain event symbolizes something that has happened in the past, a historic event that marks a state transition in the application. So, all events should follow this simple convention and be named as verbs in the past tense.
 
-Another essential thing is that objects of this class are immutable as designed by the final fields and getter methods only. This is because the event has already happened and we can never change it in the very same way we can't change our past in the real world.
+Another essential thing is that objects of this class are immutable as designed by the final fields and getter methods only. This is because the event has already happened and we can never change it, in the very same way we can't change our past in the real world.
 
 ### Event log
 
-How events get generated will be described in section about CQRS design pattern. For now, let's take a closer look at storing the events first. As already mentioned, the events are saved to a persistent storage in a representation called the event log, a list of events in the same order they have actually happened in the system. Not only that, the event log is append-only, which means new events can only be added to the end of the log. This together with immutability of events means that already persisted list of events must never be changed or altered - no event inserting, editing, or deleting. The past cannot be changed.
+How events get generated will be described in the section about the CQRS design pattern. First, let's take a closer look at storing the events. As already mentioned, the events are saved to permanent storage in a representation called the event log, a list of events in the same order they have actually occurred in the system. Not only that, the event log is append-only, which means new events can only be added to the end of the log. This rule, together with the immutability of events, means that the already persisted list of events can never be changed or altered - no event inserting, editing, or deleting. The past cannot be changed.
 
-The storage mechanism is not very important and it can differ in implementation. It is up to your use cases to choose the best strategy for persisting events. The storage can be an in-memory list (best suited for testing), a file system, a relational database, or a storage specifically designed to persist a lot of messages in very big numbers with great performance.
+The storage mechanism is not very important and it can differ in implementation. It is up to your use cases to choose the best strategy for persisting events. The storage can be an in-memory list (best suited for testing), a file system, a relational database, or storage specifically designed to persist a lot of messages in large quantities with great performance.
 
-The event log is then used to recreate the current state of the application (or its parts). How exactly will be described in detail in section about CQRS.
+The event log is then used to recreate the current state of the application (or its parts). The exact way that this is carried out will be described in detail in the section about CQRS.
 
 ### Summary
 
-As you can see, Event Sourcing isn´t complicated idea at all. The premise is that we don't primarily save the current data of application state, but we instead save all the events that represent the state changes in the system in a persistent log. We then use this log as the single source of truth to determine the actual state of the application.
+As you can see, Event Sourcing isn´t a complicated idea at all. The premise is that we don't primarily save the current data of application state, but we instead save all the events that represent the state changes in the system in a persistent log. We then use this log as the single source of truth to determine the actual state of the application.
 
-The concept however doesn't naturally say anything about how to get the state or how can we see current data of an application. This is a job for another design pattern called CQRS described in the next section.
+The concept, however, doesn't inherently say anything about how to get the state or how to see current data of an application. This is a job for the design pattern called CQRS, described in the next section.
