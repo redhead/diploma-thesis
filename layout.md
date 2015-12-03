@@ -18,4 +18,5 @@ In_the_following_paragraphs_a__.md
 Functionality_before_refactoring_As_stated__.md
 Axon Framework.md
 Axon Framework1.md
+Command_handling_As_previously_described__.md
 Axon_Framework_Aggregates_Comamnds_Events__.md
