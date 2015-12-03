@@ -5,16 +5,16 @@ As previously described, a state change in CQRS starts with a command. To repres
 
 	class UpdateProductPriceCommand {
 		
-		private final ProductId productId;
+		private ProductId productId;
 
-		private final Money newPrice;
+		private Money newPrice;
 
 		public UpdateProductPriceCommand(ProductId productId, Money newPrice) {
 			this.productId = productId;
 			this.newPrice = newPrice;
 		}
 
-		// ... getters ...
+		// ... getters and setters ...
 
 	}
 
