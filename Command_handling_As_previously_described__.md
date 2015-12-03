@@ -38,6 +38,18 @@ There are other implementations of the `CommandBus` interface provided by Axon. 
 
 In Axon, a Command Handler is an object that receives a command of specific type and takes action based on its contents. There are a few ways to create a command handler. One is based on implementing the `CommandHandler` interface and its `handle()` method to process the given command. The command handler is than subscribed to the command bus by specifying the type of the command it handles. 
 
-Sometimes it is beneficial to have multiple closely related command handlers in one object. This approach can be achieved by using annotations on methods to mark them as command handlers. The type of the command that the method can handle is determined by the type of the first parameter. The object can be a simple POJO (plain old Java object) and only the method annotations determine that they are command handlers. 
+Sometimes it is beneficial to have multiple closely related command handlers in one object. This approach can be achieved by using the `@CommandHandler` annotation on methods to mark them as command handlers. The type of the command that the method can handle is determined by the type of the first parameter. The object can be a simple POJO (plain old Java object) and only the method annotations determine that they are command handlers. 
 
 The support for Spring framework enables automatic subscription of the command handlers to the command bus when the object is turned into to a Spring bean. We can use the Spring's inversion of control container to inject dependencies of command handlers.
+
+The dependencies for the command handlers are usually the aggregate repositories, which handle loading of aggregates and persisting their changes. As stated in the introduction to CQRS, command handlers are supposed to load an aggregate instance, call a method on it, and save the aggregate changes.
+
+#### Unit of Work
+
+The processing of a command can be seen a single unit. Each time the command handler executes, it is tracked in a Unit of Work. When command handling is finished, the current Unit of Work is committed and all actions are finalized. This means that aggregate repositories are notified about the changes in aggregates and saves them. In case of event sourced aggregates, the new events applied to the aggregates are stored to an event log and published to an Event Bus.
+
+Note that the Unit of Work is not a replacement for transactions. However, the Unit of Work can be bound with a transaction by configuring the transaction manager. This transaction will be started at the beginning of the command handler execution and committed when finished. If any exception is thrown, the bound transaction are rolled back.
+
+
+
+
