@@ -30,14 +30,15 @@ In many cases, the data in a command and in the corresponding event, which is cr
 
 #### Aggregates
 
-An entity or a group of entities, which is always kept in a consistent state, is called an aggregate. The aggregate root is the object on top of the aggregate tree that is responsible for maintaining this consistent state. In Axon, aggregates are identified by an aggregate identifier. This can be any object, but the following rules must apply:
+An entity or a group of entities, which is always kept in a consistent state, is called an aggregate. The aggregate root is the object on top of the aggregate tree that is responsible for maintaining this consistent state. Classes and primitive types can be used to design an aggregate's structure (entities and value objects). 
+
+In Axon Framework, all aggregate roots must implement the `AggregateRoot` interface. This interface describes the basic operations needed by the aggregate repositories to store and publish the generated events. Aggregates are identified by an aggregate identifier. This can be any object, but the following rules must apply:
 
 - It implements the `equals()` and `hashCode()` methods to ensure equality comparison with other instances.
 - It implements a consistent `toString()` method.
-- Preferably, it is serializable.
+- It is serializable.
 
-In Java, classes and primitive types can be used to design an aggregate's structure (entities and value objects). In Axon Framework, all aggregate roots must implement the `AggregateRoot` interface. This interface describes the basic operations needed by the aggregate repositories to store and publish the generated events. Axon provides a number of implementations of this interface, which can be extended by the programmer to create the domain model.
-
+Axon provides a number of implementations of the `AggregateRoot` interface, which can be extended by the programmer to create the desired aggregate. One of the implementation classes is the `AbstractAnnotatedAggregateRoot` class which uses annotations to simplify the aggregate code and its clarity. An example of an aggregate root that extends this abstract class is in listing #x **listing needed**.
 
 
 
