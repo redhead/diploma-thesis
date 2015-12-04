@@ -44,6 +44,10 @@ One of the best reasons, in my opinion, for using ES is that we can easily fulfi
 
 A very similar example of a requirement that involves historic data is a chart of price development for a product over time. Many online shopping systems present this kind of chart to their users. It is not possible to (immediately) accomplish this requirement in an application that stores only the current state (the current price of the product). In an event sourced system, this task is easy to accomplish as we probably already have all the events with the price updates for every product.
 
+#### Testing
+
+**TODO**
+
 ### Domain event
 
 The core term in ES is a domain event, which was mentioned a few times already as just an event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system and resulted in some state change. In most cases, there are a number of different kinds of events in the system. Usually they are represented by simple objects with properties that store the data describing the particular event.
