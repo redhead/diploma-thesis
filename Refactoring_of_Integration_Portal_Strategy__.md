@@ -72,5 +72,3 @@
 
 - Axon 3
 - event refactoring, event upcasting
-
-## The future development
