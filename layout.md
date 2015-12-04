@@ -24,3 +24,4 @@ Repositories_and_Event_Stores_Repositories__.md
 Event_processing_When_an_aggregate__.md
 Managing_complex_business_transactions_In__.md
 Testing_TODO__.md
+Refactoring_of_Integration_Portal_Strategy__.md
