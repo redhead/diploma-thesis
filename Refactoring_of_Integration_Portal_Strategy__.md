@@ -72,3 +72,5 @@
 
 - Axon 3
 - event refactoring, event upcasting
+
+## Comparison to layered architecture
