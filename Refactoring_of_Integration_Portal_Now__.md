@@ -22,15 +22,17 @@ To solve this problem, it was decided to redesign the back-end REST API so the u
 
 First, all the modifyable features of each resource were collected. Each feature was assigned a sub-resource of the original resource URL. To carry the intent of the change, a POST request is sent on this newly created URL for each feature. Consider this example from the actual redesign:
 
-    -- Before the redesign
-    POST /folder/abc123
+Before the redesign
+
+    PUT /folder/abc123
     {"name": "New folder name"}
     
-    -- After the redesign
+After the redesign
+
     POST /folder/abc123/nameChange
     {"name": "New folder name"}
 
-
+As you can see
 
 
 
