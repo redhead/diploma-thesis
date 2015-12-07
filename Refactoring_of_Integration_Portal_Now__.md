@@ -14,9 +14,23 @@ Concurrently, development of a new feature was considered to extend the function
 
 After reading CQRS JOURNEY**citation needed**, the idea of task-based user interface, described in (TASK BASED UI)**reference needed**, was taken into consideration in regards to the Integration Portal UI. A RESTful application programming interface mediates the communication between the front-end user interface and the back-end logic. 
 
-The API was designed according to the typical RESTful concepts. Every entity in the back end (User, Folder, File, etc.) was one resource in the interface. The four basic HTTP methods - GET, POST, PUT, and DELETE - were defined on almost each resource in order for the UI to take actions on the resources. These methods effectively convert to the known CRUD scheme (Create, Read, Update, Delete). The create, read, and delete actions are usually straightforward. The update action, however, can sometimes be complicated. There are often multiple features on a resource that can be updated. With CRUD-based REST interface, it is possible to use the same HTTP method (PUT) to modify multiple different components of a resource with one request (e.g. change a folder name and set new label).
+The API was designed according to the typical RESTful concepts. Every entity in the back end (User, Folder, File, etc.) was represented as one resource in the interface. The four basic HTTP methods - GET, POST, PUT, and DELETE - were defined on most of the resources in order for the UI to take actions on the entities in the back end. These methods effectively convert to the known CRUD scheme (Create, Read, Update, Delete). The create, read, and delete actions are usually straightforward using the POST, GET, DELETE methods respectively. A great care must be taken regarding the update action. There are often multiple features on a resource that can be updated. With CRUD-based REST interface, it is possible to use one HTTP method (PUT) to modify multiple different components of one resource in a single request (e.g. change a folder name and set new label).
 
-The design of general update command in RESTful API can be problematic when using CQRS, because the intent of the request becomes unclear. There is no real connection between changing a folder name and setting a new label at the same time from the perspective of the user interface (UI). The UI actually never sends a PUT request to alter multiple unrelated features of one resource. So the general update request using the PUT method is exaggerated abstraction that hides the intent of the change. 
+The design of general update command in RESTful API can be problematic when using CQRS, because the intent of the request becomes unclear. From the perspective of the user interface (UI), there is no real business connection between changing a folder name and setting a new label at the same time. Even the UI never sends one PUT request to alter multiple unrelated features of one resource. So a general-purpose update request on a resource is exaggerated abstraction that hides the intent of the change. The importance of capturing intents in commands and events is explained in the CHAPTER ABOUT CQRS **reference needed**.
 
-To solve this problem, the back-end REST API was redesigned so the update request carries the intent clearly with one component to change at a time.
+To solve this problem, it was decided to redesign the back-end REST API so the update request carries the intent clearly with one component to change at a time. A few ways how to carry out the redesign were considered. They are described in detail further in ?REST REDESIGN?**reference needed**. For now, let's just describe the chosen way of the new arrangement of the REST interface.
+
+First, all the modifyable features of each resource were collected. Each feature was assigned a sub-resource of the original resource URL. To carry the intent of the change, a POST request is sent on this newly created URL for each feature. Consider this example from the actual redesign:
+
+    -- Before the redesign
+    POST /folder/abc123
+    {"name": "New folder name"}
+    
+    -- After the redesign
+    POST /folder/abc123/nameChange
+    {"name": "New folder name"}
+
+
+
+
 
