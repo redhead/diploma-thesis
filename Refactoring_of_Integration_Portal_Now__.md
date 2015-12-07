@@ -8,8 +8,6 @@ In the preparation to the refactoring, it was needed to go through the whole bac
 
 The first thing was to to untangle the dependencies of the components and layers to find out how they are connected and how it affects the refactoring. In the original design, where CQRS and ES principles were not taken into account, some of the code aspects were believed to cause trouble in the refactoring. Because of that, the code underwent some changes before the refactoring.
 
-Concurrently, development of a new feature was considered to extend the functionality in the original code. The functionality was to allow users to share their files with other users, which was not possible before. On top of that, ability to specify permissions on the shared files for each user (or group) was to be developed too. The responsibility of the development was assigned to another member of the Integration Portal team. The time of completion of this functionality was expected to be during the refactoring and thus it was originally intended to be part of the refactoring as well.
-
 ### Revising the REST interface
 
 After reading CQRS JOURNEY**citation needed**, the idea of task-based user interface, described in (TASK BASED UI)**reference needed**, was taken into consideration in regards to the Integration Portal UI. A RESTful application programming interface mediates the communication between the front-end user interface and the back-end logic. 
@@ -32,7 +30,17 @@ After the redesign
     POST /folder/abc123/nameChange
     {"name": "New folder name"}
 
-As you can see, the difference is made by a shift in the URL to target one specific feature of the original resource. This way, changing multiple features in one request is not possible. The `nameChange` sub-resource expects modification of the name only and thus carries the intent clearly - changes the name. Similarly, the rest of the modifiable features of each resource was redesigned.
+As you can see, the difference is made by a shift in the URL to target one specific feature of the original resource. This way, changing multiple features in one request is not possible. The `nameChange` sub-resource expects modification of the name only and thus carries the intent clearly - changes the name. The rest of the modifiable features of each resource was redesigned in a similar way.
+
+### Revising the original domain model
+
+Concurrently, development of a new feature was considered to extend the functionality in the original code. The functionality should have allowed users to share their files with other users, which was not possible before. This also included the ability to specify permissions on the shared files for each user (or group). The responsibility of the development was assigned to another member of the Integration Portal team. The time of completion of this functionality was expected to be during the refactoring and thus it was originally intended to be part of the refactoring as well.
+
+This resulted in some changes to the original domain model to support this functionality. Specifically, there was a small issue in the design of the entities in the original domain model that prevented sharing the same code for both folders and files. This issue was even more problematic for development of the new functionality. 
+
+Both folders and files represent nodes in the simulated file system tree. Conceptually, they are very similar entities. They even share some of their fields, like the name, parent folder, owner, assigned labels, etc. However, they were originally designed as totally distinct entities that did not share a common abstract class. This resulted in code duplication in several places in the back end, as well as in the front-end application. The same issue would be even more noticeable in the planned file sharing functionality. 
+
+Thus, the two entities were rewritten to push the shared fields to an abstract class called `Node`. This way a lot of redundancy was removed and the code became clearer. In the end, the redesign was beneficial for the refactoring to CQRS too.
 
 
 
