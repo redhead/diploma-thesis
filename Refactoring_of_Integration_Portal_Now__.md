@@ -1,8 +1,8 @@
-## Refactoring of Integration Portal
+# Refactoring of Integration Portal
 
 Now that all the principles, concepts, and tools were settled and explained, the whole process of refactoring the Integration Portal application to the CQRS/ES design is presented. This section includes describing the preparation and strategy chosen for the task, the sole evolution of the refactoring, and propositions of solutions to some problems that occurred in the process. In conclusion, a few ideas for the future extensions of this design to implement new features is suggested.
 
-### Preparation
+## Preparation
 
 In the preparation to the refactoring, it was needed to go through the whole back-end code to get knowledge of all the features and functionality that would be subjected to the refactoring. In the process it was found out that some of the code needs to be revised to better fit the CQRS design.
 
