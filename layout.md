@@ -27,4 +27,5 @@ Testing_TODO__.md
 Refactoring_of_Integration_Portal_Now__.md
 Refactoring_strategy_When_the_preparation__.md
 Refactoring_the_domain_model_As__.md
+The_domain_model_The_entities__.md
 Refactoring_of_Integration_Portal_Strategy__.md
