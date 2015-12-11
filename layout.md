@@ -29,4 +29,5 @@ Refactoring_strategy_When_the_preparation__.md
 Refactoring_the_domain_model_As__.md
 The_domain_model_The_entities__.md
 figures/label/label.png
+As_you_can_see_the__.md
 Refactoring_of_Integration_Portal_Strategy__.md
