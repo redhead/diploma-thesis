@@ -1,7 +1,7 @@
 
 ### Command handling
 
-As previously described, a state change in CQRS starts with a command. To represent a command, that can handled by Axon, an instance of a Java class is used. Various types of commands are represented by different classes, e.g. `AddProductToCartCommand` or `UpdateProductPriceCommand`. The class name captures the intent of the command and the fields in the class instance carry the command data. For example, the `UpdateProductPriceCommand` class could have fields for the new price of the product and for the unique identification number (ID) of the product that the command targets. In Java, the code of that class could look like in listing #X **listing needed**.
+As previously described, a state change in CQRS starts with a command. To represent a command, that can be handled by Axon, any Java object can be used. Various types of commands can be represented by different classes, e.g. `AddProductToCartCommand` or `UpdateProductPriceCommand`. The class name captures the intent of the command and the fields in the class instance carry the command data. For example, the `UpdateProductPriceCommand` class could have fields for the new price of the product and for the unique identification number (ID) of the product that the command targets. In Java, the code of that class could look like in listing #X **listing needed**.
 
 	class UpdateProductPriceCommand {
 		
