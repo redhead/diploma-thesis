@@ -17,5 +17,5 @@ Note that the class is actually not compilable by the standard Java compiler. Th
 
 The `@Value` annotation says, that the class is an immutable value class, meaning that it is only a container for data. At compile time, it generates a constructor, which initializes all the class fields, and it also adds a getter method for each field. This greatly helped in development to define a lot of classes (for commands and events) without the need to write constructors for each class and getter methods for each field. The library is also used in other places (e.g. aggregates) using other provided annotations. 
 
-However, this comes with a cost that you need an IDE (Integrated Development Environment) with support for Lombok annotations, so the validation and code completion works. Usually this support is brought by some plugin or extension to the IDE. Successful compilation is achieved by a compiler annotation processor.
+However, this comes with a cost that you need an IDE (Integrated Development Environment) with support for Lombok annotations, so the validation and code completion works. Usually this support is brought by some plugin or extension to the IDE. Successful compilation is achieved by a compiler annotation processor provided by the library.
 
