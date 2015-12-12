@@ -6,6 +6,6 @@ The entities and their business logic in the original implementation were examin
 
 Labels can be assigned to (or removed from) folders and files (nodes) and they are owned by one user. User can change a label's color and name, or delete it. Of course, by deleting it the label is removed from all the assigned folders and files. To reference one concrete label (e.g. in the REST API), a unique ID is set to the entity.
 
-In the original design, the `Label` entity was modeled as a Hibernate entity that exposed only getter and setter methods. The business logic was placed into the service layer, specifically to the `LabelService` implementation.
+In the original design, the `Label` entity was modeled as a Hibernate entity that exposed only getter and setter methods. The business logic was placed in the service layer, specifically to the implementation of `LabelService`.
 
-This entity and the behavior can be easily transformed to an aggregate. The way that aggregates are designed follows the traditional non-anemic OOP principles, i.e. objects with both state and behavior. The `Label` aggregate would be modeled in UML like this:
+This entity and the behavior can be easily transformed to an aggregate. The way that aggregates are designed follows the traditional non-anemic OOP principles, i.e. objects with both state and behavior. The `Label` aggregate would be modeled in UML like in Figure X **reference needed**. The fields that represented the original entity are specified in the aggregate as well, and the business logic moved from the service layer to the aggregate.
