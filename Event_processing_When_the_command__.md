@@ -17,6 +17,6 @@ The majority of event handlers created in the refactoring have only one purpose 
         labelDao.save(label);
     }
 
-The event handler uses the original Data Access Objects (DAOs) from the data access layer to communicate with the Hibernate ORM. To correctly set up the label's relationship with the owning user, a reference of the `UserDetails` entity is created from the user identifier. The entity is then initialized with the data from the event and with the `UserDetails` entity reference and finally persisted.
+The event handler uses the original Data Access Objects (DAOs) from the data access layer to communicate with the Hibernate ORM. To correctly set up the label's relationship with the owning user, a reference of the `UserDetails` entity is created from the user identifier. The entity is then initialized with the data from the event and with the `UserDetails` entity reference and finally persisted. 
 
 A similar pattern is found in all the other event handlers that build the read model.
