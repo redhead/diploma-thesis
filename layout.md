@@ -34,4 +34,5 @@ Command_processing_To_send_the__.md
 Event_processing_When_the_command__.md
 Overview_of_the_refactored_code__.md
 figures/package/package.png
+The_presented_way_of_refactoring__.md
 Refactoring_of_Integration_Portal_Strategy__.md
