@@ -1,1 +1,1 @@
-Replace this text with your caption
+Overview of package structure for label functionality
