@@ -18,7 +18,7 @@ The design of general update command in RESTful API can be problematic when usin
 
 To solve this problem, it was decided to redesign the back-end REST API so the update request carries the intent clearly with one component to change at a time. A few ways how to carry out the redesign were considered. They are described in detail further in ?REST REDESIGN?**reference needed**. For now, let's just describe the chosen way of the new arrangement of the REST interface.
 
-First, all the modifiable features of each resource were collected. Each feature was assigned a sub-resource of the original resource URL. To carry the intent of the change, a POST request is sent on this newly created URL for each feature. Consider the following example of REST API interface to change a name of a folder resource:
+First, all the modifiable features of each resource were collected. Each feature was assigned a subresource of the original resource URL. To carry the intent of the change, a POST request is sent on this newly created URL for each feature. Consider the following example of REST API interface to change a name of a folder resource:
 
 Before the redesign
 
@@ -30,7 +30,7 @@ After the redesign
     POST /folder/abc123/nameChange
     {"name": "New folder name"}
 
-As you can see, the difference is made by a shift in the URL to target one specific feature of the original resource. This way, changing multiple features in one request is not possible. The `nameChange` sub-resource expects modification of the name only and thus carries the intent clearly - changes the name. The rest of the modifiable features of each resource was redesigned in a similar way.
+As you can see, the difference is made by a shift in the URL to target one specific feature of the original resource. This way, changing multiple features in one request is not possible. The `nameChange` subresource expects modification of the name only and thus carries the intent clearly - changes the name. The rest of the modifiable features of each resource was redesigned in a similar way.
 
 ### Revising the original domain model
 
