@@ -36,4 +36,5 @@ Overview_of_the_refactored_code__.md
 figures/package/package.png
 The_presented_way_of_refactoring__.md
 Dealing_with_consistency_issues_One__.md
+User_management_A_small_portion__.md
 Refactoring_of_Integration_Portal_Strategy__.md
