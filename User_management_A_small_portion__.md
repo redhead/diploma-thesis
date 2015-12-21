@@ -22,4 +22,4 @@ Password restoration was designed similarly. When users forget their password, t
 
 As it turned out, the two processes were so similar, that the sagas could share a great portion of the code in a common base class, `AbstractExpirableUserTokenSaga`. The specialized classes for each saga, `UserEmailVerificationSaga` and `RestoreLostUserPasswordSaga`, differ in only the types of the events they listen to or schedule.
 
-Even though the implementation of the sagas to support both of these processes is ready, the functionality is put on hold until the mail server and the corresponding infrastructure to send automated e-mails is provided.
+Even though the implementation of the sagas to support both of these processes is ready, the functionality was put on hold until the mail server and the corresponding infrastructure to send automated e-mails is provided.
