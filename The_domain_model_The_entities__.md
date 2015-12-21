@@ -1,4 +1,4 @@
-## The domain model
+### The domain model
 
 The entities of the original domain model remained to be used for building and querying the read model. However, the business logic, which was used to modify the entities, moved to the new domain model designed according to DDD principles by using Axon Framework and driven by commands.
 
