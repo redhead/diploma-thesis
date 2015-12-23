@@ -1,6 +1,6 @@
 ## Problem solving
 
-A few problems arose in the process of refactoring caused by the different approach that CQRS takes. This section provides description of the problems and the steps taken to solving them.
+A few problems arose in the process of refactoring caused by the different approach that CQRS takes. The following lines describe the problems and the steps taken to solving them.
 
 ### Dealing with consistency issues
 
@@ -14,7 +14,7 @@ As the individual instances of the `Folder` aggregate have no access to the name
 
 #### Folder deletion
 
-The other problem was the delete operation on a folder. In the original design, when a folder was deleted, it recursively deleted all the child folders and files in one transaction via Hibernate's support of collections. Now, that a folder is represented by an aggregate which doesn't hold references to other child folders or files, it wasn't easy to do the recursive deletion of child nodes. This issue was not easy to solve without a lot of experience with CQRS design. But it then occured that a saga (or in this case, a process manager) could be of use. This idea was validated by CQRS practioners in **citation needed**(http://programmers.stackexchange.com/questions/298462/deleting-subtrees-in-hierarchical-agreggates).
+The other problem was the delete operation on a folder. In the original design, when a folder was deleted, it recursively deleted all the child folders and files in one transaction via Hibernate's support of collections. Now, that a folder is represented by an aggregate which doesn't hold references to other child folders or files, it wasn't easy to do the recursive deletion of child nodes. This issue was not easy to solve without a lot of experience with CQRS design. But it then occurred that a saga (or in this case, a process manager) could be of use. This idea was validated by CQRS practitioners in **citation needed**(http://programmers.stackexchange.com/questions/298462/deleting-subtrees-in-hierarchical-agreggates).
 
 The basic principle is that the process manager (called `FolderDeletionSaga` in the code) coordinates the deletion of multiple aggregate instances representing the child nodes of a folder. It is started by publishing event `FolderDeletionStartedEvent` by the `Folder` aggregate instance, which marks the beginning of the deletion process. Using the same consistent read model as above, it initially queries for the children of the folder to delete. For each child node (folder or file) it sends a new command to the respective aggregate instance to delete itself first. File aggregate instances are deleted trivially. For each child folder, however, a new process manager is recursively instantiated to manage the deletion process of that folder. When all the nodes are deleted from a folder, i.e. the folder is empty, the saga managing the folder deletion sends one final internal command to the folder aggregate instance to mark it deleted. When the top saga instance, that initiated the recursive deletion process, is reached, the process is finished. Because the sagas are driven by events published by the aggregates, it is very easy to track the state of the deletion process.
 
