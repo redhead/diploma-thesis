@@ -37,4 +37,4 @@ figures/package/package.png
 The_presented_way_of_refactoring__.md
 User_management_A_small_portion__.md
 Problem_solving_A_few_problems__.md
-Refactoring_of_Integration_Portal_Strategy__.md
+Refactoring_of_Integration_Portal_Resolving__.md
