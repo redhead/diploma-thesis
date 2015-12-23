@@ -1,33 +1,5 @@
 ## Refactoring of Integration Portal
 
-### Strategy
-- one entity/aggregate at the time
-- one to one refactoring
-- test driven
-
-### Revising the REST interface
-
-- task based API
-- task base UI
-
-### Revising the original domain model
-
-- file and folder to abstract parent
-- client-side generated IDs
-- user emails
-
-### Refactoring the domain model
-
-- domain model
-- lombok!
-- write model refactoring (services)
-- read model refactoring (service)
-
-### Folder deletion saga
-
-### User management sagas
-
-
 ### Resolving the old issues
 
 - unique node name in root
