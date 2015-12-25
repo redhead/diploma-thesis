@@ -38,4 +38,5 @@ The_presented_way_of_refactoring__.md
 User_management_A_small_portion__.md
 Problem_solving_A_few_problems__.md
 Testing_As_stated_in_the__.md
+Summary_In_this_chapter_refactoring__.md
 Refactoring_of_Integration_Portal_Resolving__.md
