@@ -29,17 +29,15 @@ The following list suggests an idea of how to break the current domain model int
 
 #### Do not force CQRS and Event Sourcing
 
-As stated multiple times in the previous text, CQRS and Event Sourcing are not all or nothing design patterns. In some cases or some bounded contexts, they cause more harm then good. Take for example, the user password management - users' old passwords (their hash values) should not be stored in the event log, because it creates a major privacy and security risk. This is where Event Sourcing is not very benefitial. 
+As stated multiple times in the previous text, CQRS and Event Sourcing are not all or nothing design patterns. In some cases or some bounded contexts, they cause more harm then good. Take for example, the user password management - users' old passwords (their hash values) should not be stored in the event log, because it creates a major privacy and security risk. This is where Event Sourcing is not very beneficial. 
 
-As stated in the paragraphs about bounded contexts above, the user password management could be placed into a different aggregate, which is not event-sourced. Thus user details could still be event-sourced, but the user password would not.
+As stated in the paragraphs about bounded contexts above, the user password management could be placed into a different aggregate, which is not event-sourced. Thus, user details could still be event-sourced, but the user password would not. 
 
-In some bounded contexts, where a domain model is trivial, a simple CRUD system could be used instead of forcing CQRS, e.g. in the administration bounded context. This technique was used in **reference needed**[journey]. 
-
-Note that all the changes still need to be validated against the domain knowledge, if it is trully inapropriate to use CQRS or ES. Investigate all the benefits and disadvantages that arise from not using the patterns before refactoring.
+In some bounded contexts, where a domain model is trivial, a simple CRUD system could be used instead of forcing CQRS, e.g. in the administration bounded context. This technique was used in **reference needed**[journey]. Note that all the changes still need to be validated against the domain knowledge, if it is truly inappropriate to use CQRS or ES. Investigate all the benefits and disadvantages that arise from not using the patterns before refactoring.
 
 #### Denormalize read models
 
-The strategy of the refactoring was to preserve the original relational dabatase model, which would be used for querying. For now, the database doesn't cause any problems. If the database or the particular model does not suffice in the future, it is possible to create denormalized data from the domain events to incorporate different read models or database engines. In any case, the CQRS and ES enables the system to grow and scale in an optimized way. 
+The strategy of the refactoring was to preserve the original relational database model, which would be used for querying. For now, the database doesn't cause any problems. If the database or the particular model does not suffice in the future, it is possible to create denormalized data from the domain events to incorporate different read models or database engines. In any case, the CQRS and ES enables the system to grow and scale in an optimized way. 
 
 #### Snapshotting
 
