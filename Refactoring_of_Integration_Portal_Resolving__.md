@@ -1,32 +1,3 @@
-## Refactoring of Integration Portal
-
-### Resolving the old issues
-
-- unique node name in root
-- better user management
-
-### Testing
-
-
-
-## Summary
-
-### Benefits
-
-- 
-- testing
-- removed all the weird code from services (createEntity, deleteEntity)
-- enabling of other features
-
-### Disadvantages
-
-- how to model files and folder
-- deletion of folders
-- harder navigation in code (Axon support for intellij)
-
-### Security
-- user passwords
-
 
 ### Suggestions
 
