@@ -42,4 +42,3 @@ Summary_In_this_chapter_refactoring__.md
 Disadvantages_As_with_every_existing__.md
 Suggestions_As_stated_above_the__.md
 Future_development_To_build_further__.md
-Suggestions_bounded_contexts_multiple_smaller__.md
