@@ -44,3 +44,4 @@ Suggestions_As_stated_above_the__.md
 Future_development_To_build_further__.md
 Comparison_to_traditional_layered_architecture__.md
 figures/layered1/layered1.png
+Disadvantages_The_layered_architecture_is__.md
