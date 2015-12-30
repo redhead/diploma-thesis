@@ -16,6 +16,6 @@ For better user experience on the front-end side of Integration Portal, a notifi
 
 #### History of file/folder changes
 
-One feature that was planned from the beginning of development of Integration Portal was to support a history of changes made to a file or a folder. This log would include information what was done to a node and by who. More importantly, files should provide a list of all the versions of the file data and a way to restore the old versions.
+One feature that was planned from the beginning of the development of Integration Portal was to support a history of changes made to a file or a folder. This log would include information what was done to a node and by who. More importantly, files should provide a list of all the versions of the file data and a way to restore the old versions.
 
 Because all the events about changes in node aggregates are now stored, it is possible to read these events and build a read model to support this kind of a history log. This, however, does not apply to restoring back a specific version of a file, because the events do not contain the data about the content. The reason is that the events would become too large and would decrease the system performance significantly. One workaround would be to store the data in other storage, and events would refer to it by the aggregate identifier and a version, for example.
