@@ -1,6 +1,6 @@
 ## Command Query Responsibility Segregation
 
-This section is intended to provide information about Command Query Responsibility Segregation (CQRS), the problems it aims to solve, and it's connection to Event Sourcing.
+This section is intended to provide information about Command Query Responsibility Segregation (CQRS), the problems it aims to solve, and its connection to Event Sourcing.
 
 The CQRS pattern was already briefly described in the introduction of this chapter. In its entirety, the idea is as simple as separating the command input handling to mutate data and querying the application to return the data. If each of the two concerns is separated to a different module, it provides us some benefits described in the following section.
 
