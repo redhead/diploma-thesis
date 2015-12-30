@@ -8,7 +8,7 @@ As stated previously, at the time of starting the refactoring to CQRS and ES the
 - Authorization based on permissions to
     - access to main administration (users, user roles)
     - edit organizational units
-    - edit externists
+    - edit externs
     - edit password
 - Password change
 - Group management
