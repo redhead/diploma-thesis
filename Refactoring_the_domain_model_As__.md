@@ -18,4 +18,10 @@ The implementation of the original non-query methods was altered so they don't e
 
 An important change from the original implementation is that the service methods that are responsible for creating new domain objects (aggregates) are now also responsible for creating their unique identifier (ID). In the original design, this was done by the database when persisting new entities just by incrementing the table's internal sequence number. In the new implementation, IDs are randomly generated, before the command is dispatched, using a statistically safe algorithm and then used to reference the aggregate. More in **reference needed**.
 
-To summarize, the interface of the service layer remains almost unaffected by the refactoring and is still used by controllers in the same way as in the original design. The implementation of the business logic methods, however, changed to dispatching commands to the new domain model.
+To summarize, the interface of the service layer remains almost unaffected by the refactoring and is still used by controllers in the same way as in the original design. The implementation of the business logic methods, however, changed to delegation of the processing to the new domain model by dispatching commands. An example of such method is shown in Figure X**reference needed**.
+
+    public void deleteLabel(String labelId) {
+        commandGateway.sendAndWait(new DeleteLabelCommand(
+                LabelId.of(labelId)
+        ));
+    }
