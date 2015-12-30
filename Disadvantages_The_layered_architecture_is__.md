@@ -1,11 +1,11 @@
 
 ### Disadvantages
 
-The layered architecture is the most common architecture pattern for valid reasons, because mixing low-level (e.g. data persistence, web services) and high-level (e.g. presentation, business logic) is makes code error-prone, harder to navigate, maintain and test. In general, it is a good practice to follow this pattern. However, that doesn't mean it has no disadvantages. Let's describe some of the problems of this pattern in the following text.
+The layered architecture is the most common architecture pattern for valid reasons because mixing low-level (e.g. data persistence, web services) and high-level (e.g. presentation, business logic) makes the code error-prone, harder to navigate, maintain and test. In general, it is a good practice to follow this pattern. However, that doesn't mean it has no disadvantages. Let's describe some of the problems of this pattern in the following text.
 
 #### Violation of single responsibility principle
 
-Strict communication between stacked layers results in a situation where the business layer has to be accessed to only query data. This violates the single responsibility principle (SRP), that encourages classes to have only one responsibility, one reason to change. Responsibilities for validation and execution of user actions, as well as queries permeate into both data access and business logic layers.
+Strict communication between stacked layers results in a situation where the business layer has to be accessed to only query data. This violates the single responsibility principle (SRP), that encourages classes to have only one responsibility, one reason to change. Responsibilities for validation and execution of user actions, as well as queries, permeate into both data access and business logic layers.
 
 #### Leaky abstraction
 
