@@ -16,7 +16,7 @@ ES enables us to make projections of the events to a new state model. This can b
 
 #### Debugging
 
-We can use the event log to examine a fault in our system. Imagine that a user reports a bug without specifying the steps to reproduce the bug. This is usually a nightmare for software developers isolating the bug. But with Event Sourcing we have the whole history of events applied to the application and stored in a log. Thus, we can go back in time by replaying the events (similar to model rebuilding) and see what the user did, by looking at the events, at the exact time the bug happened. We can then use standard debugging tools to see what code got executed by the application and why it resulted in producing the bug. 
+We can use the event log to examine a fault in our system. Imagine that a user reports a bug without specifying the steps to reproduce the bug. This is usually a nightmare for software developers isolating the bug. But with Event Sourcing, we have the whole history of events applied to the application and stored in a log. Thus, we can go back in time by replaying the events (similar to model rebuilding) and see what the user did, by looking at the events, at the exact time the bug happened. We can then use standard debugging tools to see what code got executed by the application and why it resulted in producing the bug. 
 
 #### Fallback after a failure
 
@@ -24,15 +24,15 @@ When deploying a new version of your application into production for your users,
 
 If you use version control systems or other tools to back up your code base you can recover the working code easily. Getting back the database state, however, may be impossible because of the destructive changes made to the production database during deployment. The original data for the old version may be lost forever because of the schema update. If the database was backed up before the deployment you can get the original database back. However, you would lose all the data the users created during the week that the new version was working.
 
-With Event Sourcing this fallback can be accomplished easily. Since events must never be altered, we still have all the necessary data to recreate the original data model by replaying all the events including those created in that week.
+With Event Sourcing, this fallback can be accomplished easily. Since events must never be altered, we still have all the necessary data to recreate the original data model by replaying all the events including those created in that week.
 
-But we can go a step further in our deployment process and keep the two systems, the original version and the new version, running side by side. After deployment, the new version can take control of generating the events, while both versions can process them individually into their own data models in separate databases. If anything goes wrong with the live version, you can just switch back to the original (but still up-to-date) version running in parallel. This way the users will not be affected by long lasting down times leaving you more time to fix the problem.
+But we can go a step further in our deployment process and keep the two systems, the original version, and the new version, running side by side. After deployment, the new version can take control of generating the events, while both versions can process them individually into their own data models in separate databases. If anything goes wrong with the live version, you can just switch back to the original (but still up-to-date) version running in parallel. This way the users will not be affected by long-lasting down times leaving you more time to fix the problem.
 
 #### Event processing
 
 With a complete event log, we can make projections of the data for the users. But we can also create other systems around the same event log. The systems can then use some or all the events to do tasks like
 
-- Monitoring (some events sent too often, or in unexpected order)
+- Monitoring (some events sent too often or in unexpected order)
 - Fraud detection
 - Data analysis
 - Data mining
@@ -40,7 +40,7 @@ With a complete event log, we can make projections of the data for the users. Bu
 
 #### New business requirements
 
-One of the best reasons, in my opinion, for using ES is that we can easily fulfill new business requirements that involve old data. Imagine that the project stake holders come up with a new requirement for an already working online shopping system. The feature they want you to implement is a suggestion mechanism that presents the user the products they removed from their cart just before checking out. Possibly, the users wanted to buy these products but they removed them from the cart because the total order price was too high. The users may want to buy the products next month though. To suggest those products to the user on their next visit we need the information that the products were removed from the cart just before checkout. If we designed our domain events properly we should have that information for every user in the system already stored as events in the event log. We can build this feature easily using the old events and suggest the right products to each user immediately after the feature deployment. This is a very nice advantage over the systems that store only the current state because these systems do not have the data beforehand. The system wouldn't be able to suggest anything until the next user removes a product from their cart.
+One of the best reasons, in my opinion, for using ES is that we can easily fulfill new business requirements that involve old data. Imagine that the project stakeholders come up with a new requirement for an already working online shopping system. The feature they want you to implement is a suggestion mechanism that presents the user the products they removed from their cart just before checking out. Possibly, the users wanted to buy these products but they removed them from the cart because the total order price was too high. The users may want to buy the products next month, though. To suggest those products to the user on their next visit we need the information that the products were removed from the cart just before checkout. If we designed our domain events properly we should have that information for every user in the system already stored as events in the event log. We can build this feature easily using the old events and suggest the right products to each user immediately after the feature deployment. This is a very nice advantage over the systems that store only the current state because these systems do not have the data beforehand. The system wouldn't be able to suggest anything until the next user removes a product from their cart.
 
 A very similar example of a requirement that involves historic data is a chart of price development for a product over time. Many online shopping systems present this kind of chart to their users. It is not possible to (immediately) accomplish this requirement in an application that stores only the current state (the current price of the product). In an event sourced system, this task is easy to accomplish as we probably already have all the events with the price updates for every product.
 
@@ -50,7 +50,7 @@ A very similar example of a requirement that involves historic data is a chart o
 
 ### Domain event
 
-The core term in ES is a domain event, which was mentioned a few times already as just an event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system and resulted in some state change. In most cases, there are a number of different kinds of events in the system. Usually they are represented by simple objects with properties that store the data describing the particular event.
+The core term in ES is a domain event, which was mentioned a few times already as just an event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system and resulted in some state change. In most cases, there are a number of different kinds of events in the system. Usually, they are represented by simple objects with properties that store the data describing the particular event.
 
 You can see an example of a domain event represented by a Java class in listing #l **listing needed**
 
