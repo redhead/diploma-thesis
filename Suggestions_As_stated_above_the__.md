@@ -4,7 +4,7 @@ As stated above, the design patterns are not easy to master in a short notice. S
 
 #### Create multiple bounded contexts
 
-During the refactoring, the importance of bounded contexts, a way of separating unrelated responsibilities in the domain, was underestimated. In the end, it turned out that the system is actually made of more smaller domain models that could be separated. This also includes the aggregates which can be broken into smaller consistency boundaries that relate to different contexts. As Domain-Driven Design**reference needed**[DDD] teaches us, the domain model should be incrementally improved as our knowledge about the domain increases.
+During the refactoring, the importance of bounded contexts, a way of separating unrelated responsibilities in the domain was underestimated. In the end, it turned out that the system is actually made of smaller domain models that could be separated. This also includes the aggregates which can be broken into smaller consistency boundaries that relate to different contexts. As Domain-Driven Design**reference needed**[DDD] teaches us, the domain model should be incrementally improved as our knowledge about the domain increases.
 
 The following list suggests an idea of how to break the current domain model into smaller bounded contexts.
 
@@ -29,7 +29,7 @@ The following list suggests an idea of how to break the current domain model int
 
 #### Do not force CQRS and Event Sourcing
 
-As stated multiple times in the previous text, CQRS and Event Sourcing are not all or nothing design patterns. In some cases or some bounded contexts, they cause more harm then good. Take for example, the user password management - users' old passwords (their hash values) should not be stored in the event log, because it creates a major privacy and security risk. This is where Event Sourcing is not very beneficial. 
+As stated multiple times in the previous text, CQRS and Event Sourcing are not all or nothing design patterns. In some cases or some bounded contexts, they cause more harm than good. Take for example, the user password management - users' old passwords (their hash values) should not be stored in the event log because it creates a major privacy and security risk. This is where Event Sourcing is not very beneficial. 
 
 As stated in the paragraphs about bounded contexts above, the user password management could be placed into a different aggregate, which is not event-sourced. Thus, user details could still be event-sourced, but the user password would not. 
 
@@ -45,4 +45,4 @@ Event sourcing is now used in all the aggregates without snapshotting. If system
 
 #### Specialized event store
 
-Events are now stored in the same database as the read model, a PostreSQL database. This may not be a great choice for an event store because it is not optimized to do this task, and what's more, it is harder to implement publish-subscribe event processing on top of it. My recommendation is to search for other database engine to store the events to. Particularly, EventStore **reference needed** and Kafka **reference needed** seem to be great candidates as they refer to event sourcing and processing in their overview and documentation.
+Events are now stored in the same database as the read model, a PostreSQL database. This may not be a great choice for an event store because it is not optimized to do this task, and what's more, it is harder to implement publish-subscribe event processing on top of it. My recommendation is to search for different database engine to store the events to. Particularly, EventStore **reference needed** and Kafka **reference needed** seem to be great candidates as they refer to event sourcing and processing in their overview and documentation.
