@@ -1,7 +1,7 @@
 In the following paragraphs, a brief description of the entities of the domain model is presented. 
 
 #### File
-An entity that represents an uploaded file into the system. It's not meant to carry the file contents, but it holds its meta data (file name, size, content type, etc.). In the implementation this entity is called `FileMetadata` for historic reasons, but `File` captures better that it represents a file in the simulated file system.
+An entity that represents an uploaded file into the system. It's not meant to carry the file contents, but it holds its metadata (file name, size, content type, etc.). In the implementation, this entity is called `FileMetadata` for historic reasons, but `File` captures better that it represents a file in the simulated file system.
 
 #### Folder
 The `Folder` entity is a way of organizing `File`s into named groups and is equivalent to folders in regular file systems. A folder can contain a number of files and also other folders effectively creating a tree hierarchy of files and folders where files are the leaves of the tree.
@@ -18,7 +18,7 @@ The `Group` entity is a way of organizing other users into named groups. These g
 #### Organizational Unit
 Organizational units map to the departments of the university. The purpose of the `OrganizationUnit` entity is to group users of Integration Portal to their appropriate organizational unit within the university. Each unit is assigned a limit of file storage capacity their users are allowed to utilize. This limit is called a quota. The sum of sizes of all the files owned by the members of an organizational unit must not exceed this quota.
 
-#### User Role and Permisssion
+#### User Role and Permission
 The `UserRole` entity and the `Permission` enumeration form the authorization mechanism used to limit the user's access to various features of the application (e.g. administration). The `UserRole` entity is represented by a name of the role and a collection of permissions. The collection of permissions in a role specifies what permissions a user has if associated with this role. Additionally, a user can be assigned with extra permissions directly without them being associated with any role. This way, it is possible to combine direct permissions and role permissions to create a flexible authorization system. Multiple roles and/or direct permissions can be associated with a user.
 
 #### Space
