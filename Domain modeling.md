@@ -1,6 +1,6 @@
 ### Domain modeling
 
-In the introduction to CQRS, the building blocks used in domain modeling were described. Two of the building blocks, events and aggregates, play a major role in Axon Framework.
+In the introduction to CQRS, the building blocks used in domain modeling were described. Two of the building blocks, events, and aggregates, play a major role in Axon Framework.
 
 #### Events
 
