@@ -16,7 +16,7 @@ In many systems, an audit log is a separate module that is updated by the code h
 
 Event Sourcing takes the opposite approach. It makes the audit log the core concept for system state transitioning. That means the system is actually an audit log in the first place instead of a representation of the current state. And from this log the current state of the application can be computed, much like the account balance is computed from the list of account entries. 
 
-This computed value would be called a projection. It may be viewed as a function of a list of events which returns a projection based on that list of events.
+This computed value would be called a projection. It may be viewed as a function of a list of events which returns a projection based on that list of events. Usually, the events are applied to an intermediate state one by one. For example, see Figure X**reference needed**.
 
 ** pokus o matematickou fci?? **
 
