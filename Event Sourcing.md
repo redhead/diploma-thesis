@@ -8,7 +8,11 @@ As previously mentioned, the idea of event sourcing is not new. Various relation
 
 Event Sourcing follows this idea - instead of storing the current state of the application, it primarily stores facts about changes (events) that happened to the application. The current state is degraded to be transient, meaning that we can throw it away and build it again just by processing all the events one by one. The benefits of this design are that we automatically get a correct audit log (in some cases required by the law), and a way to build the current state by making projection(s) of the events. 
 
-The use of Event Sourcing can provide many beneficial use cases that would not be possible without it. The next paragraphs describe some of these cases for the reader to consider:
+???
+You can get the general idea of this pattern from bookkeeping or bank accounts where everything is stored as a list of accounting entries, or entries of money deposits and withdrawals. When you get your bank statement, you can see it is presented as a list of entries specifying what happened to your account each time a transaction happened and how much money was involved in each transaction. If you take all these entries and sum them up (positive values for money deposit, and negative for withdrawal) you get your total account balance. This is how banks worked and are still working - they keep all these entries as a history of account transactions and by summing them we get the account balance.
+???
+
+The use of Event Sourcing can provide many beneficial use cases that would not be possible without it. The next paragraphs describe some of these cases for the reader to consider.
 
 #### Rebuilding the read model
 
