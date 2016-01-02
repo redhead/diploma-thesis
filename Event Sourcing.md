@@ -16,7 +16,7 @@ Because events describe something that has already happened, they are immutable 
 
 Event names should also reflect their intents from a business point of view. The "address corrected" and "customer moved" events reflect different business values in the domain, even though they would probably result in the same data change (updating the address).
 
-As you've probably noticed, the events should are named in the form of a verb in the past tense. That is because the domain event symbolizes something that has already happened, a historic event that marks a state transition in the application.
+As you've probably noticed, the events should be named in the form of a verb in the past tense. That is because the domain event symbolizes something that has already happened, a historic event that marks a state transition in the application.
 
 
 ### Event log
