@@ -41,7 +41,7 @@ The code base is hosted in a GitHub repository. It has 24 stars and 2 forks. The
 **citation needed**
 The Jdon Framework web site describes the framework as a Java reactive framework that can be used to build Domain Driven Design applications using CQRS and event sourcing with asynchronous concurrency and higher throughput. It uses reactive approach and actor based model, similarly to EventStore2 which uses Akka. It supports dependency injection and annotation support and is integrable with Spring framework.
 
-The documentation is comprehensive and uses images to better explain the principles. However, typographically it is in a poor state for reading - often the text is broken, it contains typos and grammar errors. On top of that, the framework does not seem to be developed anymore. The last change made to its code was two years ago. The latest stable version 6.8 was released around that time too.
+The documentation is comprehensive and uses images to better explain the principles. Typographically, however, it is in a poor state for reading - often the text is broken, it contains typos and grammar errors. On top of that, the framework does not seem to be developed anymore. The last change made to its code was two years ago. The latest stable version 6.8 was released around that time too.
 
 The framework's code is stored in a GitHub repository with 278 stars and 148 forks. A few issues are in the issue tracker, some written in Chinese. The latest issues are asking about the activity of development, but without any responses. It is open source under Apache 2 license.
 
