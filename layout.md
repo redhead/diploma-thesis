@@ -1,6 +1,7 @@
 Abstract.md
 Introduction.md
 ES CQRS intro.md
+figures/Diagram bez názvu/Diagram bez názvu.png
 Event Sourcing.md
 CQRS.md
 CQRS & ES.md
