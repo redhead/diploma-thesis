@@ -16,7 +16,7 @@ The goal of this diploma thesis and the work behind it was to study the basic pr
 
 ## About the text
 
-The following chapters explain the basic ideas, benefits, and disadvantages of the patterns, and describe the path taken in implementing the patterns into an existing software project written in Java - Integration Portal - in which the benefits over the original design are practically examined. 
+The following chapters explain the basic ideas, benefits, and disadvantages of the patterns, and describe the path taken in implementing the patterns into an existing software project written in Java --- Integration Portal --- in which the benefits over the original design are practically examined. 
 
 The first part of the thesis describes the idea of Event Sourcing and the Command Query Responsibility Segregation (CQRS) design pattern, which is usually implemented in tandem with Event Sourcing. The second part introduces the Integration Portal project and its original design that was, as part of this diploma thesis, subjected to refactoring into Event Sourcing and CQRS design. Finally, the whole process and the experience are described together with a discussion of the issues that were introduced by the refactoring and suggestions of how they could be handled.
 

@@ -12,10 +12,10 @@ It is the most common architecture pattern and the de facto standard for most Ja
 
 Applications are usually composed of some components. The aim of the layered architecture is to organize these components in horizontal layers, each layer having a specific role and responsibility. In a typical JEE application, according to **citation needed**[https://docs.oracle.com/cd/E19644-01/817-5448/dgdesign.html], there are three layers:
 
-- **presentation layer** - user interface and browser communication
-- **service / business layer** - business rules and functions
-- **data access layer** - abstraction of database reads and writes
+- **presentation layer** -- user interface and browser communication
+- **service / business layer** -- business rules and functions
+- **data access layer** -- abstraction of database reads and writes
 
-Presentation layer, for example, has just one responsibility - display the information to a user. It does not need to know anything about how the data are stored. This is a responsibility of the data access layer.
+Presentation layer, for example, has just one responsibility --- display the information to a user. It does not need to know anything about how the data are stored. This is a responsibility of the data access layer.
 
-On top of that, some kind of Object-Relational Mapping (ORM) is involved in the data access layer that maps the data in a relational database (rows of tables) into Java objects called entities or entity beans. These objects are then passed between the other layers to execute business logic on the data or to present the data to a client. Many implementations of the pattern map the ORM entities to other objects - domain entities, data transfer objects (DTOs) -  which are used in communication between two layers. This helps to define a strict interface between the layers. Figure X **reference needed** shows how the layers are stacked and how they communicate. The strict separation by interfaces makes the layers more decoupled and less prone to changes in other layers. Also, implementation of the components can be completely replaced without the interface being changed.
+On top of that, some kind of Object-Relational Mapping (ORM) is involved in the data access layer that maps the data in a relational database (rows of tables) into Java objects called entities or entity beans. These objects are then passed between the other layers to execute business logic on the data or to present the data to a client. Many implementations of the pattern map the ORM entities to other objects --- domain entities, data transfer objects (DTOs) ---  which are used in communication between two layers. This helps to define a strict interface between the layers. Figure X **reference needed** shows how the layers are stacked and how they communicate. The strict separation by interfaces makes the layers more decoupled and less prone to changes in other layers. Also, implementation of the components can be completely replaced without the interface being changed.

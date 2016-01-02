@@ -8,28 +8,28 @@ During the refactoring, the importance of bounded contexts, a way of separating 
 
 The following list suggests an idea of how to break the current domain model into smaller bounded contexts.
 
-- **File system bounded context** - all the aggregates that are part of the simulated file system can be placed here
+- **File system bounded context** -- all the aggregates that are part of the simulated file system can be placed here
 	- Files
 	- Folders
 	- Users (in the sense of an owner of the nodes)
 
-- **User management bounded context** - the processes dealing with user management
+- **User management bounded context** -- the processes dealing with user management
 	- Registration
 	- Forgotten password
 
-- **Administration bounded context** - the domain of system administration by super users
+- **Administration bounded context** -- the domain of system administration by super users
 	- Organizational Units and their quotas
 	- User roles
 	- User administration
 
-- **User settings bounded context** - everything that can be set by a user
+- **User settings bounded context** -- everything that can be set by a user
 	- Labels
 	- User groups
 
 
 #### Do not force CQRS and Event Sourcing
 
-As stated multiple times in the previous text, CQRS and Event Sourcing are not all or nothing design patterns. In some cases or some bounded contexts, they cause more harm than good. Take for example, the user password management - users' old passwords (their hash values) should not be stored in the event log because it creates a major privacy and security risk. This is where Event Sourcing is not very beneficial. 
+As stated multiple times in the previous text, CQRS and Event Sourcing are not all or nothing design patterns. In some cases or some bounded contexts, they cause more harm than good. Take for example, the user password management --- users' old passwords (their hash values) should not be stored in the event log because it creates a major privacy and security risk. This is where Event Sourcing is not very beneficial. 
 
 As stated in the paragraphs about bounded contexts above, the user password management could be placed into a different aggregate, which is not event-sourced. Thus, user details could still be event-sourced, but the user password would not. 
 

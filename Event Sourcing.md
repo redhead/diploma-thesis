@@ -6,7 +6,7 @@ Event sourcing is a way of persisting the state of an application by storing the
 
 ### Domain event
 
-The core term in event sourcing is a domain event, which is usually regarded as just an event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system and resulted in some state change. In most cases, there are a number of different kinds of events in the system, each describing a different type of the change, e.g. `product added to cart` or `product reserved` events could fit in some online shopping application. Events have a single source that publishes the event and one or more receivers. Because events describe something that has already happened, they are immutable - they cannot be changed or undone. But there can be subsequent events that can alter or cancel the effects of the previous events, e.g. `reservation cancelled`.
+The core term in event sourcing is a domain event, which is usually regarded as just an event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system and resulted in some state change. In most cases, there are a number of different kinds of events in the system, each describing a different type of the change, e.g. `product added to cart` or `product reserved` events could fit in some online shopping application. Events have a single source that publishes the event and one or more receivers. Because events describe something that has already happened, they are immutable --- they cannot be changed or undone. But there can be subsequent events that can alter or cancel the effects of the previous events, e.g. `reservation cancelled`.
 
 Usually, events are represented by simple objects with properties that store the parameters that describe the particular event. For example of a domain event represented by a Java class, see Listing X **listing needed**.
 
@@ -28,7 +28,7 @@ Usually, events are represented by simple objects with properties that store the
 
 	}
 
-To make use of the event for the purpose of event sourcing, the developers need to create an instance of that class with appropriate parameters. The data contained in the object describe the properties of the particular event - a product X of count Y was added to cart Z. 
+To make use of the event for the purpose of event sourcing, the developers need to create an instance of that class with appropriate parameters. The data contained in the object describe the properties of the particular event --- a product X of count Y was added to cart Z. 
 
 Event names should reflect their intents from a business point of view. The `AddressCorrected` and `CustomerMoved` events reflect different business values in the domain, even though they would probably result in the same data change (updating the address).
 
@@ -38,7 +38,7 @@ Another essential thing is that objects of this class are immutable as designed 
 
 ### Event log
 
-How events get generated will be described in the section about the CQRS design pattern. First, let's take a closer look at storing the events. As already mentioned, the events are saved to persistent storage in a representation called the event log, a list of events in the same order they have actually occurred in the system. Not only that, the event log is append-only, which means new events can only be added to the end of the log. This rule, together with the immutability of events, means that the already persisted list of events can never be changed or altered - no inserting, editing, or deleting. The past cannot be changed.
+How events get generated will be described in the section about the CQRS design pattern. First, let's take a closer look at storing the events. As already mentioned, the events are saved to persistent storage in a representation called the event log, a list of events in the same order they have actually occurred in the system. Not only that, the event log is append-only, which means new events can only be added to the end of the log. This rule, together with the immutability of events, means that the already persisted list of events can never be changed or altered --- no inserting, editing, or deleting. The past cannot be changed.
 
 The storage mechanism is not very important and it can differ in implementation. The storage can be an in-memory list (best suited for testing), a file system, a relational database, or storage specifically designed to persist a lot of messages in large quantities with great performance. It depends on the requirements and use cases to choose the best strategy for persisting events.
 
@@ -48,7 +48,7 @@ The event log is then used to recreate the current state of the application (or 
 
 As previously mentioned, the idea of event sourcing is not new. Various relational database management systems (RDBMS) found their way to most software applications as a persistent storage mechanism, in which the application stores its current state in tables. However, an interesting aspect of these database systems is that, internally, they usually keep some kind of a transaction log where they store all the changes that were applied to the database**citation needed**[http://cqrs.nu/Faq/event-sourcing]. This log is then used, for example, to handle database transactions, crash recovery, and replication. It is very easy to replicate data if they are represented as immutable events in an append-only log. To replicate, a node just needs to send the events that are new since the last replication and the receiving node applies these changes to itself, making both nodes synchronized.
 
-Event Sourcing follows this idea - instead of storing the current state of the application, it primarily stores facts about changes (events) that happened to the application. The current state is degraded to be transient, meaning that we can throw it away and build it again just by processing all the events one by one. The benefits of this design are that we automatically get a correct audit log (in some cases required by the law), and a way to build the current state by making projection(s) of the events. 
+Event Sourcing follows this idea --- instead of storing the current state of the application, it primarily stores facts about changes (events) that happened to the application. The current state is degraded to be transient, meaning that we can throw it away and build it again just by processing all the events one by one. The benefits of this design are that we automatically get a correct audit log (in some cases required by the law), and a way to build the current state by making projection(s) of the events. 
 
 The use of Event Sourcing can provide many beneficial use cases, that would not be so straightforward or possible at all without it. The next paragraphs describe some of these cases for the reader to consider.
 
@@ -71,11 +71,11 @@ But we can go a step further in our deployment process and keep the two systems,
 
 With a complete event log, we can make projections of the data for the users. But we can also create other systems around the same event log. The systems can then use some or all the events to do tasks like:
 
-- **monitoring** - for the purpose of statistics regarding, for example, exceptional behaviour (e.g. frequency of events or unexpected order of events).
-- **fraud detection** - if a state that is considered a fraud by some specified rules is reached, the processor can notify interested people to act upon the situation.
-- **data analysis** - for inspecting the events to get some information valuable for the business, e.g. what action is done the most by the users at what time of a day.
-- **data mining** - to find some new trends and correlations in the data.
-- **system integration** - to merely communicate data between multiple systems.
+- **monitoring** -- for the purpose of statistics regarding, for example, exceptional behaviour (e.g. frequency of events or unexpected order of events).
+- **fraud detection** -- if a state that is considered a fraud by some specified rules is reached, the processor can notify interested people to act upon the situation.
+- **data analysis** -- for inspecting the events to get some information valuable for the business, e.g. what action is done the most by the users at what time of a day.
+- **data mining** -- to find some new trends and correlations in the data.
+- **system integration** -- to merely communicate data between multiple systems.
 
 #### Deriving business value from the event log
 
