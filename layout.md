@@ -1,6 +1,7 @@
 Abstract.md
 Introduction.md
 ES CQRS intro.md
+figures/relational-model/relational-model.png
 Event Sourcing.md
 CQRS.md
 CQRS & ES.md
