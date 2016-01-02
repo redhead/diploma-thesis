@@ -41,7 +41,7 @@ The strategy of the refactoring was to preserve the original relational database
 
 #### Snapshotting
 
-Event sourcing is now used in all the aggregates without snapshotting. If system writes (i.e. command processing) becomes slow, it may be caused by too many events being queried and handled to get the aggregate instance to the desired state before handling the state change. According to Greg Young, the author behind event sourcing, aggregates do not need snapshotting if the number of events of an instance is in hundreds**citation needed**[greg young video]. If the number of events increases to thousands, snapshotting is a good way to optimize the write model. For more information about snapshotting in Axon Framework, see the Axon documentation**citation needed**.
+Event sourcing is now used in all the aggregates without snapshotting. If system writes (i.e. command processing) become slow, it may be caused by too many events being queried and handled to get the aggregate instance to the desired state before handling the state change. According to Greg Young, the author of event sourcing, aggregates do not need snapshotting if the number of events of an instance is in hundreds**citation needed**[greg young video]. If the number of events increases to thousands, snapshotting is a good way to optimize the write model. For more information about snapshotting in Axon Framework, see the Axon documentation**citation needed**.
 
 #### Specialized event store
 
