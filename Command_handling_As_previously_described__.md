@@ -22,11 +22,11 @@ The command name, represented by the class name, captures the intent of the comm
 
 The next paragraphs provide an overview of the components related to setting up the infrastructure for command handling in Axon.
 
-#### The Command Gateway
+#### Command gateway
 
 To dispatch the commands represented by class instances, Axon provides a convenient interface called a Command Gateway. This interface defines two methods to send a command, which is passed as an argument. The `sendAndWait()` method is blocking, which means it stops the execution of the caller until the passed-in command is resolved, and it returns the result of the command execution. The other method, `send()`, is the asynchronous counterpart, i.e. non-blocking the execution of the caller. Axon provides a default implementation of this interface called `DefaultCommandGateway`, or the users can provide their own implementation to suit their needs. The commands passed to the Command Gateway are then send to the Command Bus. 
 
-#### The Command Bus
+#### Command bus
 
 An entry point to the Axon's command dispatching mechanism is the Command Bus. Its responsibility is to route the received commands to the command handlers. Each command is always sent to the exactly one command handler. The interface defines two methods for dispatching the commands, which are designed with asynchronicity in mind. It also provides methods for (un)subscribing the command handlers. 
 
