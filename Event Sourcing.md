@@ -1,6 +1,6 @@
 ## Event Sourcing
 
-The following text describes event sourcing pattern in detail. First, to help understand the idea of the pattern, some necessary definitions are presented. Finally, a few reasons why use Event Sourcing is discussed with some examples of where ES is an advantage for applications.
+The following text describes the event sourcing pattern in detail. First, to help understand the idea of the pattern, some necessary definitions are presented. Finally, a few reasons why use Event Sourcing is discussed with some examples of where ES is an advantage for applications.
 
 Event sourcing is a way of persisting the state of an application by storing the history that shaped the application's current state. Instead of storing only the current state in some fixed structural model, e.g. in a relational database, event-sourced model stores a list of events that happened in the system in its entire lifetime.
 
