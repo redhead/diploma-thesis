@@ -3,6 +3,7 @@ Introduction.md
 ES CQRS intro.md
 figures/relational-model/relational-model.png
 Event Sourcing.md
+Rebuilding_the_read_model_Usually__.md
 CQRS.md
 CQRS & ES.md
 figures/cqrs-no-es/cqrs-no-es.png
