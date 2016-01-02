@@ -1,8 +1,8 @@
 Abstract.md
 Introduction.md
 ES CQRS intro.md
-figures/relational-model/relational-model.png
 Event Sourcing.md
+figures/relational-model/relational-model.png
 However_this_is_not_the__.md
 Rebuilding_the_read_model_Usually__.md
 CQRS.md
