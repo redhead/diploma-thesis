@@ -54,7 +54,8 @@ The use of Event Sourcing can provide many beneficial use cases, that would not 
 
 #### Rebuilding the read model
 
-ES enables us to make projections of the events to a new state model. This can be a read model used by the application to query data to be presented to users. On top of that, it allows us to rebuild the model to a completely different structure. We can change the way the user sees the data by projecting the events again but structuring the model differently. We can also use the existing events to build a separate read model that will exist next to the original one. Making a search index of the application data stored in a full-text search server is one example of another read model.
+Usually, there exists more than one way how to model and structure application data. More importantly, the models can change to accommodate new requirements.
+Event sourcing enables us to make change or create new models from the events by making projections. This can be, for example, a read model used by the application to query data to be presented to users. On top of that, it allows us to rebuild the model to a completely different structure. We can change the way the user sees the data by projecting the events again but structuring the model differently. We can also use the existing events to build a separate read model that will exist next to the original one. Making a search index of the application data stored in a full-text search server is one example of another read model.
 
 #### Fallback after a failure
 
