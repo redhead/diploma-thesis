@@ -33,7 +33,7 @@ The code repository on GitHub has more than 300 stars and 100 forks. **citation 
 **citation needed**
 EventStore2 is a framework for creating event sourced applications in Java. Much like Axon Framework it uses CQRS concepts and terms for the implementation, and it utilizes the Java annotations to configure command handlers, sagas and event handlers (called Projections here). For asynchronous execution and clustering support it uses Akka, a toolkit and runtime for building highly concurrent, distributed, and resilient message-driven applications on the JVM.
 
-It is in active development, with the current stable version being 2.4.3. A big disadvantage is lack of detailed documentation. The whole framework is described just in few paragraphs in a README file with few examples of how to implement command handlers and projections. The documentation totally omits how to use sagas, transactional support, persistence, configuration and more.
+It is in active development, with the current stable version being 2.4.3. A big disadvantage is a lack of detailed documentation. The whole framework is described just in few paragraphs in a README file with few examples of how to implement command handlers and projections. The documentation totally omits how to use sagas, transactional support, persistence, configuration and more.
 
 The code base is hosted in a GitHub repository. It has 24 stars and 2 forks. The issue tracker does not contain any issues, not even closed. No official web site or any other references where found on the Internet. From this, it was deduced that the framework is not actively used by many users. It is open source under the MIT license.
 
