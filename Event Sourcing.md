@@ -8,13 +8,13 @@ Event sourcing is a way of persisting the state of an application by storing the
 
 ### Domain event
 
-The core term in event sourcing is a domain event, which is usually referred to as just an event. A domain event is a fact about application state transition. In other words, it describes something that has happened to the system and resulted in some state change. 
+The core term in event sourcing is a domain event, which is usually referred to as just an event. A domain event is a fact about an application state transition. In other words, it describes something that has happened to the system and resulted in some state change. 
 
-In most cases, there are a number of different kinds of events in the system, each describing a different type of the change. For example, `product added to cart` or `product reserved` events could fit in some online shopping application. Events have a single source that publishes the event (publisher) and one or more receivers that process the event. 
+In most cases, there are a number of different kinds of events in the system, each describing a different type of the change. For example, "product added to cart" or "product reserved" events could fit in some online shopping application. Events have a single source that publishes the event (publisher) and one or more receivers that process the event. 
 
-Because events describe something that has already happened, they are immutable --- they cannot be changed or undone in the very same way we can't change our past in the real world. But there can be subsequent events that can alter or cancel the effects of the previous events, e.g. `reservation cancelled`.
+Because events describe something that has already happened, they are immutable --- they cannot be changed or undone in the very same way we can't change our past in the real world. But there can be subsequent events that can alter or cancel the effects of the previous events, e.g. "reservation canceled".
 
-Event names should also reflect their intents from a business point of view. The `address corrected` and `customer moved` events reflect different business values in the domain, even though they would probably result in the same data change (updating the address).
+Event names should also reflect their intents from a business point of view. The "address corrected" and "customer moved" events reflect different business values in the domain, even though they would probably result in the same data change (updating the address).
 
 As you've probably noticed, the events should are named in the form of a verb in the past tense. That is because the domain event symbolizes something that has already happened, a historic event that marks a state transition in the application.
 
