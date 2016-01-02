@@ -1,1 +1,1 @@
-Replace this text with your caption
+An example of a structural model of a purchase order
