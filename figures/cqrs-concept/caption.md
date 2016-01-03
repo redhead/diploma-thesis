@@ -1,1 +1,1 @@
-Replace this text with your caption
+Concept of Command Query Responsibility Segregation
