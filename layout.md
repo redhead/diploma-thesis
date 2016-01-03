@@ -6,6 +6,7 @@ figures/relational-model/relational-model.png
 However_this_is_not_the__.md
 Rebuilding_the_read_model_As__.md
 CQRS.md
+If_each_of_the_two__.md
 CQRS & ES.md
 figures/cqrs-no-es/cqrs-no-es.png
 figures/cqrs-es/cqrs-es.png
