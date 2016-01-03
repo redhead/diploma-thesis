@@ -4,7 +4,7 @@ ES CQRS intro.md
 Event Sourcing.md
 figures/relational-model/relational-model.png
 However_this_is_not_the__.md
-Rebuilding_the_read_model_Usually__.md
+Rebuilding_the_read_model_As__.md
 CQRS.md
 CQRS & ES.md
 figures/cqrs-no-es/cqrs-no-es.png
