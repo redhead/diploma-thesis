@@ -1,1 +1,1 @@
-Replace this text with your caption
+View of the CQRS design in detail
