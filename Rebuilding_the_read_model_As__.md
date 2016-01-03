@@ -5,11 +5,11 @@ Event sourcing enables us to change models or create new ones from the events by
 
 #### Fallback after a failure
 
-When deploying a new version of our application into production for our users, in many cases it also means that we need to update the RDBMS tables with a new schema and/or update the data. Imagine that after such deployment the system works for only a week before it crashes because of some serious failure. If fixing the system requires a lot of time we probably want to fall back to the last working version. 
+When deploying a new version of an application into production for our users, in many cases, it also means that we need to update the RDBMS tables with a new schema and/or update the data. Imagine that after such deployment the system works for only a week before it crashes because of some serious failure. If fixing the system requires a lot of time it is probably best to fall back to the last working version. 
 
 If we use version control systems or other tools to back up the code base it is possible to recover the working code easily. Getting back the database state, however, may be impossible because of the destructive changes made to the production database during deployment. The original data for the old version may be lost forever because of the schema update. If the database was backed up before the deployment we can get the original database back. However, we would lose all the data the users created during the week that the new version was working.
 
-With Event Sourcing, this fallback can be accomplished easily. Since events must never be altered, we still have all the necessary data to recreate the original data model by replaying all the events including those created in that week.
+With Event sourcing, this fallback can be accomplished easily. Since events must never be altered, we still have all the necessary data to recreate the original data model by replaying all the events including those created in that week.
 
 But we can go a step further in our deployment process and keep the two systems, the original version, and the new version, running side by side. After deployment, the new version can take control of generating the events, while both versions can process them individually into their own data models in separate databases. If anything goes wrong with the live version, we can just switch back to the original (but still up-to-date) version running in parallel. This way the users will not be affected by long-lasting down times leaving we more time to fix the problem.
 
