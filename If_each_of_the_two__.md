@@ -55,7 +55,7 @@ Now that the necessary terminology of Domain-Driven Design was settled, let's in
 
 #### Commands
 
-A command in CQRS is a way of expressing user's intent for the system to do some action. The *user* of the system can be a real person in front of a screen or an external automated system. Both can send commands to the system to perform some task. For example, "**Add product X to cart Y**" or "**Checkout**". A command should clearly reflect its intent because some command's intent may have different invariant value than other commands. Thus, it's not very wise to create a simple "**Update**" command capable of updating anything, because it does not capture the intent of the update. This leads us to the term *task-based user interface* which is described further below. 
+A command in CQRS is a way of expressing user's intent for the system to do some action. The *user* of the system can be a real person in front of a screen or an external automated system. Both can send commands to the system to perform some task. For example, "*Add product X to cart Y*" or "*Checkout*". A command should clearly reflect its intent because some command's intent may have different invariant value than other commands. Thus, it's not very wise to create a simple "*Update*" command capable of updating anything, because it does not capture the intent of the update. This leads us to the term *task-based user interface* which is described further below. 
 
 #### Command Handlers
 
@@ -67,11 +67,11 @@ Events in CQRS are part of the messaging pattern and are a superset of domain ev
 
 #### Event Handlers
 
-Events are published to multiple recipients called event handlers. Event handlers are subscribed for a particular type of event that the subscriber knows how to handle. Their job is to receive an event, get the target aggregate and call its appropriate method. Finally, it should persist the new state of the aggregate to storage. Some event handlers do not operate on aggregates at all and are used for **messaging** instead.
+Events are published to multiple recipients called event handlers. Event handlers are subscribed for a particular type of event that the subscriber knows how to handle. Their job is to receive an event, get the target aggregate and call its appropriate method. Finally, it should persist the new state of the aggregate to storage. Some event handlers do not operate on aggregates at all and are used for *messaging* instead.
 
 #### Messaging
 
-Both **commands** and **events** implement the messaging pattern that enables us to make a system driven by events (event-driven design). This pattern provides us with a lot of flexibility because the messages (commands and events) can be examined, prioritized, queued, partitioned, subscribed to, retried, forwarded and so on. In CQRS, events can be sent using some messaging protocol to other applications or subsystems in order to, for example, update the read model. On the other hand, commands can be prioritized or queued before they are actually sent to a command handler. This, of course, depends on the requirements for the system being developed.
+Both *commands* and *events* implement the messaging pattern that enables us to make a system driven by events (event-driven design). This pattern provides us with a lot of flexibility because the messages (commands and events) can be examined, prioritized, queued, partitioned, subscribed to, retried, forwarded and so on. In CQRS, events can be sent using some messaging protocol to other applications or subsystems in order to, for example, update the read model. On the other hand, commands can be prioritized or queued before they are actually sent to a command handler. This, of course, depends on the requirements for the system being developed.
 
 #### Sagas and process managers
 
