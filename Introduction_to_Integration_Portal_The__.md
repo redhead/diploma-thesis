@@ -1,24 +1,26 @@
 ## Introduction to Integration Portal
 
+As stated in the introduction to this chapter, the CQRS and ES patterns were examined on an existing project. This section introduces the project that was chosen for refactoring into the CQRS and ES principles.
+
 The project, known under the working title Integration Portal, aims to integrate several systems of the Czech Technical University (CTU) for the purpose of file sharing and archiving. It is a web application where users (members of CTU and externs) can upload, share and organize files in a way that resembles a regular computer file system. The file data is stored in a data storage infrastructure provided by the CESNET association. 
 
 Please note that the project is still a work in progress and some of the functionality and requirements described below are in preparation or active development at the time of writing this thesis. The refactoring to CQRS and event sourcing described further in this chapter deals only with the working functionality at that time.
 
-The system is divided into two parts. The first part is the front-end user interface presented to users in their web browser. The second part is the back-end server that integrates the systems and provides a communication interface for the front end.
+The system is divided into two parts. The first part is the front-end user interface presented to users in their web browser. The second part is the back-end server that integrates the systems and provides a communication interface for the frontend.
 
 
-### The front end
+### The frontend
 
 The front-end presentation layer of the project is a client-side HTML5/JavaScript application written using AngularJS framework **citation needed**. It is a so-called single-page application, that means the browser loads the web page only once and all the other communication is done using asynchronous calls to the server in the background. The page refreshes the content for the user by dynamic modification of the page using JavaScript.
 
 The front-end part presents the users with the files they uploaded or they have access to through the sharing functionality. It provides means of interaction with the files, i.e. moving, renaming, deleting, organizing to folders, etc. It also includes a user interface for logging into the system with user's credentials and a section for administrators. 
 
-However, all the actual processing and state transitioning is done on the back-end part and the front end is only used for displaying the content and sending the commands to the back end. The communication is done using a REST API (Application Programming Interface).
+However, all the actual processing and state transitioning is done on the back-end part and the frontend is only used for displaying the content and sending the commands to the backend. The communication is done using a REST API (Application Programming Interface).
 
-Because the front end is not really a subject of refactoring to CQRS and event sourcing, it won't be discussed in any more detail. For more information see **citation needed**
+Because the frontend is not really a subject of refactoring to CQRS and event sourcing, it won't be discussed in any more detail. For more information see **citation needed**
 
 
-### The back end
+### The backend
 
 The back-end server application uses a traditional three-layer architecture in Java Enterprise Edition implemented using Spring Framework and its supporting libraries for web development, security, database access, and REST services. A PostreSQL database is used to persist the application data.
 
