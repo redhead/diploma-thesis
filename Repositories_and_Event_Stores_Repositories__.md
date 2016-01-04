@@ -4,7 +4,7 @@ Repositories are responsible for providing access to aggregates. In CQRS, they a
 
 #### Repositories
 
-In Axon, repositories must implement the `Repository` interface. This interface defines methods for persisting a new aggregate instance (the `add()` method) and `load()` methods for retrieval of a previously saved instance. There are two `load()` methods, both of which use an aggregate identifier to load the desired aggregate instance. One of the methods, however, has an extra `version` parameter, that can be used to load an aggregate instance of a specific version. For more information about the aggregate versioning, see CONFLICTING MODIFICATION**reference needed**.
+In Axon, repositories must implement the `Repository` interface. This interface defines the `add()` method for persisting a new aggregate instance, and two `load()` methods for retrieval of a previously saved instance. The `load()` methods use an aggregate identifier to load the desired aggregate instance. One of the methods, however, has an extra `version` parameter, that can be used to load an aggregate instance of a specific version. For more information about the aggregate versioning, see CONFLICTING MODIFICATION**reference needed**.
 
 For the purpose of event sourcing, Axon provides the `EventSourcingRepository` which loads an aggregate instance by replaying its historic events to get it to the desired state. Also, when new events are applied to an aggregate instance, as a result of state change during command handling, this repository is responsible for persisting the new events when committed. This all is done seamlessly without programmer's intervention.
 
