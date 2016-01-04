@@ -35,11 +35,11 @@ EventStore2 is a framework for creating event sourced applications in Java. Much
 
 It is in active development, with the current stable version being 2.4.3. A big disadvantage is a lack of detailed documentation. The whole framework is described just in few paragraphs in a README file with few examples of how to implement command handlers and projections. The documentation totally omits how to use sagas, transactional support, persistence, configuration and more.
 
-The code base is hosted in a GitHub repository. It has 24 stars and 2 forks. The issue tracker does not contain any issues, not even closed. No official web site or any other references where found on the Internet. From this, it was deduced that the framework is not actively used by many users. It is open source under the MIT license.
+The code base is hosted in a GitHub repository. It has 24 stars and 2 forks. The issue tracker does not contain any issues, not even closed. No official website or any other references where found on the Internet. From this, it was deduced that the framework is not actively used by many users. It is open source under the MIT license.
 
 ### Jdon Framework
 **citation needed**
-The Jdon Framework web site describes the framework as a Java reactive framework that can be used to build Domain Driven Design applications using CQRS and event sourcing with asynchronous concurrency and higher throughput. It uses reactive approach and actor based model, similarly to EventStore2 which uses Akka. It supports dependency injection and annotation support and is integrable with Spring framework.
+The Jdon Framework website describes the framework as a Java reactive framework that can be used to build Domain Driven Design applications using CQRS and event sourcing with asynchronous concurrency and higher throughput. It uses reactive approach and actor based model, similarly to EventStore2 which uses Akka. It supports dependency injection and annotation support and is integrable with Spring framework.
 
 The documentation is comprehensive and uses images to better explain the principles. Typographically, however, it is in a poor state for reading --- often the text is broken, it contains typos and grammar errors. On top of that, the framework does not seem to be developed anymore. The last change made to its code was two years ago. The latest stable version 6.8 was released around that time too.
 
@@ -52,6 +52,6 @@ Since CQRS and event sourced applications are not very common in the Java world,
 
 EventStore2 and Jdon both use actor model **reference** and reactive approach for concurrent execution, where Akka seems to dominate the Java (and Scala) world in that matter nowadays. As I would very much like to get into reactive programming in Akka, the two frameworks were found unconvincing to be chosen for the refactoring. 
 
-EventStore2 is actively developed but does not provide any other support (as in the documentation, forums, mailing lists or web site) and it also lacks user base. On the contrary, Jdon Framework didn't lack these things but it seems to have completely stopped the development without any message to the users, and there are even no responses to new issues.
+EventStore2 is actively developed but does not provide any other support (as in the documentation, forums, mailing lists or website) and it also lacks user base. On the contrary, Jdon Framework didn't lack these things but it seems to have completely stopped the development without any message to the users, and there are even no responses to new issues.
 
 Axon Framework, on the other hand, excels in almost all the quality aspects that were inspected. The downside is that it doesn't use actor model or reactive programming. It is more conservative which can be advantageous in some cases. Thus, Axon Framework was chosen to support the refactoring of Integration Portal to CQRS and Event Sourcing.
