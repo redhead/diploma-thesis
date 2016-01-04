@@ -13,15 +13,15 @@ We can look at layers as abstractions of implementation details. For example, pr
 
 #### Anemic model
 
-The way how the layers are constructed encourages developers to create anemic domain model. That is a model where domain entities contain little or no business logic and usually just expose getters and setters of their fields. Although anemic entities follow single responsibility principle, as the only reason to change them is when data structure changes, the business logic is disconnected from the data. This goes against the basic principles of object-oriented design, where objects combine data and operations together to form one self-contained object that guards its invariants and state.
+The way how the layers are constructed encourages developers to create anemic domain model. That is a model where domain entities contain little or no business logic and usually, just expose getters and setters of their fields. Although anemic entities follow single responsibility principle, as the only reason to change them is when data structure changes, the business logic is disconnected from the data. This goes against the basic principles of object-oriented design, where objects combine data and operations together to form one self-contained object that guards its invariants and state.
 
-Although, this model is justifiable in simple applications, such as CRUD-based domain, it goes against best-practice principles of encapsulation and information hiding. The logic is separated to a business layer, possibly in number of places making it hard to maintain the code. Domain objects cannot guarantee their business rules and invariants for themselves. 
+Although, this model is justifiable in simple applications, such as CRUD-based domain, it goes against best-practice principles of encapsulation and information hiding. The logic is separated to a business layer, possibly in a number of places making it hard to maintain the code. Domain objects cannot guarantee their business rules and invariants for themselves. 
 
 #### Layer-to-layer delegation
 
 In very simple, mostly CRUD-based, applications, code written in strictly layered design makes the components very thin with no added value. Implementations usually just delegate calls from one layer to the other just to conform to the strict top-down way of processing a request. When implementing a new feature, it usually means to add unnecessary code to the project just for the sake of having layers.
 
-But, as written above, separating the responsibilities makes the code less coupled. So these layers get more handy when changing implementations, e.g. when replacing implementation of data source.
+But, as written above, separating the responsibilities makes the code less coupled. So these layers get more handy when changing implementations, e.g. when replacing the implementation of the data source.
 
 #### Tight coupling
 
