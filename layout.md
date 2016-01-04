@@ -24,7 +24,7 @@ Repositories_and_Event_Stores_Repositories__.md
 Event_processing_When_an_aggregate__.md
 Managing_complex_business_transactions_In__.md
 Testing_TODO__.md
-Introduction_to_Integration_Portal_The__.md
+Introduction_to_Integration_Portal_As__.md
 figures/layers/layers.png
 In_the_picture_reference_needed__.md
 Domain_model_For_the_purpose__.md
