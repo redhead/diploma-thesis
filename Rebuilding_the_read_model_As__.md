@@ -17,7 +17,7 @@ But we can go a step further in our deployment process and keep the two systems,
 
 With a complete event log, we can make projections of the data for the users. But we can also create other systems around the same event log. The systems can then use some or all the events to do tasks like:
 
-- **monitoring** -- for the purpose of statistics regarding, for example, exceptional behaviour (e.g. frequency of events or unexpected order of events).
+- **monitoring** -- for the purpose of statistics regarding, for example, exceptional behavior (e.g. frequency of events or unexpected order of events).
 - **fraud detection** -- if a state, which is considered a fraud by some specified rules, is reached, the processor can notify interested people to act upon the situation.
 - **data analysis** -- for inspecting the events to get some information valuable for the business, e.g. what action is done the most by the users at what time of a day.
 - **data mining** -- to find some new trends and correlations in the data.
