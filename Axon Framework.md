@@ -1,8 +1,8 @@
 ## Supporting Framework
 
-Before diving into the refactoring of Integration Portal, it was decided to first look for frameworks that support the CQRS and ES principles and minimize their complexity for the programmers on the Java platform. The supporting framework should solve the common problems like persistence, event sourcing, integration and messaging. The framework should not make it difficult to integrate into an existing project. In the case of this thesis, it should enable the refactoring of Integration Portal.
+First, it was decided to look for frameworks that support the CQRS and ES principles and minimize their complexity for the programmers on the Java platform. The supporting framework should solve the common problems like persistence, event sourcing, integration and messaging. The framework should not make it difficult to integrate into an existing project. In the case of this thesis, it should enable the refactoring of Integration Portal.
 
-There are few frameworks that enable CQRS and ES with various features and in various state of quality. The following quality aspects were examined in each of the frameworks to determine the fitness for the refactoring.
+There are few frameworks that enable CQRS and ES with various features and in various states of quality. The following aspects were examined in each of the frameworks to determine the fitness for the refactoring.
 
 #### Compatibility with CQRS and ES
 The framework should support all the core details of CQRS and ES that very described in the previous chapter. On top of that, it should take into account implementation details such as support for database transactions, messaging using JMS (or other messaging systems), persistence, etc.
@@ -48,9 +48,9 @@ The framework's code is stored in a GitHub repository with 278 stars and 148 for
 
 ### Summary and framework selection
 
-Since CQRS and event sourced applications are not very common in the Java world, not many frameworks exist. In the search for these frameworks on the Internet, I focused on projects that aim to be used by many users (not a sample or "playground" project of one author) with good documentation and active development. The three frameworks I found that were worth to study are described above.
+Since CQRS and event sourced applications are not very common in the Java world, not many frameworks exist. In the search for these frameworks on the Internet, I focused on projects that aim to be used by many users (not sample or "playground" projects of one author) with good documentation and active development. The three frameworks I found that were worth to study are described above.
 
-EventStore2 and Jdon both use actor model **reference** and reactive approach for concurrent execution, where Akka seems to dominate the Java (and Scala) world in that matter nowadays. As I would very much like to get into reactive programming in Akka, the two frameworks were found unconvincing to be chosen for the refactoring. 
+EventStore2 and Jdon both use actor model **reference** and reactive approach for concurrent execution, where Akka seems to dominate the Java (and Scala) world in that matter nowadays. Even though I would very much like to get into reactive programming in Akka, the two frameworks were found unconvincing to be chosen for the refactoring. 
 
 EventStore2 is actively developed but does not provide any other support (as in the documentation, forums, mailing lists or website) and it also lacks user base. On the contrary, Jdon Framework didn't lack these things but it seems to have completely stopped the development without any message to the users, and there are even no responses to new issues.
 
