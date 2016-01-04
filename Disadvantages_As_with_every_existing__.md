@@ -1,10 +1,10 @@
 ### Disadvantages
 
-As with every existing design choices, CQRS and Event Sourcing has definitely some disadvantages too. In the following text, the description of those that occurred in the refactoring are presented.
+As with every existing design choices, CQRS and Event Sourcing has definitely some disadvantages too. In the following text, the description of those that occurred in the refactoring is presented.
 
 #### Steep learning curve
 
-The CQRS design pattern with Event Sourcing implemented using Domain-Driven Design methodology and terminology is a lot to process for a developer. It takes a lot of practice and experience to know what is right and what is wrong for the application. For newcomers, it is very hard to grasp all the essential aspects of the design, and more importantly to use it well. In businesses, this steep learning curve can play a major role in deciding whether to use this design or go the traditional way. 
+The CQRS design pattern with Event Sourcing implemented using Domain-Driven Design methodology and terminology is a lot to process for a developer. It takes a lot of practice and experience to know what is right and what is wrong for the application. For newcomers, it is very hard to grasp all the essential aspects of the design, and, more importantly, to use it well. In businesses, this steep learning curve can play a major role in deciding whether to use this design or go the traditional way. 
 
 #### Code explosion
 
@@ -15,6 +15,6 @@ All these classes created in the refactoring are contained in close to 120 new f
 
 #### Code navigation
 
-Axon Framework implements CQRS using the standard Java language constructs. That means, that all the features your IDE provides for development in Java works here as well. Most of the popular IDEs know how to navigate their users to declarations and code usages, e.g. methods, fields or classes. However, the way how the code is decoupled by Axon Framework makes it significantly harder to use these features. The problem is caused by the nature of commands and events being passed around without specifying a direct connection to methods for their publishing or handling. For example, to find a handler method for a command or event, developers need to search for an annotated method with an argument of the same type as the command or event. This way is not very convenient, nor fast for the developers.
+Axon Framework implements CQRS using the standard Java language constructs. That means, that all the features your IDE provides for development in Java work here as well. Most of the popular IDEs know how to navigate their users to declarations and code usages, e.g. methods, fields or classes. However, the way how the code is decoupled by Axon Framework makes it significantly harder to use these features. The problem is caused by the nature of commands and events being passed around without specifying a direct connection to methods for their publishing or handling. For example, to find a handler method for a command or event, developers need to search for an annotated method with an argument of the same type as the command or event. This way is not very convenient, nor fast for the developers.
 
 The authors of Axon Framework knew about this annoyance, so they've created a plugin for IntelliJ IDEA, a Java IDE **citation needed**. The plugin makes navigation to and from handler methods easier. Sometimes, however, it is not fully reliable and stops working, from my experience.
