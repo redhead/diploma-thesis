@@ -1,7 +1,7 @@
 #### Rebuilding the read model
 
 As stated above, there is more than one way how to model and structure application data. Some models are good for some tasks than the others. More importantly, the models tend to change over time to, for example, accommodate new requirements.
-Event sourcing enables us to change models or create new ones from the events by making projections. This can be, for example, a model used by an application to query data to be presented to users (a so-called read model). On top of that, it allows us to rebuild the model to a different structure. We can change the way the user sees the data by projecting the events again but structuring the model differently. We can also use the existing events to build a separate read model that will exist next to the original one. For instance, a search index of the application data, which is stored in a full text search server instead of a relational database, can be better in searching capabilities.
+Event sourcing enables us to change models or create new ones from the events by making projections. This can be, for example, a model used by an application to query data to be presented to users (a so-called read model). On top of that, it allows us to rebuild the model to a different structure. We can change the way the user sees the data by projecting the events again but structuring the model differently. We can also use the existing events to build a separate read model that will exist next to the original one. For instance, a search index of the application data, which is stored in a full-text-search server instead of a relational database, can be better in searching capabilities.
 
 #### Fallback after a failure
 
