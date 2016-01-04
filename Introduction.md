@@ -12,7 +12,7 @@ New patterns and practices evolved in the meantime to address the new issues. Ev
 
 ## Goals
 
-The goal of this diploma thesis and the work behind it was to study the basic principles of the Event Sourcing and CQRS patterns, and to implement them into a real-world software project written in the Java programming language. Additionally, it aimed at comparing the design patterns with the traditional architecture of enterprise applications.
+The goal of this diploma thesis and the work behind it was to study the basic principles of the Event Sourcing and CQRS patterns and to implement them into a real-world software project written in the Java programming language. Additionally, it aimed at comparing the design patterns with the traditional architecture of enterprise applications.
 
 ## About the text
 
