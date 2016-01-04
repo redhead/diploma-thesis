@@ -12,7 +12,7 @@ The `SimpleEventBus` is suitable for dispatching events synchronously and locall
 
 Event listeners are components that react to the incoming events. All event listeners must implement the `EventListener` interface, which describes a single method that receives the event as a parameter, the `handle()` method. Implementing classes need to register with an event bus, so they can receive the events published to the bus.
 
-The `handle()` method sequentially receives all the events published to the event bus. However, the implementing classes very rarely need to listen to all the types of events. In order to pick just the events the listener wants to process, the method becomes cluttered with many if-else or switch statements. Fortunately, Axon provides annotation based event listeners where multiple methods can handle different events based on the type of the event (effectively, based on the event class). The handler methods need to be annotated with the `@EventHandler` annotation. In that case, the listeners can be any objects not requiring to implement the interface. The object is then wrapped by the `AnnotationEventListenerAdapter` class which translates the communication between the interface and the annotated methods. See listing X **listing needed** for an example.
+The `handle()` method sequentially receives all the events published to the event bus. However, the implementing classes very rarely need to listen to all the types of events. In order to pick just the events the listener wants to process, the method becomes cluttered with many if-else or switch statements. Fortunately, Axon provides annotation based event listeners where multiple methods can handle different events based on the type of the event (effectively, based on the event class). The handler methods need to be annotated with the `@EventHandler` annotation. In that case, the listeners can be any objects not requiring to implement the interface. See listing X **listing needed** for an example.
 	
 	class ProductEventListener {
 
@@ -28,7 +28,7 @@ The `handle()` method sequentially receives all the events published to the even
 
 	}
 
-On top of that, the Axon's Spring support makes it easy to integrate the listeners with the Spring's IoC container. This support takes care of automatically wrapping the listener in the adapter class and registering it with the event bus. It also enables injecting bean dependencies into the listener, so they can be used by the handler methods.
+On top of that, the Axon's Spring support makes it easy to integrate the listeners with the Spring's IoC container. This support takes care of registering the event handlers with the event bus, even though they do not extend the `EventListener` interface. It also enables injecting bean dependencies into the listener, so they can be used by the handler methods.
 
 
 
