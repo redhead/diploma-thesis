@@ -15,13 +15,6 @@ figures/cqrs-es/cqrs-es.png
 Conflicting_changes_CQRS_with_Event__.md
 Summary_In_this_chapter_we__.md
 Implementation in the Java programming language.md
-Introduction_to_Integration_Portal_The__.md
-figures/layers/layers.png
-In_the_picture_reference_needed__.md
-Domain_model_For_the_purpose__.md
-figures/domain/domain.png
-In_the_following_paragraphs_a__.md
-Functionality_before_refactoring_As_stated__.md
 Axon Framework.md
 Axon Framework1.md
 Command_handling_As_previously_described__.md
@@ -30,6 +23,13 @@ Repositories_and_Event_Stores_Repositories__.md
 Event_processing_When_an_aggregate__.md
 Managing_complex_business_transactions_In__.md
 Testing_TODO__.md
+Introduction_to_Integration_Portal_The__.md
+figures/layers/layers.png
+In_the_picture_reference_needed__.md
+Domain_model_For_the_purpose__.md
+figures/domain/domain.png
+In_the_following_paragraphs_a__.md
+Functionality_before_refactoring_As_stated__.md
 Refactoring_of_Integration_Portal_Now__.md
 figures/node/node.png
 Refactoring_strategy_When_the_preparation__.md
