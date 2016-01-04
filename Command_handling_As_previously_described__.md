@@ -24,7 +24,7 @@ The next paragraphs provide an overview of the components related to setting up 
 
 #### Command gateway
 
-To dispatch the commands represented by class instances, Axon provides a convenient interface called a Command Gateway. This interface defines two methods to send a command, which is passed as an argument. The `sendAndWait()` method is blocking, which means it stops the execution of the caller until the passed-in command is resolved, and it returns the result of the command execution. The other method, `send()`, is the asynchronous counterpart, i.e. non-blocking the execution of the caller. Axon provides a default implementation of this interface called `DefaultCommandGateway`, or the users can provide their own implementation to suit their needs. The commands passed to the Command Gateway are then send to the Command Bus. 
+To dispatch the commands represented by class instances, Axon provides a convenient interface called a Command Gateway. This interface defines two methods to send a command, which is passed as an argument. The `sendAndWait()` method is blocking, which means it stops the execution of the caller until the passed-in command is resolved, and it returns the result of the command execution. The other method, `send()`, is the asynchronous counterpart, i.e. non-blocking. Axon provides a default implementation of this interface called `DefaultCommandGateway`, or the users can provide their own implementation to suit their needs. The commands passed to the Command Gateway are then send to the Command Bus. 
 
 #### Command bus
 
@@ -40,15 +40,15 @@ In Axon, a Command Handler is an object that receives a command of a specific ty
 
 Sometimes it is beneficial to have multiple closely related command handlers in one object. This approach can be achieved by using the `@CommandHandler` annotation on methods to mark them as command handlers. The type of the command that the method can handle is determined by the type of the first parameter. The object can be a simple POJO (plain old Java object) and only the method annotations determine that they are command handlers. 
 
-The support for Spring framework enables automatic subscription of the command handlers to the command bus when the object is turned into to a Spring bean. We can use the Spring's inversion of control container to inject dependencies of command handlers.
+The support for Spring framework enables automatic subscription of the command handlers to the command bus when the object is turned into a Spring bean. We can use the Spring's inversion of control container to inject dependencies to the command handlers.
 
 The dependencies for the command handlers are usually the aggregate repositories, which handle loading of aggregates and persisting their changes. As stated in the introduction to CQRS, command handlers are supposed to load an aggregate instance, call a method on it, and save the aggregate changes.
 
 #### Unit of Work
 
-The processing of a command can be seen a single unit. Each time the command handler executes, it is tracked in a Unit of Work. When command handling is finished, the current Unit of Work is committed and all actions are finalized. This means that aggregate repositories are notified about the changes in aggregates and saves them. In the case of event sourced aggregates, the new events applied to the aggregates are stored to an event log and published to an Event Bus.
+The processing of a command can be seen a single unit. Each time a command handler executes, it is tracked in a Unit of Work. When command handling is finished, the current Unit of Work is committed and all actions are finalized. This means that aggregate repositories are notified about the changes in aggregates to save them. In the case of event sourced aggregates, the new events applied to the aggregates are stored to the event store and published to the Event Bus.
 
-Note that the Unit of Work is not a replacement for transactions. However, the Unit of Work can be bound with a transaction by configuring the transaction manager. This transaction will be started at the beginning of the command handler execution and committed when finished. If any exception is thrown, the bound transaction is rolled back.
+Note that the Unit of Work is not a replacement for transactions. However, the Unit of Work can be bound with a transaction by configuring the transaction manager. This transaction will be started at the beginning of the command handler execution and committed when finished. If any exception is thrown during command handling, the bound transaction is rolled back.
 
 
 
