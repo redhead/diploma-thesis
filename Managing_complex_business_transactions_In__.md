@@ -1,10 +1,10 @@
 ### Managing complex business transactions
 
-In many cases, an atomic and consistent transaction isn't possible to carry out, for example in integration with external systems. This is the case where a coordinator that mediates this kind of business transaction is needed and that can take compensating actions to resolve the failure in a transaction, if necessary. In CQRS, it is called a saga or process manager. Axon provides an infrastructure to support sagas.
+In many cases, an atomic and consistent transaction isn't possible to carry out, for example in integration with external systems. This is the case where a coordinator that mediates this kind of business transaction is needed and that can take compensating actions to resolve the failure in a transaction if necessary. In CQRS, it is called a saga or process manager. Axon provides an infrastructure to support sagas.
 
 #### Saga
 
-A saga is a special type of event listener that manages a business transaction. Each transaction is handled by one instance of a saga. It maintains a state needed to manage the transaction. Typically, a saga has a start and an end, both triggered by events. All sagas must implement the `Saga` interface.
+A saga is a special type of an event listener that manages a business transaction. Each transaction is handled by one instance of a saga. It maintains a state needed to manage the transaction. Typically, a saga has a start and an end, both triggered by events. All sagas must implement the `Saga` interface.
 
 Axon provides an implementation of the interface, called `AbstractAnnotatedSaga`, that uses annotations to extend the behavior of the saga instance. Similarly to annotated event handlers, there is the `@SagaEventHandler` annotation that marks the event handler method in a saga. There is also `@SagaStart` annotation that signifies that the handler method is the starting point of new saga instance.
 
