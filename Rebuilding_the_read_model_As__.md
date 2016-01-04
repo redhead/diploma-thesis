@@ -33,7 +33,7 @@ A very similar example of a requirement that involves historic data is a chart o
 
 We can use the event log to examine a fault in our system. Imagine that a user reports a bug without specifying the steps to reproduce the bug. This is usually a nightmare for software developers isolating the bug. But with Event Sourcing, we have the whole history of events applied to the application and stored in a log. Thus, we can go back in time by replaying the events (similar to model rebuilding) and see what the user did, by looking at the events, at the exact time the bug happened. We can then use standard debugging tools to see what code got executed by the application and why it resulted in producing the bug.
 
-Compare this feature with traditional logging. Logging is a way of saving events about the system execution in a textual, human-readable format to understand the activity of the system and to diagnose problems. However, this format is not very helpful if the log messages are not comprehensive enough, which is completely in the hands of the developers. Also it is less convenient to restore the system state from these messages because they are, unlike in event sourcing, disconnected from the code execution.
+Compare this feature with traditional logging. Logging is a way of saving events about the system execution in a textual, human-readable format to understand the activity of the system and to diagnose problems. However, this format is not very helpful if the log messages are not comprehensive enough, which is completely in the hands of the developers. Also, it is less convenient to restore the system state from these messages because they are, unlike in event sourcing, disconnected from the code execution.
 
 #### Testing
 
