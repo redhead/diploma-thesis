@@ -40,7 +40,7 @@ An association of universities of the Czech Republic and the Czech Academy of Sc
 
 ### Architecture
 
-The architecture follows a typical setup for Java Enterprise Edition applications called a three-tier architecture, where the client-side application written in AngularJS being the presentation tier, the back-end server being the application tier and the PostreSQL database server being the data tier. On top of that, Integration Portal communicates with other external systems through various channels to accomplish the integration goal. As this thesis focuses on refactoring the back-end server to CQRS and Event Sourcing, let's describe its implementation in more detail. 
+The architecture follows a typical setup for Java Enterprise Edition applications called a three-tier architecture**citation needed**[P of EAP], where the client-side application written in AngularJS is the presentation tier, the back-end server is the application tier and the PostreSQL database server is the data tier. On top of that, Integration Portal communicates with other external systems through various channels to accomplish the integration goal. As this thesis focuses on refactoring the back-end server to CQRS and Event Sourcing, let's describe its implementation in more detail. 
 
 The internal code of the back-end application is organized into logical layers, an arrangement which is a widely adopted best practice in Java EE application development under the name layered architecture (or N-layer architecture). Each layer is responsible for some functionality of the application without being mixed with the rest. The description of the three layers found in the back-end application and their responsibility is following.
 
