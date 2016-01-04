@@ -20,7 +20,7 @@ The `EventScheduler` can be used to schedule events for publication. A simple in
 
 #### Saga Manager
 
-The purpose of a saga manager is to route events to the appropriate saga instances and to manage their life cycle. All saga managers must implement the `SagaManager` interface. The `AnnotatedSagaManager` is an implementation that uses annotations on the annotated sagas to manage their life cycle and event routing. A list of saga types is needed to configure the manager, so it knowns what sagas it administers. Also, a saga repository must be provided to the manager.
+The purpose of a saga manager is to route events to the appropriate saga instances and to manage their life cycle. All saga managers must implement the `SagaManager` interface. The `AnnotatedSagaManager` is an implementation that uses annotations on the annotated sagas to manage their life cycle and event routing. A list of saga types is needed to configure the manager, so it knows what sagas it administers. Also, a saga repository must be provided to the manager.
 
 #### Saga Repository
 
