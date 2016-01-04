@@ -7,7 +7,7 @@ An entity that represents an uploaded file into the system. It's not meant to ca
 The `Folder` entity is a way of organizing `File`s into named groups and is equivalent to folders in regular file systems. A folder can contain a number of files and also other folders effectively creating a tree hierarchy of files and folders where files are the leaves of the tree.
 
 #### User
-A `User` entity represents a user granted to access the system and use it to upload and manage files and to organize them in folders. The files the users upload and the folders they create are owned by that user. At the time the refactoring to CQRS and ES started, there was no sharing functionality, so the users can see only their files and folders and no others in the front end.
+A `User` entity represents a user granted to access the system and use it to upload and manage files and to organize them in folders. The files the users upload and the folders they create are owned by that user. At the time the refactoring to CQRS and ES started, there was no sharing functionality, so the users can see only their files and folders and no others in the frontend.
 
 #### Label
 Users can label files and folders with a short text and a color, they both represent the `Label` entity. This label is displayed by the associated file or folder in the front-end part of the system if the label belongs to the currently logged in user. Users can utilize labels to visually orient themselves within the file system, e.g. by marking the files and folders that relate to "work" or "school" by appropriate text and chosen color. Also, users can search for files and folders with a specific label.
