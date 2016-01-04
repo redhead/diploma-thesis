@@ -6,7 +6,7 @@ As stated previously, at the time of starting the refactoring to CQRS and ES the
 
 - User authentication with username and password (no FELid integration yet)
 - Authorization based on permissions to
-    - access to main administration (users, user roles)
+    - access to the main administration (users, user roles)
     - edit organizational units
     - edit externs
     - edit password
