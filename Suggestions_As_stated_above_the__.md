@@ -37,7 +37,7 @@ In some bounded contexts, where a domain model is trivial, a simple CRUD system 
 
 #### Denormalize read models
 
-The strategy of the refactoring was to preserve the original relational database model, which would be used for querying. For now, the database doesn't cause any problems. If the database or the particular model does not suffice in the future, it is possible to create denormalized data from the domain events to incorporate different read models or database engines. In any case, the CQRS and ES enable the system to grow and scale in an optimized way. 
+The strategy of the refactoring was to preserve the original relational database model, which would be used for querying. For now, the database doesn't cause any problems. If the database or the particular model does not suffice in the future, it is possible to create denormalized data from the domain events to incorporate different read models or database engines, e.g. MongoDB (a document database). In any case, the CQRS and ES enable the system to grow and scale in an optimized way. 
 
 #### Snapshotting
 
