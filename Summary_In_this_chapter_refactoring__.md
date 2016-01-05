@@ -8,7 +8,7 @@ Let's now describe a few benefits, which were brought by the refactored version,
 
 ### Benefits
 
-Most of the benefits of the CQRS and ES designs that were described in the **reference needed**(chapter CQRS+ES) were not fully leveraged after refactoring. The reason is that these designs are so-called enabling patterns, that means they give the developers more options and tools to extend the functionality of Integration Portal in the future. New possible features that are based on the new design will be presented further in the text. For now, let's described the immediate benefits brought by the refactoring in the following paragraphs.
+Most of the benefits of the CQRS and ES designs that were described in \ref{event-sourcing-and-cqrs-design-patterns} \nameref{event-sourcing-and-cqrs-design-patterns} were not fully leveraged after refactoring. The reason is that these designs are so-called enabling patterns, that means they give the developers more options and tools to extend the functionality of Integration Portal in the future. New possible features that are based on the new design will be presented further in the text. For now, let's described the immediate benefits brought by the refactoring in the following paragraphs.
 
 #### Reduced code complexity
 
