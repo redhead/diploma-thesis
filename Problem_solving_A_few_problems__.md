@@ -10,7 +10,7 @@ By the definition, an aggregate is a set of related objects that represents a tr
 
 #### Node name uniqueness
 
-As the individual instances of the `Folder` aggregate have no access to the names of the contained files and subfolders, it was needed to find another way how to ensure uniqueness of node names in a folder. To resolve this issue, a special read model is built by events to store only identifiers of nodes and their names and parent folders. This model is queried just before creating a new child node, renaming a node, or moving a node to other folder to ensure uniqueness of the node name in that particular folder. Read model is kept in sync accordingly with the changes made to the nodes. There is no consistency issue here, because building the read model, in this case, happens in the same transaction as persisting changes of an aggregate instance.
+As the individual instances of the `Folder` aggregate have no access to the names of the contained files and subfolders, it was needed to find another way how to ensure uniqueness of node names in a folder. To resolve this issue, a special read model is built by events to store only identifiers of nodes and their names and parent folders. This model is queried just before creating a new child node, renaming a node, or moving a node to other folder to ensure uniqueness of the node name in that particular folder. The read model is kept in sync accordingly with the changes made to the nodes. There is no consistency issue here, because building the read model, in this case, happens in the same transaction as persisting changes of an aggregate instance.
 
 #### Folder deletion
 
