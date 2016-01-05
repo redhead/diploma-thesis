@@ -29,4 +29,4 @@ The event log is then used to recreate the current state of the application (or 
 
 ### Rationale
 
-The general idea of event sourcing has been used for ages but not so much in typical software development. As stated previously, most of the applications use the concept of current state that is usually persisted in, for example, a relational database. That is the reason why most developers tend to think about the state in a structural sense such as in Figure X**reference needed**. In an online shopping application, for instance, a model of a purchase order could look like that.
+The general idea of event sourcing has been used for ages but not so much in typical software development. As stated previously, most of the applications use the concept of current state that is usually persisted in, for example, a relational database. That is the reason why most developers tend to think about the state in a structural sense such as in Figure \ref{relational-model}. In an online shopping application, for instance, a model of a purchase order could look like that.
