@@ -16,10 +16,10 @@ Although, the tests were written from scratch, they were based on the scenarios 
 	            label.id == "1"
 	            label.name == "work"
 	            label.color == "red"
-	            label.getOwner().getId() == "1"
+	            label.owner.id == "1"
 	    }
 
-	    def "creating duplicate label (name, color, owner) results in error"() {
+	    def "creating duplicate label results in error"() {
 	        when:
 	            dispatch new CreateLabelCommand(LabelId.of("1"), "work", "red")
 	            dispatch new CreateLabelCommand(LabelId.of("2"), "work", "red")
