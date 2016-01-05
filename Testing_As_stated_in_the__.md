@@ -2,7 +2,7 @@
 
 As stated in the description of the refactoring strategy, the whole process was continually validated by tests written using the test-driven development methodology. The strategy was to write the tests first and then perform refactoring on the code to make the tests pass. As the refactoring was gradual, one domain entity at the time, the particular tests were written before each part of the refactoring. 
 
-Although, the tests were written from scratch, they were based on the scenarios found in the integration tests for the original Integration Portal code. The tests followed the following scheme --- set up the initial state for the test, dispatch a command, whose processing was under test, and finally assert the correct state of the database (of the read model effectively). Listing X **reference needed** shows an example of one of the tests. The tests were written in the Groovy programming language**citation needed** by using Spock library**citation needed**, a testing and specification framework.
+Although, the tests were written from scratch, they were based on the scenarios found in the integration tests for the original Integration Portal code. The tests followed the following scheme --- set up the initial state for the test, dispatch a command, whose processing was under test, and finally assert the correct state of the database (of the read model effectively). Listing X **reference needed** shows an example of one of the tests. The tests were written in the Groovy programming language \cite{groovy} by using Spock library \cite{spock}, a testing and specification framework.
 
 	public class CreateLabelIntegrationSpec 
 			extends AbstractIntegrationSpecification {

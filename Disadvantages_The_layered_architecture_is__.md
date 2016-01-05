@@ -9,7 +9,7 @@ Strict communication between stacked layers results in a situation where the bus
 
 #### Leaky abstraction
 
-We can look at layers as abstractions of implementation details. For example, presentation layer does not need to know how business logic is handled or where and how the data is stored. However, *all *non-trivial abstractions, to some degree, are leaky*, as the law of leaky abstractions says**citation needed**[http://www.joelonsoftware.com/articles/LeakyAbstractions.html]. This leakage also affects the layered architecture. Often, there are many abstractions in sequence below presentation layer, e.g. business layer, data access layer, remote call, ORM, SQL. All these abstractions tend to leak in some way which affects the upper layers. This can influence many aspects of the system, such as performance and scalability.
+We can look at layers as abstractions of implementation details. For example, presentation layer does not need to know how business logic is handled or where and how the data is stored. However, *all *non-trivial abstractions, to some degree, are leaky*, as the law of leaky abstractions says \cite{leaky}. This leakage also affects the layered architecture. Often, there are many abstractions in sequence below presentation layer, e.g. business layer, data access layer, remote call, ORM, SQL. All these abstractions tend to leak in some way which affects the upper layers. This can influence many aspects of the system, such as performance and scalability.
 
 #### Anemic model
 
@@ -25,5 +25,5 @@ But, as written above, separating the responsibilities makes the code less coupl
 
 #### Tight coupling
 
-Even though, the layers (and their responsibilities) are decoupled from each other, they usually, based on the underlying implementation, are not loosely coupled. Specifically, both presentation layer and business layer depend on the data access layer. Thus, data access logic is omnipresent in the code. This tends to make the system monolithic, which in turn can pose some potential issues with deployment, robustness, reliability, and scalability**citation needed**[oreilly]. 
+Even though, the layers (and their responsibilities) are decoupled from each other, they usually, based on the underlying implementation, are not loosely coupled. Specifically, both presentation layer and business layer depend on the data access layer. Thus, data access logic is omnipresent in the code. This tends to make the system monolithic, which in turn can pose some potential issues with deployment, robustness, reliability, and scalability \cite{oreilly}. 
 

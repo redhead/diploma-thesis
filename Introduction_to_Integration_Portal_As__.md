@@ -11,13 +11,13 @@ The system is divided into two parts. The first part is the front-end user inter
 
 ### The frontend
 
-The front-end presentation layer of the project is a client-side HTML5/JavaScript application written using AngularJS framework **citation needed**. It is a so-called single-page application, that means the browser loads the web page only once and all the other communication is done using asynchronous calls to the server in the background. The page refreshes the content for the user by dynamic modification of the page using JavaScript.
+The front-end presentation layer of the project is a client-side HTML5/JavaScript application written using AngularJS framework \cite{angular}. It is a so-called single-page application, that means the browser loads the web page only once and all the other communication is done using asynchronous calls to the server in the background. The page refreshes the content for the user by dynamic modification of the page using JavaScript.
 
 The front-end part presents the users with the files they uploaded or they have access to through the sharing functionality. It provides means of interaction with the files, i.e. moving, renaming, deleting, organizing to folders, etc. It also includes a user interface for logging into the system with user's credentials and a section for administrators. 
 
 However, all the actual processing and state transitioning is done on the back-end part and the frontend is only used for displaying the content and sending the commands to the backend. The communication is done using a REST API (Application Programming Interface).
 
-Because the frontend is not really a subject of refactoring to CQRS and event sourcing, it won't be discussed in any more detail. For more information see **citation needed**
+Because the frontend is not really a subject of refactoring to CQRS and event sourcing, it won't be discussed in any more detail. For more information, see \cite{ddd}.
 
 
 ### The backend
@@ -40,7 +40,7 @@ An association of universities of the Czech Republic and the Czech Academy of Sc
 
 ### Architecture
 
-The architecture follows a typical setup for Java Enterprise Edition applications called a three-tier architecture**citation needed**[P of EAP], where the client-side application written in AngularJS is the presentation tier, the back-end server is the application tier and the PostreSQL database server is the data tier. On top of that, Integration Portal communicates with other external systems through various channels to accomplish the integration goal. As this thesis focuses on refactoring of the back-end server to CQRS and Event Sourcing, let's describe its implementation in more detail. 
+The architecture follows a typical setup for Java Enterprise Edition applications called a three-tier architecture \cite{p-eap}, where the client-side application written in AngularJS is the presentation tier, the back-end server is the application tier and the PostreSQL database server is the data tier. On top of that, Integration Portal communicates with other external systems through various channels to accomplish the integration goal. As this thesis focuses on refactoring of the back-end server to CQRS and Event Sourcing, let's describe its implementation in more detail. 
 
 The internal code of the back-end application is organized into logical layers, an arrangement which is a widely adopted best practice in Java EE application development under the name layered architecture (or N-layer architecture). Each layer is responsible for some functionality of the application without being mixed with the rest. The description of the three layers found in the back-end application and their responsibility is following.
 

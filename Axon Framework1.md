@@ -1,6 +1,6 @@
 ## Axon Framework
 
-In this section, let's introduce the reader to Axon Framework's specifics that relate to the refactoring to CQRS and ES further in the text. For more details, see the framework's documentation **citation needed**.
+In this section, let's introduce the reader to Axon Framework's specifics that relate to the refactoring to CQRS and ES further in the text. For more details, see the framework's documentation \cite{axon}.
 
 As mentioned previously, Axon Framework very well supports Spring Framework, which is also used in Integration Portal. It is not required to use Spring Framework in order to use Axon Framework, however, it greatly simplifies the configuration. Axon provides namespace support for Spring XML configuration of the Application Context to set up the Axon's building blocks.
 

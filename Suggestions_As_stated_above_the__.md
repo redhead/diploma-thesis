@@ -4,7 +4,7 @@ As stated above, the design patterns are not easy to master in a short notice. S
 
 #### Create multiple bounded contexts
 
-During the refactoring, the importance of bounded contexts, a way of separating unrelated responsibilities in the domain was underestimated. In the end, it turned out that the system is actually made of smaller domain models that could be separated. This also includes the aggregates which can be broken into smaller consistency boundaries that relate to different contexts. As Domain-Driven Design**reference needed**[DDD] teaches us, the domain model should be incrementally improved as our knowledge about the domain increases.
+During the refactoring, the importance of bounded contexts, a way of separating unrelated responsibilities in the domain was underestimated. In the end, it turned out that the system is actually made of smaller domain models that could be separated. This also includes the aggregates which can be broken into smaller consistency boundaries that relate to different contexts. As Domain-Driven Design \cite{ddd} teaches us, the domain model should be incrementally improved as our knowledge about the domain increases.
 
 The following list suggests an idea of how to break the current domain model into smaller bounded contexts.
 
@@ -33,7 +33,7 @@ As stated multiple times in the previous text, CQRS and Event Sourcing are not a
 
 As stated in the paragraphs about bounded contexts above, the user password management could be placed into a different aggregate, which is not event-sourced. Thus, user details could still be event-sourced, but the user password would not. 
 
-In some bounded contexts, where a domain model is trivial, a simple CRUD system could be used instead of forcing CQRS, e.g. in the administration bounded context. This technique was used in **reference needed**[journey]. Note that all the changes still need to be validated against the domain knowledge, if it is truly inappropriate to use CQRS or ES. Investigate all the benefits and disadvantages that arise from not using the patterns before refactoring.
+In some bounded contexts, where a domain model is trivial, a simple CRUD system could be used instead of forcing CQRS, e.g. in the administration bounded context. This technique was used in \cite{journey}. Note that all the changes still need to be validated against the domain knowledge, if it is truly inappropriate to use CQRS or ES. Investigate all the benefits and disadvantages that arise from not using the patterns before refactoring.
 
 #### Denormalize read models
 
@@ -41,8 +41,8 @@ The strategy of the refactoring was to preserve the original relational database
 
 #### Snapshotting
 
-Event sourcing is now used in all the aggregates without snapshotting. If system writes (i.e. command processing) become slow, it may be caused by too many events being queried and handled to get the aggregate instance to the desired state before handling the state change. According to Greg Young, the author of event sourcing, aggregates do not need snapshotting if the number of events of an instance is in hundreds**citation needed**[greg young video]. If the number of events increases to thousands, snapshotting is a good way to optimize the write model. For more information about snapshotting in Axon Framework, see the Axon documentation**citation needed**.
+Event sourcing is now used in all the aggregates without snapshotting. If system writes (i.e. command processing) become slow, it may be caused by too many events being queried and handled to get the aggregate instance to the desired state before handling the state change. According to Greg Young, the author of event sourcing, aggregates do not need snapshotting if the number of events of an instance is in hundreds \cite{greg-youtube}. If the number of events increases to thousands, snapshotting is a good way to optimize the write model. For more information about snapshotting in Axon Framework, see the Axon documentation \cite{axon-docs}.
 
 #### Specialized event store
 
-Events are now stored in the same database as the read model, a PostreSQL database. This may not be a great choice for an event store because it is not optimized to do this task, and what's more, it is harder to implement publish-subscribe event processing on top of it. My recommendation is to search for a different database engine to store the events to. Particularly, EventStore **reference needed** and Kafka **reference needed** seem to be great candidates as they refer to event sourcing and processing in their overview and documentation.
+Events are now stored in the same database as the read model, a PostreSQL database. This may not be a great choice for an event store because it is not optimized to do this task, and what's more, it is harder to implement publish-subscribe event processing on top of it. My recommendation is to search for a different database engine to store the events to. Particularly, EventStore \cite{eventstore} and Apache Kafka \cite{kafka} seem to be great candidates as they refer to event sourcing and processing in their overview and documentation.

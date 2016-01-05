@@ -6,7 +6,7 @@ To be accurate, neither CQRS nor ES are patterns that could supersede the layere
 
 One of the most visible changes is the focus of development. In traditional layered architecture, it is the database and structure of the data that is in the center. The service layer with business logic is then applied on top of it in a separate layer. In CQRS (written in DDD style), the domain model is the core of development effort, usually driven by use cases and problems in the domain. Of course, to act upon the domain model, it still needs some data access layer to get aggregate instances (or, in the case of ES, events), but the dependency is now reversed. The business logic does not depend on the data access layer. This has a number of benefits, e.g. it makes it a lot easier to test the business logic, and also it is not affected by leaky abstraction of the data access layer.
 
-This pushes the design more to the hexagonal**citation needed**[http://alistair.cockburn.us/Hexagonal+architecture] or clean**citation needed**[https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html] architecture, which puts the domain and business logic into the center. This also turns the domain away from the anemic model that was often found in the traditional design.
+This pushes the design more to the hexagonal \cite{hex} or clean \cite{clean} architecture, which puts the domain and business logic into the center. This also turns the domain away from the anemic model that was often found in the traditional design.
 
 #### Separation of concerns
 

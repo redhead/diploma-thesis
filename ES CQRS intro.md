@@ -8,4 +8,4 @@ The traditional software described in most books and online tutorials usually st
 
 It's appropriate to say that neither of the two patterns implies the other; they can work independently. However, they nicely complement each other to form a very effective and powerful design for a system.
 
-Both design patterns were popularized by the practitioners of the Domain-Driven Design (DDD) **citation needed** methodology for software development. And so, the DDD concepts and ideas influenced the implementation details of the two patterns. DDD is a very comprehensive subject on its own and as such will not be discussed in this thesis apart from the terms and principles that are involved in the presented patterns.
+Both design patterns were popularized by the practitioners of the Domain-Driven Design (DDD) \cite{ddd} methodology for software development. And so, the DDD concepts and ideas influenced the implementation details of the two patterns. DDD is a very comprehensive subject on its own and as such will not be discussed in this thesis apart from the terms and principles that are involved in the presented patterns.

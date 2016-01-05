@@ -10,7 +10,7 @@ The first thing was to untangle the dependencies of the components and layers to
 
 ### Revising the REST interface
 
-After reading CQRS JOURNEY**citation needed**, the idea of a task-based user interface, described in (TASK BASED UI)**reference needed**, was taken into consideration in regards to the Integration Portal UI. A RESTful application programming interface mediates the communication between the front-end user interface and the back-end logic. 
+After reading \cite{journey}, the idea of a task-based user interface, described in (TASK BASED UI)**reference needed**, was taken into consideration in regards to the Integration Portal UI. A RESTful application programming interface mediates the communication between the front-end user interface and the back-end logic. 
 
 The API was designed according to the typical RESTful concepts. Every entity in the backend (User, Folder, File, etc.) was represented as one resource in the interface. The four basic HTTP methods --- GET, POST, PUT, and DELETE --- were defined on most of the resources in order for the UI to take actions on the entities in the backend. These methods effectively convert to the known CRUD scheme (Create, Read, Update, Delete). The create, read, and delete actions are usually straightforward using the POST, GET, DELETE methods respectively. However, a great care must be taken regarding the update action. There are often multiple features on a resource that can be updated. With CRUD-based REST interface, it is possible to use one HTTP method (PUT) to modify multiple different components of one resource in a single request (e.g. change a folder name and set new label).
 
