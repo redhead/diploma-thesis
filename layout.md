@@ -26,7 +26,7 @@ Managing_complex_business_transactions_In__.md
 Testing_TODO__.md
 Introduction_to_Integration_Portal_As__.md
 figures/layers/layers.png
-In_the_picture_reference_needed__.md
+In_Figure_ref_layers_you__.md
 Domain_model_For_the_purpose__.md
 figures/domain/domain.png
 In_the_following_paragraphs_a__.md
