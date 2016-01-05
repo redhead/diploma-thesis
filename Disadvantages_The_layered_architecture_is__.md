@@ -9,7 +9,7 @@ Strict communication between stacked layers results in a situation where the bus
 
 #### Leaky abstraction
 
-We can look at layers as abstractions of implementation details. For example, presentation layer does not need to know how business logic is handled or where and how the data is stored. However, *all *non-trivial abstractions, to some degree, are leaky*, as the law of leaky abstractions says \cite{leaky}. This leakage also affects the layered architecture. Often, there are many abstractions in sequence below presentation layer, e.g. business layer, data access layer, remote call, ORM, SQL. All these abstractions tend to leak in some way which affects the upper layers. This can influence many aspects of the system, such as performance and scalability.
+We can look at layers as abstractions of implementation details. For example, presentation layer does not need to know how business logic is handled or where and how the data is stored. However, *all non-trivial abstractions, to some degree, are leaky*, as the law of leaky abstractions says \cite{leaky}. This leakage also affects the layered architecture. Often, there are many abstractions in sequence below presentation layer, e.g. business layer, data access layer, remote call, ORM, SQL. All these abstractions tend to leak in some way which affects the upper layers. This can influence many aspects of the system, such as performance and scalability.
 
 #### Anemic model
 
