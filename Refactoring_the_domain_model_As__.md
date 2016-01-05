@@ -1,6 +1,6 @@
 ## Refactoring the domain model
 
-As described in INTEGRATION PORTAL**reference needed**, the original domain model consisted of Hibernate entities that were modified by the business logic in the service layer and persisted by the data access layer. The refactoring of functionality for each entity is described in the following paragraphs.
+As described in \ref{introduction-to-integration-portal} \nameref{introduction-to-integration-portal}, the original domain model consisted of Hibernate entities that were modified by the business logic in the service layer and persisted by the data access layer. The refactoring of functionality for each entity is described in the following paragraphs.
 
 The side effect of carrying out the strategy outlined above is that most of the original queries to the system remained unchanged after the refactoring. This means that the way the data are queried is more or less the same as in the original design --- query the data access layer for the data stored in the database, then map the data to the respective DTOs so they can be converted to JSON and sent to the client.
 
