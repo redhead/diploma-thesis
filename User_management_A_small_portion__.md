@@ -7,9 +7,14 @@ The first part, the registration process, in which a new user is created in the 
 1. A user with an e-mail address is created in the state of needed e-mail verification.
 2. The event starts a saga that creates a new random registration token for the user. This token is sent to the user's e-mail address.
 3. Using an event scheduler, an event is scheduled which expires the token in one hour.
-4a. During that time, the user sets their password by using the token. The registration is complete and the user is verified.
-4b. The expire event is published and the token is invalidated. The user needs to request a new registration token to be able to set the password.
-
+4. Finally,
+    a) During that time, the user sets their password by using the token. The registration is complete and the user is verified.
+    b) The expire event is published and the token is invalidated. The user needs to request a new registration token to be able to set the password.
+<ol type="a">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
 TODO list formatting
 
 Password restoration was designed similarly. When users forget their password, the e-mail address is the only trusted communication channel (since the verification above) to handle the restoration, i.e. setting a new password. To manage that process, a different saga, which follows the steps below, is created:
