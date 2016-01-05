@@ -6,7 +6,8 @@ The first part, the registration process, in which a new user is created in the 
 
 1. A user with an e-mail address is created in the state of needed e-mail verification.
 2. The event starts a saga that creates a new random registration token for the user. This token is sent to the user's e-mail address.
-3. Using an event scheduler, an event is scheduled which expires the token in one hour. Following that:
+3. Using an event scheduler, an event is scheduled which expires the token in one hour. 
+4. Following that:
     a) the user sets their password by using the token before it expires. The registration is complete and the user is verified; or
     b) the expire event is published and the token is invalidated. The user needs to request a new registration token to be able to set the password.
 
@@ -14,7 +15,8 @@ Password restoration was designed similarly. When users forget their password, t
 
 1. A user requests restoration of forgotten password in the UI.
 2. The saga is started and a new random restoration token is created for the user. This token is sent to the user's e-mail address.
-3. Using an event scheduler, an event is scheduled which expires the token in one hour. Following that:
+3. Using an event scheduler, an event is scheduled which expires the token in one hour. 
+4. Following that:
     a) the user sets their password by using the token, before it expires. The restoration is complete and the user can log in; or
     b) the expire event is published and the token is invalidated. The user needs to request a new restoration token to be able to set the password.
 
