@@ -54,3 +54,4 @@ Comparison_to_traditional_layered_architecture__.md
 figures/layered1/layered1.png
 Disadvantages_The_layered_architecture_is__.md
 Effects_of_CQRS_and_ES__.md
+Conclusion_This_diploma_thesis_aimed__.md
