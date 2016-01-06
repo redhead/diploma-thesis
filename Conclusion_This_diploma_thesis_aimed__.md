@@ -20,8 +20,10 @@ On the other hand, Java is not a convenient language to implement CQRS and ES, b
 
 ## Final thoughts
 
-Overall, I am satisfied with the outcome of this project. I expanded my knowledge of design patterns that can help me make better applications. My personal experience with the two patterns was very educational. Although, I may not use the patterns in every future application, they certainly changed my mindset about the architecture and structure of applications and that it is important to reason about it in details.
+Overall, I am satisfied with the outcome of this project. I expanded my knowledge of design patterns that can help me make better applications. My personal experience with the CQRS and event sourcing patterns was very educational. Although, I may not use the patterns in every future application, they certainly changed my mindset about the architecture and structure of applications and that it is important to reason about it in details.
 
-The implementation of the patterns resulted in better and cleaner architecture of the Integration Portal project, and also enabled new possibilities to expand its functionality and to easily add new features. However, there was a lot to learn to make it happen and there was not enough time to incorporate the expanded CQRS design with asynchronous execution and a number of optimized read models. This idea is left for future work.
+The implementation of the patterns resulted in better and cleaner architecture of the Integration Portal project, and also enabled new possibilities to expand its functionality and to easily add new features. However, there was a lot to learn to make it happen and there was not enough time to incorporate the expanded CQRS design with asynchronous execution and a number of optimized read models. This idea is left for future work. 
+
+I would recommend using the refactored version of Integration Portal because it enables more flexibility than the original design. The command- and event-based system definitely fits the domain and can be leveraged in the integration of other systems. Querying the REST interface could also be well optimized by using specialized read models stored, for example, in a document database like MongoDB rather than the rational database.
 
 In conclusion, I found the patterns to be very interesting, and I will definitely explore them more in the future.
