@@ -18,12 +18,16 @@ In Java, the use of Axon Framework to implement the patterns was a good decision
 
 On the other hand, Java is not a convenient language to implement CQRS and ES, because the language is still very conservative about features that could be beneficial in the development. Other languages, e.g. C# or Scala, have a better support of making the code more maintainable and easy to read. For Java, I decided to use Lombok library to diminish some of the inconveniences.
 
+## Integration Portal
+
+I would recommend using the refactored version of Integration Portal because it enables more flexibility than the original design. The command- and event-based system definitely fits the domain and can be leveraged in the integration of other systems. Querying the REST interface could also be well optimized by using specialized read models stored, for example, in a document database like MongoDB rather than the rational database.
+
+However, the biggest downside is that the Integration Portal team would need to know these patterns well enough to expand the code. And as stated previously, the learning curve is pretty steep and takes a lot of time to learn CQRS and event sourcing (as well as the Domain-Driven Design concepts), not to mention Axon framework. For these reasons, I would recommend to continue on the refactored version to interested people only. On the contrary, expanding the functionality of the original design could backfire in the long term because of the mixed concerns and code complexity, which will definitely rise if not taken care of.
+
 ## Final thoughts
 
 Overall, I am satisfied with the outcome of this project. I expanded my knowledge of design patterns that can help me make better applications. My personal experience with the CQRS and event sourcing patterns was very educational. Although, I may not use the patterns in every future application, they certainly changed my mindset about the architecture and structure of applications and that it is important to reason about it in details.
 
 The implementation of the patterns resulted in better and cleaner architecture of the Integration Portal project, and also enabled new possibilities to expand its functionality and to easily add new features. However, there was a lot to learn to make it happen and there was not enough time to incorporate the expanded CQRS design with asynchronous execution and a number of optimized read models. This idea is left for future work. 
-
-I would recommend using the refactored version of Integration Portal because it enables more flexibility than the original design. The command- and event-based system definitely fits the domain and can be leveraged in the integration of other systems. Querying the REST interface could also be well optimized by using specialized read models stored, for example, in a document database like MongoDB rather than the rational database.
 
 In conclusion, I found the patterns to be very interesting, and I will definitely explore them more in the future.
