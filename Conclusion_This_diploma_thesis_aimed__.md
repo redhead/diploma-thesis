@@ -10,7 +10,7 @@ A nice outcome of the refactoring was that the patterns didn't bring a lot of br
 
 However, both of the patterns are not very easy to grasp. The steep learning curve is the major disadvantage of the patterns and DDD, which makes the adoption of the patterns in businesses difficult. There is a lot to process for the developers and makes the structure of the architecture more complex --- self-contained modules, asynchronous execution, queues, etc. Also they require that developers change their mindset built by the traditional applications --- transaction scripts, immediate availability and synchronous execution.
 
-Overall, the patterns should get more of the popularity, because they enable a lot of possibilities and lead to better domain-oriented, scalable and available applications. The path to that is not easy, but it is 
+Overall, the patterns should get more of the popularity, because they enable a lot of possibilities and lead to better domain-oriented, scalable and available applications. The path to that is not easy, but it is rewarding at the end. Moreover, the clean and hexagonal architectures, which are more convincing than the traditional layered architecture, can be built on top of CQRS.
 
 ## Implementation in Java
 
@@ -20,8 +20,4 @@ On the other hand, Java is not a convenient language to implement CQRS and ES, b
 
 ## Final thoughts
 
-
-
-- layered not bad, but think about the design more
-- Clean, Hexagonal?
-
+Overall, I am satisfied with the outcome of this project. I expanded my knowledge of design patterns that can help me make better applications. My personal experience with the two patterns was very educational. Although, I may not use the patterns in every future application, they certainly changed my mindset about the architecture and structure of the application and that it is important to reason about it in details.
