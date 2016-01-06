@@ -10,7 +10,7 @@ The CQRS design pattern with Event Sourcing implemented using Domain-Driven Desi
 
 In the original design, there were only interfaces that defined methods of the service layer, and then the implementation that used entities to do business logic and querying. Using Axon's way of implementing CQRS, there was considerably more code to create and maintain. For every command method before, there is now a new command class. For each original entity, there is now an aggregate that the commands target. And for each state change in the aggregates, there is an event class. 
 
-All these classes created in the refactoring are contained in close to 120 new files! This adds more complexity to the structure of Integration Portal and makes it harder for developers to orient themselves in the project.
+All these classes created in the refactoring are contained in close to 120 new files! This adds more complexity to the structure of Integration Portal and makes it harder for developers to orient themselves in the project. Although, majority of these classes are commands and events, which are usually very small data holders. The remaining files contain only the CQRS-specific classes --- command handlers, aggregates, value objects, sagas, and read model updaters.
 
 
 #### Code navigation
