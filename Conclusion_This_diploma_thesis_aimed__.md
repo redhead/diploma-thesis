@@ -14,7 +14,7 @@ Overall, the patterns should get more of the popularity because they enable a lo
 
 ## Implementation in Java
 
-In Java, the use of Axon Framework to implement the patterns was a good decision, although there are some issues regarding implementation details that the framework enforces to the code being developed. Some of the downsides should be resolved in the next major version, which should be released soon. Even though the framework does not use the now popular actor model and reactive programming that fit with the paradigms, it is a solid, well-tested, integrable piece of a library with many great features that makes the implementation of CQRS and ES straightforward in Java.
+In Java, the use of Axon Framework to implement the patterns was a good decision, although there are some issues regarding implementation details that the framework enforces to the code being developed. Some of the downsides should be resolved in the next major version, which should be released soon \cite{axon}. Even though the framework does not use the now popular actor model and reactive programming that fit with the paradigms, it is a solid, well-tested, integrable piece of a library with many great features that makes the implementation of CQRS and ES straightforward in Java.
 
 On the other hand, Java is not a convenient language to implement CQRS and ES, because the language is still very conservative about features that could be beneficial in the development. Other languages, e.g. C# or Scala, have a better support of making the code more maintainable and easy to read. For Java, I decided to use Lombok library to diminish some of the inconveniences.
 
