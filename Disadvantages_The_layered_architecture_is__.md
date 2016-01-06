@@ -25,5 +25,5 @@ But, as written above, separating the responsibilities makes the code less coupl
 
 #### Tight coupling
 
-Even though, the layers (and their responsibilities) are decoupled from each other, they usually, based on the underlying implementation, are not loosely coupled. Specifically, both presentation layer and business layer depend on the data access layer. Thus, data access logic is omnipresent in the code. This tends to make the system monolithic, which in turn can pose some potential issues with deployment, robustness, reliability, and scalability \cite{oreilly}. 
+Even though, the layers (and their responsibilities) are decoupled from each other, they usually, based on the underlying implementation, are not loosely coupled \cite{oreilly}. Specifically, both presentation layer and business layer depend on the data access layer. Thus, data access logic is omnipresent in the code. This tends to make the system monolithic, which in turn can pose some potential issues with deployment, robustness, reliability, and scalability \cite{oreilly}. 
 
