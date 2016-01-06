@@ -13,7 +13,7 @@ The implementation of the aggregate is influenced by the CQRS and ES principles,
 
 	}
 
-Note that the class is actually not compilable by the standard Java compiler. There are some final fields but no constructor to initialize them. But notice the `@Value` annotation. This annotation is part of Lombok library \cite{lombok} that aims to reduce the number of repeated tasks and constructs needed by a developer to write a proper Java class. In compile time, the annotation defines which missing language constructs need to be added so the class compiles. 
+Note that the class is actually not compilable by the standard Java compiler. There are some final fields but no constructor to initialize them. But notice the `@Value` annotation. This annotation is part of Lombok library \cite{lombok} that aims to reduce the number of repeated tasks and constructs needed by a developer to write a proper Java class. At compile time, the annotation defines which missing language constructs need to be added so the class compiles. 
 
 The `@Value` annotation says that the class is an immutable value class, meaning that it is only a container for data. At compile time, it generates a constructor, which initializes all the class fields, and it also adds a getter method for each field. This greatly helped in development to define a lot of classes (for commands and events) without the need to write constructors for each class and getter methods for each field. Via other Lombok annotations, the library is also used in other places (e.g. aggregates) where some constructs are repeated as well.
 
