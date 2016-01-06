@@ -1,6 +1,8 @@
 # Comparison to traditional layered architecture
 
-This last chapter before concluding the diploma thesis compares the presented design patterns to the traditional layered architecture. The reason why this architecture figures in the comparison is not accidental. Not only is it used in Integration Portal, but also it is the most used architectural pattern in most Java enterprise applications \cite{oreilly}. CQRS takes the main role in the comparison since it represents the most radical changes in the design. However, event sourcing, even though it is just an extension of CQRS write model, will be in focus too as it greatly affects other design choices of application.
+This last chapter before concluding the diploma thesis compares the presented design patterns to the traditional layered architecture. The reason why this architecture figures in the comparison is not accidental. Not only is it used in Integration Portal, but also it's the most used architectural pattern in Java enterprise applications \cite{oreilly}. I've used this architecture myself for years in the university and at work.
+
+CQRS takes the main role in the comparison since it represents the most radical changes in the design. However, event sourcing, even though it is just an extension of CQRS write model, will be in focus too as it affects other design choices of application.
 
 Before getting into details, let's first settle what the term layered architecture means. After that, some of the problems with that architecture are presented followed by the comparison with CQRS and event sourcing.
 
