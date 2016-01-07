@@ -5,7 +5,7 @@ The layered architecture is the most common architecture pattern for valid reaso
 
 #### Violation of single responsibility principle
 
-Strict communication between stacked layers results in a situation where the business layer has to be accessed to only query data. This violates the single responsibility principle (SRP) \cite{srp-violation}, that encourages classes to have only one responsibility, one reason to change. Responsibilities for validation and execution of user actions, as well as queries, permeate into both data access and business logic layers.
+Strict communication between stacked layers results in a situation where the business layer has to be accessed to only query data. This violates the single responsibility principle \cite{srp-violation}, that encourages classes to have only one responsibility, one reason to change. Responsibilities for validation and execution of user actions, as well as queries, permeate into both data access and business logic layers.
 
 #### Leaky abstraction
 
