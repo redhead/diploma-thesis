@@ -1,1 +1,1 @@
-Replace this text with your caption
+An example of relations between DDD concepts in a complex system. Source \cite{journey}.
