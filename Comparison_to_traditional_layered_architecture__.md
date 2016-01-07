@@ -4,7 +4,7 @@ This last chapter before concluding the diploma thesis compares the presented de
 
 CQRS takes the main role in the comparison since it represents the most radical changes in the design. However, event sourcing, even though it is just an extension of CQRS write model, will be in focus too as it affects other design choices of application.
 
-Before getting into details, let's first settle what the term layered architecture means. After that, some of the problems with that architecture are presented followed by the comparison with CQRS and event sourcing.
+Before getting into details, let's first settle what the term layered architecture means. After that, some of the problems with that architecture are presented followed by the comparison with CQRS and Event Sourcing.
 
 ## Layered architecture
 

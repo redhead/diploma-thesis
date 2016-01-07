@@ -24,4 +24,4 @@ The clear separation of read and write models and the way the components are dec
 
 Layered architecture is testable, but it requires a lot of mocking and set up, because of coupling. For example, business logic needs to mock data access layer to instantiate and retrieve the domain objects (entities) and then the tests asserts the state of entities being saved back to the data access layer.
 
-In CQRS, the components are nicely decoupled and driven by events and commands. This makes unit testing far more easy. In the case of event sourcing, where the domain events are the main source to build a state, we can express test scenarios purely in terms of events.
+In CQRS, the components are nicely decoupled and driven by events and commands. This makes unit testing far more easy. In the case of Event Sourcing, where the domain events are the main source to build a state, we can express test scenarios purely in terms of events.

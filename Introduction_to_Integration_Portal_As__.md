@@ -4,7 +4,7 @@ As stated in the introduction to this chapter, the CQRS and ES patterns were exa
 
 The project, known under the working title Integration Portal, aims to integrate several systems of the Czech Technical University (CTU) for the purpose of file sharing and archiving. It is a web application where users (members of CTU and externs) can upload, share and organize files in a way that resembles a regular computer file system. The file data is stored in a data storage infrastructure provided by the CESNET association. 
 
-Please note that the project is still a work in progress and some of the functionality and requirements described below are in preparation or active development at the time of writing this thesis. The refactoring to CQRS and event sourcing described further in this chapter deals only with the working functionality at that time.
+Please note that the project is still a work in progress and some of the functionality and requirements described below are in preparation or active development at the time of writing this thesis. The refactoring to CQRS and Event Sourcing described further in this chapter deals only with the working functionality at that time.
 
 The system is divided into two parts. The first part is the front-end user interface presented to users in their web browser. The second part is the back-end server that integrates the systems and provides a communication interface for the frontend.
 
@@ -17,7 +17,7 @@ The front-end part presents the users with the files they uploaded or they have 
 
 However, all the actual processing and state transitioning is done on the back-end part and the frontend is only used for displaying the content and sending the commands to the backend. The communication is done using a REST API (Application Programming Interface).
 
-Because the frontend is not really a subject of refactoring to CQRS and event sourcing, it won't be discussed in any more detail. For more information, see \cite{ddd}.
+Because the frontend is not really a subject of refactoring to CQRS and Event Sourcing, it won't be discussed in any more detail. For more information, see \cite{ddd}.
 
 
 ### The backend

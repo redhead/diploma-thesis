@@ -1,14 +1,14 @@
 ## Event Sourcing
 
-The following text describes the event sourcing pattern in detail. First, to help understand the idea of the pattern, some necessary definitions are presented. Finally, a few reasons why use Event sourcing are discussed with some examples of where ES is an advantage for applications.
+The following text describes the Event Sourcing pattern in detail. First, to help understand the idea of the pattern, some necessary definitions are presented. Finally, a few reasons why use Event Sourcing are discussed with some examples of where ES is an advantage for applications.
 
-Event sourcing is a way of persisting the state of an application by storing the history that shaped the application's current state. Instead of storing only the current state in some fixed structural model, e.g. in a relational database, event-sourced model stores a list of events that happened in the system in its entire lifetime. \cite{journey} \cite{greg-youtube}
+Event Sourcing is a way of persisting the state of an application by storing the history that shaped the application's current state. Instead of storing only the current state in some fixed structural model, e.g. in a relational database, event-sourced model stores a list of events that happened in the system in its entire lifetime. \cite{journey} \cite{greg-youtube}
 
 
 
 ### Domain event
 
-The core term in event sourcing is a domain event, which is usually referred to as just an event. A domain event is a fact about an application state transition. In other words, it describes something that has happened to the system and resulted in some state change. 
+The core term in Event Sourcing is a domain event, which is usually referred to as just an event. A domain event is a fact about an application state transition. In other words, it describes something that has happened to the system and resulted in some state change. 
 
 In most cases, there are a number of different kinds of events in the system, each describing a different type of the change. For example, "*product added to user's cart*" or "*product reserved*" events could fit in some online shopping application. Events have a single source that publishes the event (publisher) and one or more receivers that process the event. 
 
@@ -29,4 +29,4 @@ The event log is then used to recreate the current state of the application (or 
 
 ### Rationale
 
-The general idea of event sourcing has been used for ages but not so much in typical software development. As stated previously, most of the applications use the concept of current state that is usually persisted in, for example, a relational database. That is the reason why most developers tend to think about the state in a structural sense such as in Figure \ref{fig:relational-model}. In an online shopping application, for instance, a model of a purchase order could look like that.
+The general idea of Event Sourcing has been used for ages but not so much in typical software development. As stated previously, most of the applications use the concept of current state that is usually persisted in, for example, a relational database. That is the reason why most developers tend to think about the state in a structural sense such as in Figure \ref{fig:relational-model}. In an online shopping application, for instance, a model of a purchase order could look like that.

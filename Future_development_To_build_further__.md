@@ -1,6 +1,6 @@
 ### Future development
 
-To build further upon the system featuring CQRS and event sourcing, a few ideas for the future developers are presented below to explore.
+To build further upon the system featuring CQRS and Event Sourcing, a few ideas for the future developers are presented below to explore.
 
 #### Axon 3
 
