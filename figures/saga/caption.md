@@ -1,1 +1,1 @@
-Replace this text with your caption
+Simple process manager that tracks the state of an order of seats at a conference. Source \cite{journey}.
