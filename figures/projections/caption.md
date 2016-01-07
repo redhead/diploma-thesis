@@ -1,1 +1,1 @@
-Replace this text with your caption
+Updating (or rebuilding) read models from events
