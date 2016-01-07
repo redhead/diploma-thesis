@@ -5,6 +5,7 @@ Event Sourcing.md
 figures/relational-model/relational-model.png
 However_this_is_not_the__.md
 figures/events/events.png
+The_advantage_of_this_design__.md
 Rebuilding_the_read_model_As__.md
 figures/projections/projections.png
 Fallback_after_a_failure_When__.md
