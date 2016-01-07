@@ -6,7 +6,7 @@ When an aggregate instance is successfully saved, whether by storing new domain 
 
 The mechanism that dispatches events to the subscribed event listeners is called the Event Bus. Axon provides two implementations, `SimpleEventBus` and `ClusteringEventBus`. Both implementations manage the subscription of event listeners and forward all incoming events to respective listeners.
 
-The `SimpleEventBus` is suitable for dispatching events synchronously and locally on one JVM (Java Virtual Machine). It sequentially passes incoming events to all the registered event listeners. The `ClusteredEventBus` allows grouping of event listeners to so-called clusters based on their properties and non-functional requirements. It also supports dispatching events to different JVMs on different machines.
+The `SimpleEventBus` is suitable for dispatching events synchronously and locally on one JVM. It sequentially passes incoming events to all the registered event listeners. The `ClusteredEventBus` allows grouping of event listeners to so-called clusters based on their properties and non-functional requirements. It also supports dispatching events to different JVMs on different machines.
 
 #### Event Listeners
 
