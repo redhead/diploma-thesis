@@ -9,9 +9,9 @@ Please note that the project is still a work in progress and some of the functio
 The system is divided into two parts. The first part is the front-end user interface presented to users in their web browser. The second part is the back-end server that integrates the systems and provides a communication interface for the frontend.
 
 
-### The frontend
+### Frontend
 
-The front-end presentation layer of the project is a client-side HTML5/JavaScript application written using AngularJS framework \cite{angular}. It is a so-called single-page application, that means the browser loads the web page only once and all the other communication is done using asynchronous calls to the server in the background. The page refreshes the content for the user by dynamic modification of the page using JavaScript.
+The front-end presentation layer of the project is a client-side HTML5/JavaScript application \cite{frontend} written using AngularJS framework \cite{angular}. It is a so-called single-page application, that means the browser loads the web page only once and all the other communication is done using asynchronous calls to the server in the background. The page refreshes the content for the user by dynamic modification of the page using JavaScript.
 
 The front-end part presents the users with the files they uploaded or they have access to through the sharing functionality. It provides means of interaction with the files, i.e. moving, renaming, deleting, organizing to folders, etc. It also includes a user interface for logging into the system with user's credentials and a section for administrators. 
 
@@ -20,9 +20,9 @@ However, all the actual processing and state transitioning is done on the back-e
 Because the frontend is not really a subject of refactoring to CQRS and Event Sourcing, it won't be discussed in any more detail. For more information, see \cite{ddd}.
 
 
-### The backend
+### Backend
 
-The back-end server application uses a traditional three-layer architecture in Java Enterprise Edition implemented using Spring Framework and its supporting libraries for web development, security, database access, and REST services. A PostreSQL database is used to persist the application data.
+The back-end server application \cite{backend} uses a traditional three-layer architecture in Java Enterprise Edition implemented using Spring Framework and its supporting libraries for web development, security, database access, and REST services. A PostreSQL database is used to persist the application data.
 
 One of the objectives of the server-side application is to integrate the systems to accomplish the goal of file system management for CTU members and externs. The systems are described below.
 
