@@ -12,6 +12,7 @@ Fallback_after_a_failure_When__.md
 CQRS.md
 figures/cqrs-concept/cqrs-concept.png
 If_each_of_the_two__.md
+figures/ddd/ddd.png
 figures/saga/saga.png
 Task_based_user_interface_In__.md
 Process_flow_in_CQRS_Now__.md
