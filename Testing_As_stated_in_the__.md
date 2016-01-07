@@ -30,7 +30,7 @@ Although, the tests were written from scratch, they were based on the scenarios 
 
 	}
 
-As you can see, the tests are easy to navigate by leveraging Groovy's named blocks that refer to the BDD (Behavior Driver Development) style of writing tests, which is a feature of Spock Framework. A test method usually follows the given-when-then paradigm, where the given block sets up the environment for the test, the when block executes the code under test, and the then block validates the test assertions.
+As you can see, the tests are easy to navigate by leveraging Groovy's named blocks that refer to the BDD (Behavior Driver Development) style of writing tests, which is a feature of Spock Framework. A test method usually follows the given-when-then paradigm, where the `given` block sets up the environment for the test, the `when` block executes the code under test, and the `then` block validates the test assertions.
 
 All the integration tests written for the refactoring follow the same scheme:
 
