@@ -4,7 +4,7 @@ To build further upon the system featuring CQRS and event sourcing, a few ideas 
 
 #### Axon 3
 
-Version 3 of Axon Framework is under development targeting a release date in the first quarter of 2016. It brings a refined way of writing classes of aggregates and sagas, so they do not extend any Axon's classes making the domain model clean of implementation details. It also brings other interesting features such as scheduled commands and aggregates being able to create other aggregate instances. All these new features could be beneficial to the Integration Portal.
+Version 3 of Axon Framework is under development targeting a release date in the first quarter of 2016 \cite{axon}. It brings a refined way of writing classes of aggregates and sagas, so they do not extend any Axon's classes making the domain model clean of implementation details. It also brings other interesting features such as scheduled commands and aggregates being able to create other aggregate instances. All these new features could be beneficial to the Integration Portal.
 
 #### Separation to modules
 
