@@ -32,7 +32,7 @@ An entry point to the Axon's command dispatching mechanism is the Command Bus. I
 
 The `SimpleCommandBus` is the simplest implementation of the `CommandBus` interface. It provides a way of intercepting the command object before it is actually dispatched to the command handler. To intercept the command, in order to modify, validate, or block the command, the command bus needs to be configured with a `CommandDispatchInterceptor`. Additionally, a Unit of Work, which will be described further, is maintained for each sent command by the bus.
 
-There are other implementations of the `CommandBus` interface provided by Axon. One of them uses Disruptor \cite{disruptor} which takes a different approach to multithreaded processing to increase performance. Another implementation provides distribution of command buses and command handlers across different JVMs (Java Virtual Machines).
+There are other implementations of the `CommandBus` interface provided by Axon. One of them uses Disruptor \cite{disruptor} which takes a different approach to multithreaded processing to increase performance. Another implementation provides distribution of command buses and command handlers across different JVMs.
 
 #### Command Handlers
 
