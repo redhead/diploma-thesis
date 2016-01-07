@@ -1,3 +1,3 @@
 ### Overview of the refactored code
 
-An overview of the package structure and dependencies regarding labels after refactoring is shown in Figure \ref{package}.
+An overview of the package structure and dependencies regarding labels after refactoring is shown in Figure \ref{fig:package}.

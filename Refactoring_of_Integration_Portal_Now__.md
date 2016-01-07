@@ -40,7 +40,7 @@ This resulted in some changes to the original domain model to support this funct
 
 Both folders and files represent nodes in the simulated file system tree. Conceptually, they are very similar entities. They even share some of their fields, like the name, parent folder, owner, assigned labels, etc. However, they were originally designed as totally distinct entities that did not share a common abstract class. This resulted in code duplication in several places in the backend, as well as in the front-end application. The same issue would be even more noticeable in the planned file sharing functionality. 
 
-Thus, the two entities were rewritten to push the shared fields to an abstract class called `Node` as shown in Figure \ref{node}. This way a lot of redundancy was removed and the code became clearer. In the end, the redesign was beneficial for the refactoring to CQRS too.
+Thus, the two entities were rewritten to push the shared fields to an abstract class called `Node` as shown in Figure \ref{fig:node}. This way a lot of redundancy was removed and the code became clearer. In the end, the redesign was beneficial for the refactoring to CQRS too.
 
 
 
