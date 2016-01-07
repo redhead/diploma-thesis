@@ -5,6 +5,7 @@ Event Sourcing.md
 figures/relational-model/relational-model.png
 However_this_is_not_the__.md
 Rebuilding_the_read_model_As__.md
+Fallback_after_a_failure_When__.md
 CQRS.md
 figures/cqrs-concept/cqrs-concept.png
 If_each_of_the_two__.md
