@@ -1,1 +1,1 @@
-Replace this text with your caption
+Two examples of event projections. On the left, an accounting example with total balance being updated with each transaction. On the right, there is a list of events in an online shopping application that builds the relational model.
