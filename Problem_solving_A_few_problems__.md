@@ -25,17 +25,3 @@ In Integration Portal, the system is prevented from unauthorized access by requi
 Because Event Sourcing instructs to save state changes as events to persistent storage, this should also be applied when setting or changing a users' passwords. However, events that store passwords should be considered a privacy (and security) issue, even though the passwords are hashed. If the event store database is compromised, all the events about setting the users' passwords could be in risk of exploitation, including the old users' passwords that changed in the past. For this reason, events do not store passwords (or their hash codes) at all, and so passwords are excluded from the event-sourced state. A hashed password is saved into the read-side database in a command handler, outside of aggregates or event handlers. A domain event notifying about a password change still exists, but it does not carry password data in any form.
 
 This exception has an impact on almost all the benefits that Event Sourcing provides, but it is crucial for user privacy and security. On the other hand, let's note that passwords are not needed for any other purpose than authentication in most cases. This situation was a great example of when Event Sourcing is unnecessary for some parts of a system. It is fundamental to point out again, that the Event Sourcing pattern, as well as any other, is not all or nothing and should be used in appropriate places only.
-
-### REST vs CQRS and DDD
-
-One of the concerns right at the beginning of the refactoring was the REST interface design and its suitability for CQRS guided by DDD, especially regarding the PUT method. The reasons were explained in detail in~\ref{revising-the-rest-interface}~\nameref{revising-the-rest-interface}. The first thought was not to The issue was to decide how determine the intents of the commands clearly. Few ideas were proposed:
-
-1. Leave the interface unchanged and determine on server which fields were changed and create appropriate commands (e.g. `RenameFileCommand`, `MoveFileCommand`, ...) and dispatch these individually. 
-2. Leave the interface unchanged and dispatch only one command (UpdateFileCommand) and in the command handler, more precisely in the aggregate, determine which fields were changed and send individual events instead (FileRenamedEvent, FileMovedEvent, OwnerChangedEvent, ...)
-
-
-1. However in this setup, each of the command can fail leaving others out of transaction and thus out of "atomic" change to the resource.
-
-Dispatch only one command (UpdateFileCommand) and in the command handler, more precisely in the aggregate, determine which fields were changed and send individual events instead (FileRenamedEvent, FileMovedEvent, OwnerChangedEvent, ...)
-
-This one I don't like at all: In the request to the server I would specify in the headers which command to use, because the UI is still task based (but communication is done via REST). However it will fail in any other use of REST communication (e.g. in external apps) as they are not bound to change only the one field in one request. Also I bring quite a big coupling into the UI, REST, and ES-based backend.
